@@ -10,6 +10,10 @@ import HEXAGON from '../../../assets/images/IMAGE (46).png';
 import ARROW_DOWN from "../../../assets/images/Frame (33).svg";
 import SEARCH_ICON from "../../../assets/images/SEARCH.png";
 import RECTANGLE from "../../../assets/images/Rectangle (1).png";
+import SUPPORT from "../../../assets/images/Frame (65).svg";
+import MESSAGE_ICON from "../../../assets/images/MESSAGE.png";
+
+
 
 //model assetss
 import CLOSE from "../../../assets/modelImages/Frame (3).svg";
@@ -18,7 +22,6 @@ import ROLLBIT from "../../../assets/modelImages/IMAGE (8).png";
 //components
 import LoginHomeSideBar from '../sidebarContainer/LoginHomeSideBar';
 import Messages from '../MainHome/Messages';
-import LoginFooter from '../footer/LoginFooter';
 import Profile from '../profile/Profile';
 
 //models
@@ -379,7 +382,7 @@ const LoginAppBar = () => {
               </div>
             </div>
 
-            <div style={{ display: "flex", gap: "12px", marginLeft: "2.2pc" }}>
+            <div style={{ display: "flex", gap: "12px", marginLeft: "-1pc" }}>
               <div onClick={() => AccountBtnModel()} style={{ display: "flex", width: "141px", height: "40px", flexShrink: "0", borderRadius: "8px", background: "rgba(203, 215, 255, 0.03)", cursor: "pointer" }}>
                 <img src={HEXAGON} alt="hexagon" style={{ width: "29px", height: "29px", margin: "5px 8px" }} />
 
@@ -391,8 +394,9 @@ const LoginAppBar = () => {
 
               </div>
 
-              <div style={{ display: "flex" }}>
+              <div style={{ display: "flex", gap: "10px" }}>
                 <img src={SEARCH_ICON} alt="search" />
+                <img src={MESSAGE_ICON} alt="msg" />
               </div>
             </div>
 
@@ -409,13 +413,19 @@ const LoginAppBar = () => {
         </div>
 
 
+
         <div style={{ display: "flex" }}>
           <LoginHomeSideBar />
           <Profile />
           <Messages />
+          
 
 
         </div>
+
+        
+
+
       </div> {/* end++++++++++++++++++ */}
 
 

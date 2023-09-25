@@ -35,11 +35,13 @@ import WModel5 from "./components/models/withdrawalModel/WModel5";
 
 
 
+
 function App() {
   return (
 
     <BrowserRouter>
       <Routes>
+
         <Route exact path='/' element={<HomeAppBar />} />
         <Route exact path='/profile' element={<LoginAppBar />} />
         <Route exact path='/balances' element={<LoginBalances />} />
