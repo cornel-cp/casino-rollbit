@@ -14,7 +14,7 @@ export const DropdownBtn = styled.div`
   cursor: pointer;
   user-select: none;
   border-radius: 6px;
-  font-family: "Geogrotesque Wide", sans-serif;
+
   font-weight: 700;
   font-style: normal;
   font-size: 13px;

@@ -1,30 +1,20 @@
-import React, { useState } from "react";
-import { ReactComponent as CASINO_IMG } from "../../../assets/images/Frame (9).svg";
+import React from "react";
 import { ReactComponent as SPORTS_IMG } from "../../../assets/images/Frame (10).svg";
 import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
 import { ReactComponent as FEATURES_IMG } from "../../../assets/images/Frame (12).svg";
 import { ReactComponent as PORTFOLIO_IMG } from "../../../assets/images/Frame (13).svg";
 import { ReactComponent as CLANS_IMG } from "../../../assets/images/Frame (14).svg";
 import { ReactComponent as LOTTERY_IMG } from "../../../assets/images/Frame (15).svg";
-import { ReactComponent as JACKPOT_IMG } from "../../../assets/images/svg.svg";
 import { ReactComponent as VIDEO_IMG } from "../../../assets/images/Frame (16).svg";
 import { ReactComponent as AWARD_IMG } from "../../../assets/images/Frame (17).svg";
 import { ReactComponent as COLLAPSE_IMG } from "../../../assets/images/Frame (34).svg";
+import { ReactComponent as CASINO_IMG } from "../../../assets/images/Frame (9).svg";
+import { ReactComponent as JACKPOT_IMG } from "../../../assets/images/svg.svg";
+import { StyledClosedSidebar } from "./StyledSidebar";
 
 const SideBarClosed = ({ toggleSideBar }) => {
   return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        background: "#1F2330",
-        width: "55px",
-        gap: "5px",
-        position: "fixed",
-      }}
-    >
+    <StyledClosedSidebar>
       <COLLAPSE_IMG
         onClick={() => toggleSideBar(true)}
         style={{
@@ -45,7 +35,7 @@ const SideBarClosed = ({ toggleSideBar }) => {
       <JACKPOT_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
       <VIDEO_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
       <AWARD_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-    </div>
+    </StyledClosedSidebar>
   );
 };
 

@@ -2,19 +2,40 @@ import styled from "styled-components";
 
 export const StyledOpenedSidebar = styled.div`
   width: 240px;
+  height: calc(100vh - 65px);
   flex: 0 0 auto;
   background: #1a1d29;
-  position: sticky;
   top: 65px;
   left: 0;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  max-height: 730px;
-  padding: 20px 16px;
   scroll-padding-top: 9rem;
-  box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.3);
+
+  position: fixed;
+  z-index: 10;
+  transform: translateZ(0px);
 
   /* Define the common styles */
+
+  .sidebar-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 16px;
+    height: 100%;
+    background-color: rgb(31, 35, 48);
+    overflow: hidden auto;
+
+    &::-webkit-scrollbar {
+      width: 0.6rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #1a1d29;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 6px;
+      background: rgba(203, 215, 255, 0.08);
+    }
+  }
 
   .other-text {
     color: #686d7b;
@@ -41,15 +62,27 @@ export const StyledOpenedSidebar = styled.div`
     border-radius: 8px;
     color: rgb(255, 255, 255);
     transition: all 0.1s ease 0s;
-    font-family: "Geogrotesque Wide", sans-serif;
+
     font-weight: 500;
     font-style: normal;
     cursor: pointer;
     user-select: none;
   }
 
+  .numbers-spacer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .activated {
+    filter: drop-shadow(rgb(255, 93, 0) 0px 0px 6px);
+  }
+
   .icon-img {
     display: flex;
+    align-items: center;
     justify-content: center;
     width: 36px;
     min-width: 36px;
@@ -89,16 +122,35 @@ export const StyledOpenedSidebar = styled.div`
     line-height: 13.2px;
   }
 
-  &::-webkit-scrollbar {
-    width: 0.6rem;
+  .divider {
+    min-height: 25px;
+    margin-top: auto;
   }
 
-  &::-webkit-scrollbar-track {
-    background: #1a1d29;
-  }
+  .payment {
+    padding: 25px 20px;
+    margin: 0px -16px -20px;
+    background: rgba(203, 215, 255, 0.03);
 
-  &::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background: rgba(203, 215, 255, 0.08);
+    .payment-methods {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      margin-top: 20px;
+      margin-left: -2px;
+    }
   }
+`;
+
+export const StyledClosedSidebar = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #1f2330;
+  width: 55px;
+  gap: 5px;
+  position: fixed;
 `;

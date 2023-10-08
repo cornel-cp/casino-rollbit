@@ -1,29 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("./assets/font/stylesheet.css");
 
 body {
-  background-color: #1A1D29;
+  font-family: "Geogrotesque Cyr SemiBold", sans-serif;
+  background-color: #1a1d29;
 }
 
 html {
-    overflow-x: hidden;
-    scroll-padding-top: 9rem;
-    /* scroll-behavior: smooth; */
-  }
-  
-  html::-webkit-scrollbar {
-    width: .6rem;
-  }
-  
-  html::-webkit-scrollbar-track {
-    background: #1A1D29;
-  }
-  
-  html::-webkit-scrollbar-thumb {
-    border-radius: 6px;
-    background: rgba(203, 215, 255, 0.08);
-  }
+  overflow-x: hidden;
+  scroll-padding-top: 9rem;
+  /* scroll-behavior: smooth; */
+}
 
-  
-  
+html::-webkit-scrollbar {
+  width: 0.6rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #1a1d29;
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: rgba(203, 215, 255, 0.08);
+}

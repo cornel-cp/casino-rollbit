@@ -1,163 +1,149 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { ReactComponent as BALANCE_IMG } from "../../../assets/images/AK BALANCE.svg";
-import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Arrow-Down.svg";
-import { ReactComponent as ARROW_UP } from "../../../assets/images/Arrow-Up.svg";
-import { ReactComponent as ARROW_ICON } from "../../../assets/images/Frame (2).svg";
-import { ReactComponent as CASINO_IMG } from "../../../assets/images/Frame (9).svg";
-import { ReactComponent as SPORTS_IMG } from "../../../assets/images/Frame (10).svg";
-import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
-import { ReactComponent as FEATURES_IMG } from "../../../assets/images/Frame (12).svg";
-import { ReactComponent as PORTFOLIO_IMG } from "../../../assets/images/Frame (13).svg";
-import { ReactComponent as CLANS_IMG } from "../../../assets/images/Frame (14).svg";
-import { ReactComponent as LOTTERY_IMG } from "../../../assets/images/Frame (15).svg";
-import { ReactComponent as JACKPOT_IMG } from "../../../assets/images/svg.svg";
-import { ReactComponent as VIDEO_IMG } from "../../../assets/images/Frame (16).svg";
-import { ReactComponent as AWARD_IMG } from "../../../assets/images/Frame (17).svg";
+
+import { AppContext } from "../../../AppContext";
+import { SECTIONS } from "../../../assets/MockData/mockData";
 import { ReactComponent as VISA_IMG } from "../../../assets/images/Frame (18).svg";
 import { ReactComponent as DEBIT_IMG } from "../../../assets/images/Frame (19).svg";
+import { ReactComponent as ARROW_ICON } from "../../../assets/images/Frame (2).svg";
 import { ReactComponent as PAY_IMG } from "../../../assets/images/Frame (20).svg";
 import { ReactComponent as GOOGLE_IMG } from "../../../assets/images/Frame (21).svg";
-import { StyledOpenedSidebar } from "./StyledSidebar";
-import { DropdownBtn } from "../../Common/Buttons/DropdownBtn";
+import Button from "../../Common/Buttons/Button";
+import DropdownOptions from "./DropdownOptions";
 import SideBarClosed from "./SideBarClosed";
-
-const SECTIONS = [
-  {
-    name: "PLAY AK GAMES",
-    options: [
-      {
-        icon: CASINO_IMG,
-        text: "Casino",
-        hasDropdown: true,
-        isOpenedDropdown: false,
-      },
-      {
-        icon: SPORTS_IMG,
-        text: "Sports",
-        hasDropdown: true,
-        isOpenedDropdown: false,
-      },
-      {
-        icon: NFT_IMG,
-        text: "NFT",
-        hasDropdown: true,
-        isOpenedDropdown: false,
-      },
-      {
-        icon: FEATURES_IMG,
-        text: "Crypto Features",
-        hasDropdown: true,
-        isOpenedDropdown: false,
-      },
-      {
-        icon: PORTFOLIO_IMG,
-        text: "Crypto Portfolio",
-        hasDropdown: false,
-        isOpenedDropdown: false,
-      },
-      {
-        icon: CLANS_IMG,
-        text: "Clans",
-        hasDropdown: false,
-        isOpenedDropdown: false,
-      },
-    ],
-  },
-  {
-    name: "OTHER",
-    options: [
-      { icon: LOTTERY_IMG, text: "AK Lottery", number: "$5.03K", count: "64" },
-      { icon: JACKPOT_IMG, text: "Jackpot", number: "$31.2", count: "10" },
-      { icon: VIDEO_IMG, text: "Streams" },
-    ],
-  },
-  {
-    name: "EVENTS",
-    options: [{ icon: AWARD_IMG, text: "$25K Race" }],
-  },
-];
-
-const SidebarOption = ({
-  icon: Icon,
-  text,
-  number,
-  count,
-  hasDropdown = false,
-  isOpenedDropdown = false,
-  onClickDropdown,
-}) => {
-  return (
-    <div className="option-sidebar">
-      <Icon className="icon-img" />
-      <span className="info-text">{text}</span>
-      {number && <span className="info-number">{number}</span>}
-      {count && <span className="count">{count}</span>}
-
-      {hasDropdown && (
-        <div>
-          <DropdownBtn onClick={onClickDropdown}>
-            {isOpenedDropdown ? <ARROW_UP /> : <ARROW_DOWN />}
-          </DropdownBtn>
-        </div>
-      )}
-    </div>
-  );
-};
+import SidebarOption from "./SidebarOption";
+import { StyledOpenedSidebar } from "./StyledSidebar";
 
 const SideBar = () => {
-  const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [sections, setSections] = useState(SECTIONS);
+  const { selectedOption, isSidebarOpen, updateSelectedOption, updateSidebar } =
+    useContext(AppContext);
 
-  const handleDropdownClick = (sectionIndex, optionIndex) => {
+  const handleDropdownClick = (sectionIndex, optionIndex, sidebarUrl) => {
     const updatedSections = [...sections];
     updatedSections[sectionIndex].options[optionIndex].isOpenedDropdown =
       !updatedSections[sectionIndex].options[optionIndex].isOpenedDropdown;
+
+    // Check if a sub-option is selected, reset main option if needed
+    const selectedSubOption =
+      sections[sectionIndex].options[optionIndex].selectedSubOption;
+    if (
+      selectedSubOption !== null &&
+      !updatedSections[sectionIndex].options[optionIndex].isOpenedDropdown
+    ) {
+      updatedSections[sectionIndex].selectedOption = sidebarUrl;
+      updateSelectedOption(sidebarUrl);
+    } else if (
+      selectedSubOption !== null &&
+      updatedSections[sectionIndex].options[optionIndex].isOpenedDropdown
+    ) {
+      updatedSections[sectionIndex].selectedOption = null;
+    }
+
     setSections(updatedSections);
   };
 
-  return isSideBarOpen ? (
-    <StyledOpenedSidebar
-      className="w-64 flex flex-col flex-shrink-0 mr-14 overFlow"
-      style={{ background: "#1F2330" }}
-    >
-      <div>
-        <BALANCE_IMG width={"100%"} />
-      </div>
+  const handleSidebarOptionClick = (sectionIndex, optionIndex, sidebarUrl) => {
+    const updatedSections = sections.map((section, idx) => ({
+      ...section,
+      options: section.options.map((option, optIdx) => ({
+        ...option,
+        selectedSubOption: null,
+      })),
+      selectedOption: idx === sectionIndex ? sidebarUrl : null,
+    }));
+    setSections(updatedSections);
+    updateSelectedOption(sidebarUrl);
+  };
 
-      {sections.map((section, sectionIndex) => (
-        <div key={sectionIndex}>
-          {sectionIndex === 0 ? (
-            <div className="w-38 flex justify-between items-center cursor-pointer">
-              <span className="other-text">{section.name}</span>
-              <ARROW_ICON onClick={() => setIsSideBarOpen(false)} />
-            </div>
-          ) : (
-            <span className="other-text">{section.name}</span>
-          )}
+  const handleDropdownOptionClick = (
+    sectionIndex,
+    mainOptionIndex,
+    subOptionIndex,
+    sidebarUrl
+  ) => {
+    const updatedSections = sections.map((section, idx) => ({
+      ...section,
+      selectedOption: null,
+      options: section.options.map((option, optIdx) => ({
+        ...option,
+        selectedSubOption:
+          idx === sectionIndex && optIdx === mainOptionIndex
+            ? sidebarUrl
+            : null,
+      })),
+    }));
+    updateSelectedOption(sidebarUrl);
+    setSections(updatedSections);
+  };
 
-          <div className="other-section">
-            {section.options.map((option, optionIndex) => (
-              <SidebarOption
-                key={optionIndex}
-                onClickDropdown={() =>
-                  handleDropdownClick(sectionIndex, optionIndex)
-                }
-                {...option}
-              />
-            ))}
-          </div>
-        </div>
-      ))}
-
-      {/* //coins buy options */}
-
-      <div className="w-64 h-36 flex-shrink-0 bg-blue-100 bg-opacity-10 mt-20">
+  return isSidebarOpen ? (
+    <StyledOpenedSidebar>
+      <div className="sidebar-content">
         <div>
-          <button className="inline-flex py-2 px-14 items-start gap-4 rounded-lg bg-blue-200 bg-opacity-20 text-white text-center text-sm font-normal leading-5 tracking-wider ml-6 mt-6 mb-6">
-            BUY CRYPTO
-          </button>
+          <BALANCE_IMG width={"100%"} />
+        </div>
 
-          <div className="flex items-center gap-2 ml-4 mt-2 cursor-pointer">
+        {sections.map((section, sectionIndex) => (
+          <div key={sectionIndex}>
+            {sectionIndex === 0 ? (
+              <div className="w-38 flex justify-between items-center cursor-pointer">
+                <span className="other-text">{section.name}</span>
+                <ARROW_ICON onClick={() => updateSidebar(false)} />
+              </div>
+            ) : (
+              <span className="other-text">{section.name}</span>
+            )}
+
+            <div className="other-section">
+              {section.options.map((option, optionIndex) => (
+                <>
+                  <SidebarOption
+                    key={optionIndex}
+                    onClick={() =>
+                      handleSidebarOptionClick(
+                        sectionIndex,
+                        optionIndex,
+                        option.sidebarUrl
+                      )
+                    }
+                    onClickDropdown={() =>
+                      handleDropdownClick(
+                        sectionIndex,
+                        optionIndex,
+                        option.sidebarUrl
+                      )
+                    }
+                    {...option}
+                    isActive={option.sidebarUrl === selectedOption}
+                    sidebarUrl={option.sidebarUrl}
+                  />
+
+                  {option.isOpenedDropdown && option.dropdownOptions && (
+                    <DropdownOptions
+                      options={option.dropdownOptions}
+                      onSubOptionClick={(subOptionIndex, sidebarUrl) =>
+                        handleDropdownOptionClick(
+                          sectionIndex,
+                          optionIndex,
+                          subOptionIndex,
+                          sidebarUrl
+                        )
+                      }
+                      activeSubOptionIndex={selectedOption}
+                    />
+                  )}
+                </>
+              ))}
+            </div>
+          </div>
+        ))}
+        <div className="divider" />
+
+        <div className="payment">
+          <Button>Buy Crypto</Button>
+
+          <div className="payment-methods">
             <VISA_IMG />
             <DEBIT_IMG />
             <PAY_IMG />
@@ -165,9 +151,11 @@ const SideBar = () => {
           </div>
         </div>
       </div>
+
+      {/* //coins buy options */}
     </StyledOpenedSidebar>
   ) : (
-    <SideBarClosed toggleSideBar={setIsSideBarOpen} />
+    <SideBarClosed toggleSideBar={updateSidebar} />
   );
 };
 

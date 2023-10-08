@@ -7,20 +7,11 @@ import LOGO from "../../../assets/images/LOGO (1).png";
 const FooterWrapper = styled.footer`
   display: flex;
   justify-content: center;
-  margin-top: -200px;
-  width: 1750px;
-  margin-left: -370px;
-  height: 430px;
-  flex-shrink: 0;
+  max-width: 100%;
+  bottom: 0;
+  padding-inline: 20px;
   background: #141622;
-`;
-
-const Wrapper = styled.div`
-  margin: 80px 0;
-`;
-
-const StyledDiv = styled.div`
-  margin-left: -200px;
+  margin: 0 auto;
 `;
 
 const StyledP = styled.p`
@@ -128,7 +119,7 @@ const Footer = ({ update }) => {
           </li>
         </div>
       </div>
-      <div style={{ margin: "80px 100px" }}>
+      <div style={{ margin: "80px 40px" }}>
         <div>
           <StyledP>COMMUNITY</StyledP>
           <li style={{ listStyle: "none", marginTop: "20px" }}>

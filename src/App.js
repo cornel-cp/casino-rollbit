@@ -1,89 +1,111 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 //components
 import HomeAppBar from "./components/home/header/AppBar";
-import LoginAppBar from "./components/home/header/LoginAppBar";
-import LoginBalances from "./components/home/balances/LoginBalances";
-import LoginReferals from "./components/home/referals/LoginReferals";
-import LoginSetting from "./components/home/setting/LoginSetting";
-
 
 //reward section models
-import Model1 from "./components/models/rewardModel/Model1";
-import Model2 from "./components/models/rewardModel/Cop";
-import Model3 from "./components/models/rewardModel/Model3";
-import Model4 from "./components/models/rewardModel/Model4";
-import Model5 from "./components/models/rewardModel/Model5";
 
 // deposit section models
-import DModel1 from "./components/models/depositModel/DModel1";
-import DModel2 from "./components/models/depositModel/DModel2";
-import DModel3 from "./components/models/depositModel/DModel3";
-import DModel4 from "./components/models/depositModel/DModel4";
-import DModel5 from "./components/models/depositModel/DModel5";
-import DModel6 from "./components/models/depositModel/DModel6";
-import DModel7 from "./components/models/depositModel/DModel7";
-import WModel1 from "./components/models/withdrawalModel/WModel1";
-import WModel2 from "./components/models/withdrawalModel/WModel2";
-import WModel3 from "./components/models/withdrawalModel/WModel.3";
-import WModel4 from "./components/models/withdrawalModel/WModel4";
-import WModel5 from "./components/models/withdrawalModel/WModel5";
-
-
-
-
-
-
+import { useContext } from "react";
+import { AppContext } from "./AppContext";
+import AKOriginals from "./components/Pages/Casino/AKOriginals";
+import Blackjack from "./components/Pages/Casino/Blackjack";
+import BonusBattles from "./components/Pages/Casino/BonusBattles";
+import Casino from "./components/Pages/Casino/Casino";
+import Challenges from "./components/Pages/Casino/Challenges";
+import GameShows from "./components/Pages/Casino/GameShows";
+import LiveCasino from "./components/Pages/Casino/LiveCasino";
+import Rollercoaster from "./components/Pages/Casino/Rollercoaster";
+import Roulette from "./components/Pages/Casino/Roulette";
+import Slots from "./components/Pages/Casino/Slots";
+import WithChallenges from "./components/Pages/Casino/WithChallenges";
+import WithSidebets from "./components/Pages/Casino/WithSidebets";
+import ManageRollbots from "./components/Pages/NFT/ManageRollbots";
+import ManageSportsbots from "./components/Pages/NFT/ManageSportsbots";
+import Marketplace from "./components/Pages/NFT/Marketplace";
+import NFTLoans from "./components/Pages/NFT/NFTLoans";
+import NFTLootboxes from "./components/Pages/NFT/NFTLootboxes";
+import MyBets from "./components/Pages/Sports/MyBets";
+import Sports from "./components/Pages/Sports/Sports";
+import { ContentLayout, PageLayout } from "./components/home/MainHome/styles";
+import Balances from "./components/home/balances/Balances";
+import Footer from "./components/home/footer/Footer";
+import NavBar from "./components/home/header/NavBar";
+import SideBar from "./components/home/header/SideBar";
+import Profile from "./components/home/profile/Profile";
+import Referals from "./components/home/referals/Referals";
+import Setting from "./components/home/setting/Setting";
 
 function App() {
+  const { isSidebarOpen, isChatBoxOpen } = useContext(AppContext);
   return (
-
     <BrowserRouter>
-      <Routes>
+      <NavBar />
+      <SideBar />
 
-        <Route exact path='/' element={<HomeAppBar />} />
-        <Route exact path='/profile' element={<LoginAppBar />} />
-        <Route exact path='/balances' element={<LoginBalances />} />
-        <Route exact path='/referrals' element={<LoginReferals />} />
-        <Route exact path='/settings' element={<LoginSetting />} />
+      <PageLayout isSidebarOpen={isSidebarOpen} isChatBoxOpen={isChatBoxOpen}>
+        <ContentLayout>
+          <Routes>
+            <Route exact path="/" element={<HomeAppBar />} />
+            <Route exact path="/profile" element={<Profile />} />
+            {/* <Route exact path="/profile" element={<LoginAppBar />} /> */}
+            <Route exact path="/balances" element={<Balances />} />
+            <Route exact path="/referrals" element={<Referals />} />
+            <Route exact path="/settings" element={<Setting />} />
 
-        {/* models */}
-        {/* <Route path='/model' element={<WModel1 />} /> */}
-        {/* <Route path='/model' element={<WModel2 />} />  */}
-        {/* <Route path='/model' element={<WModel3 />} /> */}
-        {/* <Route path='/model' element={<WModel4 />} /> */}
-        {/* <Route path='/model' element={<WModel5 />} /> */}
+            {/* CASINO */}
+            <Route path="/casino" element={<Casino />} />
+            <Route path="/ak-originals" element={<AKOriginals />} />
+            <Route path="/blackjack" element={<Blackjack />} />
+            <Route path="/bonus-battles" element={<BonusBattles />} />
+            <Route path="/challenges" element={<Challenges />} />
+            <Route path="/game-shows" element={<GameShows />} />
+            <Route path="/live-casino" element={<LiveCasino />} />
+            <Route path="/rollercoaster" element={<Rollercoaster />} />
+            <Route path="/roulette" element={<Roulette />} />
+            <Route path="/slots" element={<Slots />} />
+            <Route path="/with-challenges" element={<WithChallenges />} />
+            <Route path="/with-sidebets" element={<WithSidebets />} />
 
+            {/* NFT */}
+            <Route path="/manage-rollbots" element={<ManageRollbots />} />
+            <Route path="/manage-sportsbots" element={<ManageSportsbots />} />
+            <Route path="/marketplace" element={<Marketplace />} />
+            <Route path="/nft-loans" element={<NFTLoans />} />
+            <Route path="/nft-lootboxes" element={<NFTLootboxes />} />
 
+            {/* SPORTS */}
+            <Route path="/sports" element={<Sports />} />
+            <Route path="/my-bets" element={<MyBets />} />
 
-           {/* <Route path='/model4' element={<DModel4 />} /> */}
+            {/* models */}
+            {/* <Route path='/model' element={<WModel1 />} /> */}
+            {/* <Route path='/model' element={<WModel2 />} />  */}
+            {/* <Route path='/model' element={<WModel3 />} /> */}
+            {/* <Route path='/model' element={<WModel4 />} /> */}
+            {/* <Route path='/model' element={<WModel5 />} /> */}
 
+            {/* <Route path='/model4' element={<DModel4 />} /> */}
 
+            {/* <Route path='/model2' element={<DModel2 />} />  */}
 
-           {/* <Route path='/model2' element={<DModel2 />} />  */}
-
-        {/* //   <Route path='/model1' element={<DModel1 />} /> 
+            {/* //   <Route path='/model1' element={<DModel1 />} /> 
         //  <Route path='/model3' element={<DModel3 />} />
         //   <Route path='/model5' element={<DModel5 />} />
         //   <Route path='/model6' element={<DModel6 />} />
         //   <Route path='/model7' element={<DModel7 />} />   */}
 
-
-        {/* <Route path='/model1' element={<Model1 />} />
+            {/* <Route path='/model1' element={<Model1 />} />
         <Route path='/model2' element={<Model2 />} />
         <Route path='/model3' element={<Model3 />} />
         <Route path='/model4' element={<Model4 />} />
         <Route path='/model5' element={<Model5 />} /> */}
-
-
-
-
-
-      </Routes>
+          </Routes>
+        </ContentLayout>
+        <Footer />
+      </PageLayout>
     </BrowserRouter>
-
-  )
+  );
 }
 
 export default App;
