@@ -13,7 +13,7 @@ import MONEY_COLORED from "../../../assets/images/Frame (57).svg";
 import CIRCLE from "../../../assets/images/Frame 507.svg";
 import COIN from "../../../assets/images/IMAGE (47).png";
 
-const Balances = () => {
+const BalancesPage = () => {
   return (
     <div style={{ margin: "0px 20px", display: "flex" }}>
       {/* sidebars */}
@@ -453,4 +453,4 @@ const Balances = () => {
   );
 };
 
-export default Balances;
+export default BalancesPage;

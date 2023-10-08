@@ -28,7 +28,7 @@ import NFTLootboxes from "./components/Pages/NFT/NFTLootboxes";
 import MyBets from "./components/Pages/Sports/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
 import ProtectedRoute from "./components/Router/ProtectedRoute";
-import Balances from "./components/home/Balances/Balances";
+import BalancesPage from "./components/home/Balances/Balances";
 import PageFooter from "./components/home/Footer/PageFooter";
 import { ContentLayout, PageLayout } from "./components/home/MainHome/styles";
 import NavBar from "./components/home/header/NavBar";
@@ -60,7 +60,7 @@ function App() {
               path="/balances"
               element={
                 <ProtectedRoute>
-                  <Balances />
+                  <BalancesPage />
                 </ProtectedRoute>
               }
             />
