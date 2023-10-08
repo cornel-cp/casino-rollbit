@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 //assets
@@ -16,8 +16,8 @@ import RewardsButton from "./RewardsButton/RewardsButton";
 import TotalMoneyContainer from "./TotalMoneyContainer";
 
 const NavBar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const { isChatBoxOpen, updateChatBox } = useContext(AppContext);
+  const { isChatBoxOpen, isLoggedIn, updateChatBox, updateLoggedIn } =
+    useContext(AppContext);
 
   return (
     <>
@@ -64,7 +64,7 @@ const NavBar = () => {
           {!isLoggedIn && (
             <>
               <button
-                onClick={() => setIsLoggedIn(true)}
+                onClick={() => updateLoggedIn(true)}
                 className="text-white w-11 text-sm font-normal leading-5 tracking-wider mr-5"
               >
                 LOGIN

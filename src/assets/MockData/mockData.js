@@ -24,6 +24,12 @@ import { ReactComponent as SLOTS } from "../../assets/images/Slots.svg";
 import { ReactComponent as WITH_SIDEBETS } from "../../assets/images/WithSidebets.svg";
 import { ReactComponent as JACKPOT_IMG } from "../../assets/images/svg.svg";
 
+import GEAR from "../../assets/modelImages/Frame (11).svg";
+import USER from "../../assets/modelImages/Frame (6).svg";
+import BAG from "../../assets/modelImages/Frame (7).svg";
+import FLAW from "../../assets/modelImages/Frame (8).svg";
+import BUILD from "../../assets/modelImages/Frame (9).svg";
+
 import CART_ICON_2 from "../../assets/images/IMAGE (10).png";
 import CART_ICON_3 from "../../assets/images/IMAGE (11).png";
 import CART_ICON_4 from "../../assets/images/IMAGE (12).png";
@@ -555,3 +561,42 @@ export const DAILY_BONUSES = {
     },
   ],
 };
+
+export const ACCOUNT_DROPDOWN_OPTIONS = [
+  {
+    label: "Profile",
+    route: "/profile",
+    icon: USER,
+    altText: "user",
+  },
+  {
+    label: "Balances",
+    route: "/balances",
+    icon: BAG,
+    altText: "bag",
+  },
+  {
+    label: "Referrals",
+    route: "/referrals",
+    icon: FLAW,
+    altText: "flaw",
+  },
+  {
+    label: "Deposits",
+    route: "/",
+    icon: BUILD,
+    altText: "build",
+  },
+  {
+    label: "Withdrawals",
+    route: "/",
+    icon: BUILD,
+    altText: "build",
+  },
+  {
+    label: "Settings",
+    route: "/settings",
+    icon: GEAR,
+    altText: "gear",
+  },
+];

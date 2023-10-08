@@ -5,11 +5,11 @@ import ARROW_DOWN from "../../../../assets/images/Frame (33).svg";
 //assets
 import HEXAGON from "../../../../assets/images/IMAGE (46).png";
 import RECTANGLE from "../../../../assets/images/Rectangle (1).png";
+import AccountDropdown from "../../../models/rewardModel/AccountDropdown";
 
 //model assetss
 
 //models
-import Model2 from "../../../models/rewardModel/Model5";
 
 const AccountButton = () => {
   const { openDropdown, toggleDropdown } = useContext(AppContext);
@@ -105,7 +105,6 @@ const AccountButton = () => {
               style={{
                 position: "absolute",
                 top: "50px",
-                cursor: "pointer",
                 background: "#1F2330",
                 borderRadius: "6px",
                 boxShadow: " 0px 5px 8px 0px rgba(0, 0, 0, 0.25)",
@@ -113,7 +112,7 @@ const AccountButton = () => {
                 height: "430px",
               }}
             >
-              <Model2 />
+              <AccountDropdown userName="Pablo Escobar" />
             </div>
           </>
         ) : null}

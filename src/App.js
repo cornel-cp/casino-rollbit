@@ -27,9 +27,10 @@ import NFTLoans from "./components/Pages/NFT/NFTLoans";
 import NFTLootboxes from "./components/Pages/NFT/NFTLootboxes";
 import MyBets from "./components/Pages/Sports/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
+import ProtectedRoute from "./components/Router/ProtectedRoute";
+import Balances from "./components/home/Balances/Balances";
+import PageFooter from "./components/home/Footer/PageFooter";
 import { ContentLayout, PageLayout } from "./components/home/MainHome/styles";
-import Balances from "./components/home/balances/Balances";
-import Footer from "./components/home/footer/Footer";
 import NavBar from "./components/home/header/NavBar";
 import SideBar from "./components/home/header/SideBar";
 import Profile from "./components/home/profile/Profile";
@@ -47,11 +48,38 @@ function App() {
         <ContentLayout>
           <Routes>
             <Route exact path="/" element={<HomeAppBar />} />
-            <Route exact path="/profile" element={<Profile />} />
-            {/* <Route exact path="/profile" element={<LoginAppBar />} /> */}
-            <Route exact path="/balances" element={<Balances />} />
-            <Route exact path="/referrals" element={<Referals />} />
-            <Route exact path="/settings" element={<Setting />} />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/balances"
+              element={
+                <ProtectedRoute>
+                  <Balances />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/referrals"
+              element={
+                <ProtectedRoute>
+                  <Referals />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <ProtectedRoute>
+                  <Setting />
+                </ProtectedRoute>
+              }
+            />
 
             {/* CASINO */}
             <Route path="/casino" element={<Casino />} />
@@ -102,7 +130,7 @@ function App() {
         <Route path='/model5' element={<Model5 />} /> */}
           </Routes>
         </ContentLayout>
-        <Footer />
+        <PageFooter />
       </PageLayout>
     </BrowserRouter>
   );

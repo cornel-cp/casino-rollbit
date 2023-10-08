@@ -11,7 +11,7 @@ const FooterWrapper = styled.footer`
   bottom: 0;
   padding-inline: 20px;
   background: #141622;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 `;
 
 const StyledP = styled.p`
@@ -41,7 +41,7 @@ const StyledCopyrightText = styled.p`
   margin: 20px 0;
 `;
 
-const Footer = ({ update }) => {
+const PageFooter = () => {
   return (
     <FooterWrapper>
       <div className="sm">
@@ -140,4 +140,4 @@ const Footer = ({ update }) => {
   );
 };
 
-export default Footer;
+export default PageFooter;

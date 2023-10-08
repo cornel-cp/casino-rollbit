@@ -8,6 +8,7 @@ const AppProvider = ({ children }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [isChatBoxOpen, setIsChatBoxOpen] = useState(true);
   const [openDropdown, setOpenDropdown] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const updateSelectedOption = (option) => {
     setSelectedOption(option);
@@ -21,6 +22,9 @@ const AppProvider = ({ children }) => {
   const toggleDropdown = (option) => {
     setOpenDropdown(option);
   };
+  const updateLoggedIn = (option) => {
+    setIsLoggedIn(option);
+  };
 
   return (
     <AppContext.Provider
@@ -29,10 +33,12 @@ const AppProvider = ({ children }) => {
         isSidebarOpen,
         isChatBoxOpen,
         openDropdown,
+        isLoggedIn,
         updateSelectedOption,
         updateSidebar,
         updateChatBox,
         toggleDropdown,
+        updateLoggedIn,
       }}
     >
       {children}

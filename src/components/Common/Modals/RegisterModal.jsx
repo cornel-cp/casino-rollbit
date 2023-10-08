@@ -6,6 +6,7 @@ import Register from "../../LoginAndRgister/Register";
 import Image from "../../../assets/images/IMAGE.jpg";
 import LOGO1 from "../../../assets/images/LOGO.png";
 import CROSS from "../../../assets/images/icons8-cross-100.png";
+import { StyledRegisterModal } from "./StyledRegisterModal";
 
 const RegisterModal = ({ buttonText }) => {
   const [showM, setshowM] = useState(false);
@@ -17,26 +18,8 @@ const RegisterModal = ({ buttonText }) => {
   };
 
   return (
-    <>
-      <button
-        onClick={() => openRegisterModal()}
-        style={{
-          display: "flex",
-          padding: "10px 20px",
-          alignItems: "flex-start",
-          gap: "10px",
-          borderRadius: "8px",
-          background: "#FFE81A",
-          boxShadow: "0px 0px 10px 0px rgba(255, 176, 25, 0.40)",
-          color: "#141722",
-          textAlign: "center",
-          fontSize: "14px",
-          fontStyle: "normal",
-          fontWeight: "400",
-          lineHeight: "16.8px",
-          letterSpacing: "0.5px",
-        }}
-      >
+    <StyledRegisterModal>
+      <button onClick={() => openRegisterModal()} className="register-button">
         {buttonText}
       </button>
 
@@ -174,7 +157,7 @@ const RegisterModal = ({ buttonText }) => {
           </div>
         </>
       )}
-    </>
+    </StyledRegisterModal>
   );
 };
 

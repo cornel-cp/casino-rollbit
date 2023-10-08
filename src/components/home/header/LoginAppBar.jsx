@@ -21,11 +21,11 @@ import Profile from "../profile/Profile";
 
 //models
 import DModel1 from "../../models/depositModel/DModel1";
+import Model2 from "../../models/rewardModel/AccountDropdown";
 import Cop from "../../models/rewardModel/Cop";
 import Model1 from "../../models/rewardModel/Model1";
 import Model3 from "../../models/rewardModel/Model3";
 import Model4 from "../../models/rewardModel/Model4";
-import Model2 from "../../models/rewardModel/Model5";
 import WModel1 from "../../models/withdrawalModel/WModel1";
 
 const LoginAppBar = () => {
