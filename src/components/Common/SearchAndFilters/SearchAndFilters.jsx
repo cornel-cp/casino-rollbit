@@ -7,7 +7,6 @@ import { ButtonWithDropdown, SearchInput, StyledSearchFilters } from "./styles";
 const SearchAndFilters = ({ placeholder, provider, sortBy }) => {
   const { selectedOption } = useContext(AppContext);
 
-  console.log("selectedOption", selectedOption);
   const [isOpenedDropdownProvider, setIsOpenedDropdownProvider] =
     useState(false);
   const [isOpenedDropdownSort, setIsOpenedDropdownSort] = useState(false);

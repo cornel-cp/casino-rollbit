@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 @import url("./assets/font/stylesheet.css");
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
 
 body {
   font-family: "Geogrotesque Cyr SemiBold", sans-serif;

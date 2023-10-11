@@ -22,7 +22,6 @@ const buttons = [
 const NavigationHeader = () => {
   const { selectedOption, updateSelectedOption } = useContext(AppContext);
 
-  console.log("selectedOption", selectedOption);
   return (
     <StyledNavigationHeader>
       <div className="content-wrapper">
@@ -34,8 +33,6 @@ const NavigationHeader = () => {
             <StyledNavHeaderBtn
               className={button.url === selectedOption ? "active" : ""}
             >
-              {console.log("button.url ", button.url)}
-              {console.log("selectedOption ", selectedOption)}
               <div
                 className={`btn-icon ${
                   button.url === selectedOption ? "active-icon" : ""

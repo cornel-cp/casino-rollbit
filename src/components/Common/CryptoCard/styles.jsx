@@ -18,7 +18,7 @@ export const StyledCryptoCard = styled.div`
 
   .card-wrapper {
     border-radius: 8px;
-    width: 145px;
+    width: 127px;
     height: 170px;
     display: flex;
     flex-direction: column;

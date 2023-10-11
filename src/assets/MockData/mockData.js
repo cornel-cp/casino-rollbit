@@ -413,6 +413,60 @@ export const WINNER_CARDS = {
       username: "Melody👀🎵",
       price: "29.30",
     },
+    {
+      imgSrc: CART_IMG_2,
+      cartIconSrc: CART_ICON_2,
+      username: "staymelo7",
+      price: "161.06",
+    },
+    {
+      imgSrc: CART_IMG_5,
+      cartIconSrc: CART_ICON_5,
+      username: "Melody👀🎵",
+      price: "29.30",
+    },
+    {
+      imgSrc: CART_IMG_4,
+      cartIconSrc: CART_ICON_4,
+      username: "landice",
+      price: "500.00",
+    },
+    {
+      imgSrc: CART_IMG_1,
+      cartIconSrc: CART_ICON_1,
+      username: "Hidden",
+      price: "320.00",
+    },
+    {
+      imgSrc: CART_IMG_3,
+      cartIconSrc: CART_ICON_3,
+      username: "QSharp",
+      price: "521.96",
+    },
+    {
+      imgSrc: CART_IMG_2,
+      cartIconSrc: CART_ICON_2,
+      username: "staymelo7",
+      price: "161.06",
+    },
+    {
+      imgSrc: CART_IMG_5,
+      cartIconSrc: CART_ICON_5,
+      username: "Melody👀🎵",
+      price: "29.30",
+    },
+    {
+      imgSrc: CART_IMG_2,
+      cartIconSrc: CART_ICON_2,
+      username: "staymelo7",
+      price: "161.06",
+    },
+    {
+      imgSrc: CART_IMG_5,
+      cartIconSrc: CART_ICON_5,
+      username: "Melody👀🎵",
+      price: "29.30",
+    },
   ],
   Month: [
     {
@@ -510,6 +564,38 @@ export const DAILY_BONUSES = {
       title: "Phil9077",
       amount: "$11,393.27",
     },
+    {
+      imageSrc: BONUSES_IMG_1,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_2,
+      title: "Aj9",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_3,
+      title: "hellomotto",
+      amount: "$11,393.27",
+    },
+  ],
+  Week: [
+    {
+      imageSrc: BONUSES_IMG_4,
+      title: "theoneforus",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_5,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_6,
+      title: "Phil9077",
+      amount: "$11,393.27",
+    },
   ],
   Month: [
     {
@@ -529,6 +615,36 @@ export const DAILY_BONUSES = {
     },
   ],
   All: [
+    {
+      imageSrc: BONUSES_IMG_1,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_2,
+      title: "Aj9",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_3,
+      title: "hellomotto",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_4,
+      title: "theoneforus",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_5,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_6,
+      title: "Phil9077",
+      amount: "$11,393.27",
+    },
     {
       imageSrc: BONUSES_IMG_1,
       title: "Hidden",

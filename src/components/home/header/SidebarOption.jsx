@@ -25,7 +25,12 @@ const SidebarOption = ({
 
   return (
     <Link to={sidebarUrl}>
-      <div className="option-sidebar" onClick={onClick}>
+      <div
+        className={`option-sidebar ${
+          isOpenedDropdown ? "opened-dropdown" : ""
+        } ${isActive ? "option-active" : ""}`}
+        onClick={onClick}
+      >
         {Icon && (
           <div className={`icon-img ${isActive ? "activated" : ""}`}>
             <Icon />

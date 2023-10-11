@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCard = styled.div`
   border-radius: 8px;
-  width: 190px;
+  width: 150;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -17,42 +17,22 @@ export const StyledCard = styled.div`
   }
 
   .bonus-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
     color: #b1b6c6;
     text-align: center;
     font-size: 12px;
-    margin-right: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: 14.4px;
-    margin-left: 12px;
+
+    padding-inline: 10px;
   }
 
   .bonus-amount {
-    margin-left: 80px;
     color: #fff;
-    text-align: center;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14.4px;
-  }
-
-  .player-info {
-    color: #b1b6c6;
-    text-align: center;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    margin-top: -5px;
-    line-height: 14.4px;
-    margin-right: auto;
-    margin-left: 12px;
-  }
-
-  .player-count {
-    margin-left: 103px;
-    color: #fff;
-    text-align: center;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;

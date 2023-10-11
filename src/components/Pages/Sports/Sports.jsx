@@ -1,31 +1,26 @@
 import React from "react";
 
-import { DATA_CONTENT } from "../../../assets/MockData/mockData";
-import ImagesSection from "../../Common/ImagesSection/ImagesSection";
-import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
-import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
-import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
-import { StyledPageContainer } from "../Casino/styles";
+import SportSection from "./Common/SportSection/SportSection";
+
+import { ReactComponent as LIVE_MATCHES } from "../../../assets/images/live-matches.svg";
+import { ReactComponent as TOP_MATCHES } from "../../../assets/images/top-matches.svg";
+import {
+  SportsBannerImage,
+  StyledSportsContainer,
+} from "./StyledSportsContainer";
 
 const Sports = () => {
   const category = "Casino";
   const subcategory = "AK_ORIGINALS";
 
   return (
-    <StyledPageContainer>
-      <LiveWinsSection />
-
-      <NavigationHeader />
-      <div className="content-container">
-        <SearchAndFilters />
-
-        <ImagesSection
-          category={category}
-          subcategory={subcategory}
-          images={DATA_CONTENT}
-        />
-      </div>
-    </StyledPageContainer>
+    <StyledSportsContainer>
+      {/* <SportsHeader /> */}
+      <SportsBannerImage />
+      <SportSection titleIcon={<TOP_MATCHES />} />
+      <SportSection titleIcon={<LIVE_MATCHES />} />
+      <SportSection titleIcon={<LIVE_MATCHES />} />
+    </StyledSportsContainer>
   );
 };
 

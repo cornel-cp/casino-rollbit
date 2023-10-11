@@ -25,6 +25,5 @@ export const DropdownBtn = styled.div`
   width: 30px;
   padding: 0px;
   position: relative;
-  left: 6px;
   margin-left: auto;
 `;

@@ -21,3 +21,12 @@ export const ContentLayout = styled.div`
   padding: 24px 24px 48px;
   background: #1a1d29;
 `;
+
+export const SportsContentLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  padding: 24px 24px 48px;
+  background: #1a1d29;
+`;

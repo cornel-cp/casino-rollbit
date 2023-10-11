@@ -7,7 +7,11 @@ import SectionHeader from "../SectionHeader/SectionHeader";
 import NFTCard from "./NFTCard";
 
 import BONUS from "../../../assets/images/Frame (27).svg";
+import useSlider from "../../../hooks/useSlider";
+import Slider from "../Slider/Slider";
 const NTFSection = () => {
+  const { containerRef, scrollLeft, scrollRight } = useSlider();
+
   const nftsData = [
     {
       imageSrc: NFT_IMG_1,
@@ -44,7 +48,32 @@ const NTFSection = () => {
       amount: "$700K",
       buttonText: "OPEN FOR $99",
     },
+    {
+      imageSrc: NFT_IMG_2,
+      title: "Golden Grizzly",
+      subTitle: "Sports AKbots",
+      amount: "$9.88K",
+      buttonText: "OPEN FOR $35.6",
+    },
+    {
+      imageSrc: NFT_IMG_3,
+      title: "Bored Ape Yacht Club #4848",
+      subTitle: "Bored Ape Yacht Club",
+      amount: "$490",
+      buttonText: "OPEN FOR $20",
+    },
   ];
+
+  const CardsComponent = nftsData.map((box, index) => (
+    <NFTCard
+      key={index}
+      imageSrc={box.imageSrc}
+      title={box.title}
+      subTitle={box.subTitle}
+      amount={box.amount}
+      buttonText={box.buttonText}
+    />
+  ));
 
   return (
     <>
@@ -52,19 +81,10 @@ const NTFSection = () => {
         iconHeader={BONUS}
         casinoText="NFT Lootboxes"
         sideButton="View All"
+        scrollLeft={scrollLeft}
+        scrollRight={scrollRight}
       />
-      <div style={{ display: "flex", gap: "10px", marginLeft: "-8px" }}>
-        {nftsData.map((box, index) => (
-          <NFTCard
-            key={index}
-            imageSrc={box.imageSrc}
-            title={box.title}
-            subTitle={box.subTitle}
-            amount={box.amount}
-            buttonText={box.buttonText}
-          />
-        ))}
-      </div>
+      <Slider CardsComponent={CardsComponent} containerRef={containerRef} />
     </>
   );
 };

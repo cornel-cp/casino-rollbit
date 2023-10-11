@@ -1,4 +1,4 @@
-<svg width="130" height="32" viewBox="0 0 130 32" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="130" height="32" viewBox="0 0 130 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <path d="M0 8C0 3.58172 3.58172 0 8 0H122C126.418 0 130 3.58172 130 8V24C130 28.4183 126.418 32 122 32H8C3.58172 32 0 28.4183 0 24V8Z" fill="white"/>
 <path d="M20 7H110V25H20V7Z" fill="url(#pattern0)"/>
 <defs>

@@ -19,14 +19,12 @@ const BonusCard = ({
     >
       <StyledCard>
         <img src={imageSrc} alt="cart" className="card-image" />
-        <div className="bonus-text-wrapper">
-          <p className="bonus-text">
-            {bonusText} <span className="bonus-amount">{bonusAmount}</span>
-          </p>
-        </div>
-        <p className="player-info">
+        <p className="bonus-text">
+          {bonusText} <span className="bonus-amount">{bonusAmount}</span>
+        </p>
+        <p className="bonus-text">
           {playerText}
-          <span className="player-count">{playerCount}</span>
+          <span className="bonus-amount">{playerCount}</span>
         </p>
         <div style={{ display: "flex" }}>
           {buttonStatus === "live" && (

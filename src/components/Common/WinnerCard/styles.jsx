@@ -87,9 +87,15 @@ export const LiveWinsSectionStyled = styled.div`
 `;
 
 export const StyledCardsContainer = styled.div`
-  display: grid;
+  display: flex;
+  overflow-x: auto; /* Use 'auto' to show scrollbars only when needed, or 'hidden' to hide them */
+  scroll-snap-type: x mandatory;
+
+  /* If you want to hide the scrollbar completely, you can use the following */
+  &::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+  }
+
   width: 100%;
-  align-items: stretch;
-  grid-template-columns: repeat(auto-fill, minmax(129px, 1fr));
   gap: 10px;
 `;

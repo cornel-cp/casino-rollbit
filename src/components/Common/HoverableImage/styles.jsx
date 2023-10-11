@@ -16,7 +16,6 @@ const generateAnimationDelayCSS = (startIndex, delayIncrease, elements) => {
   let delay;
   for (let i = 1; i <= elements; i++) {
     delay = i % 3 === 0 ? i * delayIncrease : delay;
-    console.log("delay", delay);
     css += `
       &:nth-of-type(${startIndex}n + ${i}) {
         animation-delay: ${delay}s;
@@ -38,6 +37,7 @@ export const StyledHoverableImage = styled.div`
     flex-shrink: 0;
     border-radius: 8px;
     transition: transform 0.3s ease;
+    max-width: none;
 
     &:hover {
       transform: translateY(-10px);

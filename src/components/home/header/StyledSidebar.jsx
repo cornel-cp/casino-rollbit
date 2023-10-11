@@ -62,11 +62,23 @@ export const StyledOpenedSidebar = styled.div`
     border-radius: 8px;
     color: rgb(255, 255, 255);
     transition: all 0.1s ease 0s;
-
+    padding-right: 6px;
     font-weight: 500;
     font-style: normal;
     cursor: pointer;
     user-select: none;
+
+    &:hover {
+      background: rgba(203, 215, 255, 0.03);
+    }
+  }
+
+  .opened-dropdown {
+    background: rgb(26, 29, 41) !important;
+  }
+
+  .option-active {
+    background: rgba(203, 215, 255, 0.03);
   }
 
   .numbers-spacer {
@@ -78,6 +90,7 @@ export const StyledOpenedSidebar = styled.div`
 
   .activated {
     filter: drop-shadow(rgb(255, 93, 0) 0px 0px 6px);
+    color: rgb(255, 255, 193) !important;
   }
 
   .icon-img {
@@ -88,6 +101,7 @@ export const StyledOpenedSidebar = styled.div`
     min-width: 36px;
     height: 20px;
     margin-right: 2px;
+    color: #b1b6c6;
   }
 
   .icon-arrow {
@@ -97,7 +111,6 @@ export const StyledOpenedSidebar = styled.div`
 
   .info-text {
     width: 100%;
-    color: #fff;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -106,7 +119,6 @@ export const StyledOpenedSidebar = styled.div`
 
   .info-number {
     width: 46px;
-    color: #fff;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;

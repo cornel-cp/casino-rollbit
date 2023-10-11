@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
-import ArrowIcons from "../ArrowIcons";
+import ArrowIcons from "../ArrowIcons/ArrowIcons";
 import FilterButtonGroup from "../Buttons/FilterButtonGroup";
 import { StyledSectionHeader } from "./styles";
 
@@ -13,6 +13,8 @@ const SectionHeader = ({
   hasFilterOptions,
   onOptionChange,
   filterOptions,
+  scrollLeft,
+  scrollRight,
 }) => {
   return (
     <StyledSectionHeader>
@@ -34,7 +36,9 @@ const SectionHeader = ({
             onOptionChange={onOptionChange} // Pass the callback for option change
           />
         )}
-        {hasArrows && <ArrowIcons />}
+        {hasArrows && (
+          <ArrowIcons scrollLeft={scrollLeft} scrollRight={scrollRight} />
+        )}
       </div>
     </StyledSectionHeader>
   );
