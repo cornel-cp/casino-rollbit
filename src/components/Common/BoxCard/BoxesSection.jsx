@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { DAILY_BONUSES } from "../../../assets/MockData/mockData";
-import BONUSES from "../../../assets/images/Frame (29).svg";
+import { ReactComponent as BONUSES } from "../../../assets/images/Frame (29).svg";
 import useSlider from "../../../hooks/useSlider";
 import SectionHeader from "../SectionHeader/SectionHeader";
 import Slider from "../Slider/Slider";

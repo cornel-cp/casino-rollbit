@@ -24,14 +24,18 @@ import { ReactComponent as SLOTS } from "../../assets/images/Slots.svg";
 import { ReactComponent as WITH_SIDEBETS } from "../../assets/images/WithSidebets.svg";
 import { ReactComponent as JACKPOT_IMG } from "../../assets/images/svg.svg";
 
-import GEAR from "../../assets/modelImages/Frame (11).svg";
-import USER from "../../assets/modelImages/Frame (6).svg";
-import BAG from "../../assets/modelImages/Frame (7).svg";
-import FLAW from "../../assets/modelImages/Frame (8).svg";
-import BUILD from "../../assets/modelImages/Frame (9).svg";
+import { ReactComponent as GEAR } from "../../assets/modelImages/Frame (11).svg";
+import { ReactComponent as USER } from "../../assets/modelImages/Frame (6).svg";
+import { ReactComponent as BAG } from "../../assets/modelImages/Frame (7).svg";
+import { ReactComponent as FLAW } from "../../assets/modelImages/Frame (8).svg";
+import { ReactComponent as BUILD } from "../../assets/modelImages/Frame (9).svg";
 
 import CART_ICON_2 from "../../assets/images/IMAGE (10).png";
 import CART_ICON_3 from "../../assets/images/IMAGE (11).png";
+import NFT_IMG_1 from "../../assets/images/IMAGE (39).png";
+import NFT_IMG_2 from "../../assets/images/IMAGE (40).png";
+import NFT_IMG_3 from "../../assets/images/IMAGE (41).png";
+import NFT_IMG_4 from "../../assets/images/IMAGE (42).png";
 import CART_ICON_4 from "../../assets/images/IMAGE (12).png";
 import CART_ICON_5 from "../../assets/images/IMAGE (13).png";
 import CART_IMG_1 from "../../assets/images/IMAGE (2).png";
@@ -47,6 +51,7 @@ import CART_IMG_3 from "../../assets/images/IMAGE (6).png";
 import CART_IMG_4 from "../../assets/images/IMAGE (8).png";
 import CART_IMG_5 from "../../assets/images/IMAGE (9).png";
 
+import NFT_Banner from "./../../assets/images/nft-banner.png";
 import CASINO_IMG_1 from "../../assets/images/IMAGE (14).png";
 import CASINO_IMG_2 from "../../assets/images/IMAGE (15).png";
 import CASINO_IMG_3 from "../../assets/images/IMAGE (16).png";
@@ -123,16 +128,17 @@ export const SECTIONS = [
         isOpenedDropdown: false,
         sidebarUrl: "/nft",
         dropdownOptions: [
-          { icon: NFT_LOANS, text: "NFT Loans", sidebarUrl: "/nft-loans" },
+          { icon: NFT_IMG, text: "My NFTs", sidebarUrl: "/nft/portfolio" },
+          { icon: NFT_LOANS, text: "NFT Loans", sidebarUrl: "/nft/loans" },
           {
             icon: MARKETPLACE,
             text: "Marketplace",
-            sidebarUrl: "/marketplace",
+            sidebarUrl: "/nft/marketplace",
           },
           {
             icon: NFT_LOOTBOXES,
             text: "NFT Lootboxes",
-            sidebarUrl: "/nft-lootboxes",
+            sidebarUrl: "/nft/lootboxes/play",
           },
           {
             icon: SETTINGS_TOOL,
@@ -714,5 +720,129 @@ export const ACCOUNT_DROPDOWN_OPTIONS = [
     route: "/settings",
     icon: GEAR,
     altText: "gear",
+  },
+];
+
+export const NFTS_DATA = [
+  {
+    imageSrc: NFT_IMG_1,
+    title: "Golden Grizzly",
+    subTitle: "AKbots",
+    amount: "$5.88K",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 4.1,
+    hasPercentageText: true,
+  },
+  {
+    imageSrc: NFT_IMG_2,
+    title: "Golden Grizzly",
+    subTitle: "AKbots",
+    amount: "$5.88K",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 8.9,
+    hasPercentageText: false,
+  },
+  {
+    imageSrc: NFT_IMG_2,
+    title: "Golden Grizzly",
+    subTitle: "Sports AKbots",
+    amount: "$9.88K",
+    buttonText: "OPEN FOR $35.6",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 9.7,
+    hasPercentageText: true,
+  },
+  {
+    imageSrc: NFT_IMG_3,
+    title: "Bored Ape Yacht Club #4848",
+    subTitle: "Bored Ape Yacht Club",
+    amount: "$490",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 3.8,
+    hasPercentageText: false,
+  },
+  {
+    imageSrc: NFT_IMG_4,
+    title: "POLITICS IS BULLSHIT #34",
+    subTitle: "AKbots",
+    amount: "$700K",
+    buttonText: "OPEN FOR $99",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 8.9,
+    hasPercentageText: true,
+  },
+  {
+    imageSrc: NFT_IMG_2,
+    title: "Golden Grizzly",
+    subTitle: "Sports AKbots",
+    amount: "$9.88K",
+    buttonText: "OPEN FOR $35.6",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 3.66,
+    hasPercentageText: false,
+  },
+  {
+    imageSrc: NFT_IMG_3,
+    title: "Bored Ape Yacht Club #4848",
+    subTitle: "Bored Ape Yacht Club",
+    amount: "$490",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 9.4,
+    hasPercentageText: false,
+  },
+];
+
+export const BUTTONS_MY_BETS = [
+  { label: "All", url: "#" },
+  { label: "Open Bets", url: "#" },
+  { label: "Won", url: "#" },
+  { label: "Lost", url: "#" },
+  { label: "Cashed Out", url: "#" },
+  { label: "Canceled", url: "#" },
+  { label: "Refund", url: "#" },
+];
+
+export const BUTTONS_NFT_MAIN = [
+  { label: "Lobby", url: "/nft" },
+  { label: "AK bots V1", url: "/nft/lobby/rollbots" },
+  { label: "Sports AK bots", url: "/nft/lobby/sportsbots" },
+];
+
+export const BUTTONS_MY_NFTs = [
+  { label: "Portfolio", url: "/nft/portfolio" },
+  { label: "Loans", url: "/nft/my-loans" },
+  { label: "External", url: "/nft/external" },
+];
+
+export const BUTTONS_NFT_MARKETPLACE = [
+  { label: "For Sale", url: "/nft/marketplace" },
+  { label: "My Sales", url: "/nft/marketplace/my-sales" },
+  { label: "My Purchases", url: "/nft/marketplace/my-purchases" },
+  { label: "NFT Box", url: "/nft/marketplace/box" },
+];
+
+export const BUTTONS_NFT_LOOTBOXES = [
+  { label: "Play", url: "/nft/lootboxes/play" },
+  { label: "My Lootboxes", url: "/nft/lootboxes/manage" },
+];
+
+export const NFT_BANNER_OPTIONS = [
+  {
+    title: "LOAN YOUR NFTs FOR INSTANT USD,",
+    color: "rgb(114, 242, 56)",
+    buttonText: "Get Loans",
+    image: NFT_Banner,
+    url: "/nft/loans",
+  },
+  {
+    title: "STAKE NFTS AND CASH FOR A CHANCE TO WIN THE JACKPOT!",
+    color: "rgb(255, 232, 26)",
+    buttonText: "Play Jackpot",
+    image: NFT_Banner,
+    url: "/jackpot",
   },
 ];

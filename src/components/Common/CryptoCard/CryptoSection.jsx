@@ -1,7 +1,7 @@
 import React from "react";
 import CryptoCard from "./CryptoCard";
 
-import CRYPTO from "../../../assets/images/Frame (12).svg";
+import { ReactComponent as CRYPTO } from "../../../assets/images/Frame (12).svg";
 
 import CRYPTO_IMG_1 from "../../../assets/images/IMAGE (21).png";
 import CRYPTO_IMG_2 from "../../../assets/images/IMAGE (22).png";

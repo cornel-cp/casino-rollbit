@@ -6,7 +6,7 @@ import FilterButtonGroup from "../Buttons/FilterButtonGroup";
 import WinnerCard from "./WinnerCard";
 import { LiveWinsSectionStyled, StyledCardsContainer } from "./styles";
 
-const LiveWinsSection = () => {
+const LiveWinsSection = ({ icon: Icon, title, hasFilters }) => {
   const timeFilterOptions = ["Live", "Month", "Week", "Day"];
 
   const [activeOption, setActiveOption] = useState(timeFilterOptions[0]);
@@ -21,14 +21,21 @@ const LiveWinsSection = () => {
     <>
       <LiveWinsSectionStyled>
         <div className="dot-section">
-          <img src={DOT} alt="dot" className="dot-icon" />
-          <span className="live-wins-text">LIVE WINS</span>
+          {hasFilters ? (
+            <img src={DOT} alt="dot" className="dot-icon" />
+          ) : (
+            <Icon />
+          )}
+          {/* {icon && <img src={DOT} alt="dot" className="dot-icon" />} */}
+          {title && <span className="live-wins-text uppercase">{title}</span>}
         </div>
 
-        <FilterButtonGroup
-          options={timeFilterOptions}
-          onOptionChange={handleOptionChange} // Pass the callback for option change
-        />
+        {hasFilters && (
+          <FilterButtonGroup
+            options={timeFilterOptions}
+            onOptionChange={handleOptionChange} // Pass the callback for option change
+          />
+        )}
       </LiveWinsSectionStyled>
 
       <StyledCardsContainer>

@@ -8,8 +8,24 @@ import CasinoSection from "../../Common/CasinoSection/CasinoSection";
 import CryptoSection from "../../Common/CryptoCard/CryptoSection";
 import NTFSection from "../../Common/NFTCard/NFTSection";
 import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
-import StepsSection from "./StepsSection";
 import TableView from "./TableView";
+import StepsSection from "../../Common/StepSection/StepsSection";
+import NewTableView from "./NewTableView";
+
+const steps = [
+  {
+    number: "01",
+    text: "Register Account",
+  },
+  {
+    number: "02",
+    text: "Make a Deposit and Play",
+  },
+  {
+    number: "03",
+    text: "Receive Rewards",
+  },
+];
 
 const MainHome = ({ update }) => {
   return (
@@ -18,11 +34,11 @@ const MainHome = ({ update }) => {
 
       {/* Homepage main image area */}
 
-      <StepsSection />
+      <StepsSection steps={steps} />
 
       {/* image area frame main */}
 
-      <LiveWinsSection />
+      <LiveWinsSection title="Live wins" hasFilters={true} />
 
       {/* casino view */}
 
@@ -42,10 +58,10 @@ const MainHome = ({ update }) => {
 
       {/* NFT LOOT BOXES */}
 
-      <NTFSection />
+      <NTFSection title="NFT Lootboxes" buttonText="View All" />
 
       {/* table view */}
-      <TableView />
+      <NewTableView />
     </>
   );
 };

@@ -1,29 +1,27 @@
 import React from "react";
 
-import { DATA_CONTENT } from "../../../assets/MockData/mockData";
-import ImagesSection from "../../Common/ImagesSection/ImagesSection";
 import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
-import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
 import { StyledPageContainer } from "../Casino/styles";
+import NFTSection from "../../Common/NFTSection/NFTSection";
+import NFTNavigationHeader from "./NFTNavigationHeader";
+import {
+  BUTTONS_NFT_LOOTBOXES,
+  BUTTONS_NFT_MARKETPLACE,
+} from "../../../assets/MockData/mockData";
+import PageTitle from "../../Common/PageTitle/PageTitle";
+import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
 
 const NFTLootboxes = () => {
-  const category = "Casino";
-  const subcategory = "AK_ORIGINALS";
-
   return (
     <StyledPageContainer>
-      <LiveWinsSection />
+      <PageTitle icon={MARKETPLACE} title="Nft Lootboxes" />
 
-      <NavigationHeader />
+      <NFTNavigationHeader buttons={BUTTONS_NFT_LOOTBOXES} />
       <div className="content-container">
         <SearchAndFilters />
 
-        <ImagesSection
-          category={category}
-          subcategory={subcategory}
-          images={DATA_CONTENT}
-        />
+        <NFTSection isLootbox={true} />
       </div>
     </StyledPageContainer>
   );

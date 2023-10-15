@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledWinnerCard = styled.div`
-  padding: 20px 0;
+  padding-top: 20px;
   flex-shrink: 0;
   border-radius: 8px;
   transition: transform 0.3s ease;

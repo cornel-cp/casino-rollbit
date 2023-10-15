@@ -16,11 +16,10 @@ export const StyledAccountDropdown = styled.div`
     margin: 10px 15px;
     width: 170px;
     padding: 10px 17px;
-    flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     border-radius: 8px;
-    text-decoration: none;
     background: rgba(203, 215, 255, 0.03);
+    color: rgb(255, 255, 255);
 
     &:hover {
       color: rgb(255, 255, 255);

@@ -3,16 +3,16 @@ import { Link } from "react-router-dom";
 
 // assest
 
-import STEAM from "../../../assets/images/Frame (22).svg";
-import TWITCH from "../../../assets/images/Frame (23).svg";
-import USER_COLORED from "../../../assets/images/Frame (44).svg";
-import FLOW from "../../../assets/images/Frame (49).svg";
-import BUGER from "../../../assets/images/Frame (50).svg";
-import GEAR from "../../../assets/images/Frame (51).svg";
-import OUT from "../../../assets/images/Frame (52).svg";
-import MONEY from "../../../assets/images/Frame (53).svg";
-import INFO from "../../../assets/images/Frame (54).svg";
-import USER from "../../../assets/images/Frame (58).svg";
+import { ReactComponent as STEAM } from "../../../assets/images/Frame (22).svg";
+import { ReactComponent as TWITCH } from "../../../assets/images/Frame (23).svg";
+import { ReactComponent as USER_COLORED } from "../../../assets/images/Frame (44).svg";
+import { ReactComponent as FLOW } from "../../../assets/images/Frame (49).svg";
+import { ReactComponent as BUGER } from "../../../assets/images/Frame (50).svg";
+import { ReactComponent as GEAR } from "../../../assets/images/Frame (51).svg";
+import { ReactComponent as OUT } from "../../../assets/images/Frame (52).svg";
+import { ReactComponent as MONEY } from "../../../assets/images/Frame (53).svg";
+import { ReactComponent as INFO } from "../../../assets/images/Frame (54).svg";
+import { ReactComponent as USER } from "../../../assets/images/Frame (58).svg";
 
 const Profile = () => {
   return (
@@ -34,10 +34,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={USER_COLORED}
-                alt="user"
-                style={{ width: "19px", height: "19px" }}
+              <USER_COLORED
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -70,10 +68,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={MONEY}
-                alt="money"
-                style={{ width: "19px", height: "19px" }}
+              <MONEY
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -106,10 +102,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={FLOW}
-                alt="flow"
-                style={{ width: "19px", height: "19px" }}
+              <FLOW
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -142,10 +136,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={BUGER}
-                alt="burger"
-                style={{ width: "19px", height: "19px" }}
+              <BUGER
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -178,10 +170,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={BUGER}
-                alt="burger"
-                style={{ width: "19px", height: "19px" }}
+              <BUGER
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -214,10 +204,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={GEAR}
-                alt="gear"
-                style={{ width: "19px", height: "19px" }}
+              <GEAR
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -250,10 +238,8 @@ const Profile = () => {
             }}
           >
             <p style={{ display: "flex" }}>
-              <img
-                src={OUT}
-                alt="out"
-                style={{ width: "19px", height: "19px" }}
+              <OUT
+                style={{ width: "19px", height: "19px", color: "#b1b6c6" }}
               />{" "}
               <span
                 style={{
@@ -277,10 +263,13 @@ const Profile = () => {
       <div>
         <div style={{ margin: "35px 2pc" }}>
           <div style={{ display: "flex", gap: "12px" }}>
-            <img
-              src={USER}
-              alt="money"
-              style={{ width: "18px", height: "18px", marginTop: "5px" }}
+            <USER
+              style={{
+                width: "18px",
+                height: "18px",
+                marginTop: "5px",
+                color: "#b1b6c6",
+              }}
             />
             <p
               style={{
@@ -434,10 +423,13 @@ const Profile = () => {
                 >
                   Private Profile
                 </p>
-                <img
-                  src={INFO}
-                  alt="info"
-                  style={{ width: "15px", height: "15px", margin: "3px 9.4pc" }}
+                <INFO
+                  style={{
+                    width: "15px",
+                    height: "15px",
+                    margin: "3px 9.4pc",
+                    color: "#b1b6c6",
+                  }}
                 />
               </div>
 
@@ -475,10 +467,12 @@ const Profile = () => {
                       background: "#1F2330",
                     }}
                   >
-                    <img
-                      src={STEAM}
-                      alt="join"
-                      style={{ width: "20px", height: "20px" }}
+                    <STEAM
+                      style={{
+                        width: "20px",
+                        height: "20px",
+                        color: "#b1b6c6",
+                      }}
                     />
                     <p
                       style={{
@@ -507,10 +501,12 @@ const Profile = () => {
                       background: "#1F2330",
                     }}
                   >
-                    <img
-                      src={TWITCH}
-                      alt="join"
-                      style={{ width: "19px", height: "20px" }}
+                    <TWITCH
+                      style={{
+                        width: "19px",
+                        height: "20px",
+                        color: "#b1b6c6",
+                      }}
                     />
                     <p
                       style={{

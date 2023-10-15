@@ -9,6 +9,7 @@ export const StyledBanner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 24px;
 
   .main-content {
     display: flex;

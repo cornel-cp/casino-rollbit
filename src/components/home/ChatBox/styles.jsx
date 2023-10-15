@@ -11,6 +11,10 @@ export const StyledChatBoxContainer = styled.div`
   top: 64px;
   background: #1f2330;
 
+  svg {
+    color: #b1b6c6;
+  }
+
   .top-actions-container {
     display: flex;
     flex-direction: row;

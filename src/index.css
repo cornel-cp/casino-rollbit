@@ -28,3 +28,7 @@ html::-webkit-scrollbar-thumb {
   border-radius: 6px;
   background: rgba(203, 215, 255, 0.08);
 }
+
+.uppercase {
+  text-transform: uppercase;
+}

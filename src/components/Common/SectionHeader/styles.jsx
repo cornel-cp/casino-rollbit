@@ -5,15 +5,15 @@ export const StyledSectionHeader = styled.div`
   justify-content: space-between;
   margin-top: 36px;
 
+  svg {
+    color: #fff;
+  }
+
   .icon-group {
     display: flex;
     align-items: center;
     gap: 8px;
-  }
-
-  .icon-header {
-    width: 13px;
-    height: 13px;
+    cursor: pointer;
   }
 
   .casino-text {
@@ -30,6 +30,10 @@ export const StyledSectionHeader = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 16.8px;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .recommended-button {

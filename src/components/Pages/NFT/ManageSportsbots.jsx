@@ -1,29 +1,27 @@
 import React from "react";
 
-import { DATA_CONTENT } from "../../../assets/MockData/mockData";
-import ImagesSection from "../../Common/ImagesSection/ImagesSection";
 import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
-import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
 import { StyledPageContainer } from "../Casino/styles";
+import NFTSection from "../../Common/NFTSection/NFTSection";
+import NFTNavigationHeader from "./NFTNavigationHeader";
+import NFTBanner from "../../Common/NFTBanner/NFTBanner";
+import {
+  BUTTONS_NFT_MAIN,
+  NFT_BANNER_OPTIONS,
+} from "../../../assets/MockData/mockData";
 
 const ManageSportsbots = () => {
-  const category = "Casino";
-  const subcategory = "AK_ORIGINALS";
-
   return (
     <StyledPageContainer>
-      <LiveWinsSection />
+      <NFTBanner bannerOptions={NFT_BANNER_OPTIONS} />
 
-      <NavigationHeader />
+      <NFTNavigationHeader buttons={BUTTONS_NFT_MAIN} />
+
       <div className="content-container">
         <SearchAndFilters />
 
-        <ImagesSection
-          category={category}
-          subcategory={subcategory}
-          images={DATA_CONTENT}
-        />
+        <NFTSection isLootbox={false} />
       </div>
     </StyledPageContainer>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import BONUS from "../../../assets/images/Frame (27).svg";
+import { ReactComponent as BONUS } from "../../../assets/images/Frame (27).svg";
 import BOUNUS1 from "../../../assets/images/IMAGE (29).png";
 import BOUNUS2 from "../../../assets/images/IMAGE (30).png";
 import BOUNUS3 from "../../../assets/images/IMAGE (31).png";

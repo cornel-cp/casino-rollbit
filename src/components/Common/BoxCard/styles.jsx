@@ -14,7 +14,7 @@ const Boxes = styled.div`
 `;
 
 export const StyledBoxCard = styled(Boxes)`
-  padding: 20px 0;
+  padding-top: 20px;
 
   .box-wrapper {
     border-radius: 8px;

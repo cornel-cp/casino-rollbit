@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
 import { ACCOUNT_DROPDOWN_OPTIONS } from "../../../assets/MockData/mockData";
-import OUT from "../../../assets/modelImages/Frame (12).svg";
+import { ReactComponent as OUT } from "../../../assets/modelImages/Frame (12).svg";
 import { StyledAccountDropdown } from "./styles";
 
 const AccountDropdown = ({ userName }) => {
@@ -22,7 +22,7 @@ const AccountDropdown = ({ userName }) => {
           key={index}
           onClick={() => toggleDropdown("")}
         >
-          <img src={option.icon} alt={option.altText} />
+          <option.icon />
           <span>{option.label}</span>
         </Link>
       ))}
@@ -35,7 +35,7 @@ const AccountDropdown = ({ userName }) => {
           toggleDropdown("");
         }}
       >
-        <img src={OUT} alt="out" />
+        <OUT />
         <span>Log Out</span>
       </Link>
     </StyledAccountDropdown>

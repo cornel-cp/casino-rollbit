@@ -1,10 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
 
 //assets
-import IMG1 from "../../../assets/images/Frame (28).svg";
-import IMG3 from "../../../assets/images/IMAGE (12).png";
-import IMG2 from "../../../assets/images/IMAGE (32).png";
+import { ReactComponent as IMG1 } from "../../../assets/images/Frame (28).svg";
 import SectionHeader from "../../Common/SectionHeader/SectionHeader";
+import GameInfoItem from "../../Common/TableView/GameInfoItem";
+
+const gameInfoData = [
+  {
+    name: "Temple Tumble",
+    player: "Yaddle77",
+    time: "10",
+    bet: "2.00",
+    multiplier: "0.00",
+    payout: "0.00",
+  },
+];
 
 const TableView = () => {
   const filterOptions = ["All Bets", "High Rollers", "Lucky Bets", "Trades"];
@@ -15,7 +25,7 @@ const TableView = () => {
     setActiveOption(option);
   };
 
-  const data = new Array(12).fill(null);
+  const data = new Array(12).fill(gameInfoData[0]);
 
   const tableContainerRef = useRef(null);
   const scrollSpeed = 1;
@@ -24,14 +34,11 @@ const TableView = () => {
     const container = tableContainerRef.current;
 
     const scroll = () => {
-      container.scrollTop += scrollSpeed;
+      container.scrollTop -= scrollSpeed;
 
-      // Reset scroll to the top when it reaches the bottom
-      if (
-        container.scrollTop >=
-        container.scrollHeight - container.clientHeight
-      ) {
-        container.scrollTop = 0;
+      // Reset scroll to the bottom when it reaches the top
+      if (container.scrollTop <= 0) {
+        container.scrollTop = container.scrollHeight;
       }
 
       requestAnimationFrame(scroll);
@@ -100,128 +107,8 @@ const TableView = () => {
             ref={tableContainerRef}
             style={{ height: "100%", overflowY: "hidden" }}
           >
-            {data.map((_, index) => (
-              <React.Fragment key={index}>
-                <div
-                  key={index}
-                  style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    background: "rgba(203, 215, 255, 0.03)",
-                    padding: "10px 22px",
-                    borderRadius: "8px",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "7px",
-                    }}
-                  >
-                    <img
-                      src={IMG2}
-                      alt="logo"
-                      style={{ width: "27px", height: "27px" }}
-                    />
-                    <p
-                      style={{
-                        width: "99px",
-                        color: "#fff",
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: "400",
-                        lineHeight: "16.8px",
-                      }}
-                    >
-                      Temple Tumble
-                    </p>
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: "8px",
-                        marginLeft: "170px",
-                      }}
-                    >
-                      <img
-                        src={IMG3}
-                        alt="logo"
-                        style={{ width: "17px", height: "18px" }}
-                      />
-                      <p
-                        style={{
-                          width: "61px",
-                          color: "#fff",
-                          fontSize: "14px",
-                          fontStyle: "normal",
-                          fontWeight: "400",
-                          lineHeight: "16.8px",
-                        }}
-                      >
-                        Yaddle77
-                      </p>
-                      <div style={{ display: "flex", gap: "12px" }}>
-                        <p
-                          style={{
-                            width: "61px",
-                            color: "#fff",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: "400",
-                            lineHeight: "16.8px",
-                            marginLeft: "262px",
-                          }}
-                        >
-                          10s
-                        </p>
-                        <p
-                          style={{
-                            width: "37px",
-                            color: "#fff",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: "400",
-                            lineHeight: "16.8px",
-                            marginLeft: "30px",
-                          }}
-                        >
-                          $2.00
-                        </p>
-                        <p
-                          style={{
-                            width: "37px",
-                            color: "#fff",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: "400",
-                            lineHeight: "16.8px",
-                            marginLeft: "60px",
-                          }}
-                        >
-                          0.00x
-                        </p>
-                        <p
-                          style={{
-                            width: "37px",
-                            color: "#fff",
-                            fontSize: "14px",
-                            fontStyle: "normal",
-                            fontWeight: "400",
-                            lineHeight: "16.8px",
-                            marginLeft: "80px",
-                          }}
-                        >
-                          $0.00
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {index !== data.length - 1 && (
-                  <div style={{ height: "16px" }} />
-                )}
-              </React.Fragment>
+            {data.map((gameInfo, index) => (
+              <GameInfoItem key={index} gameInfo={gameInfo} index={index} />
             ))}
           </div>
         </div>

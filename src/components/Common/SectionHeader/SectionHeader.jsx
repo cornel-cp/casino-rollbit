@@ -5,7 +5,7 @@ import FilterButtonGroup from "../Buttons/FilterButtonGroup";
 import { StyledSectionHeader } from "./styles";
 
 const SectionHeader = ({
-  iconHeader,
+  iconHeader: Icon,
   sideButton,
   casinoText,
   hasRecommended,
@@ -15,11 +15,12 @@ const SectionHeader = ({
   filterOptions,
   scrollLeft,
   scrollRight,
+  style,
 }) => {
   return (
-    <StyledSectionHeader>
+    <StyledSectionHeader style={style}>
       <div className="icon-group">
-        <img src={iconHeader} alt="casino" className="icon-header" />
+        {Icon && <Icon className="icon-header" />}
         <span className="casino-text">{casinoText}</span>
         {sideButton && <span className="view-all-text">{sideButton}</span>}
       </div>

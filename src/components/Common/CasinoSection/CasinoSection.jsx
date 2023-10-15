@@ -1,7 +1,7 @@
 import React from "react";
 import SectionHeader from "../SectionHeader/SectionHeader";
 
-import CASINO from "../../../assets/images/Frame (9).svg";
+import { ReactComponent as CASINO } from "../../../assets/images/Frame (9).svg";
 import CASINO_IMG_1 from "../../../assets/images/IMAGE (14).png";
 import CASINO_IMG_2 from "../../../assets/images/IMAGE (15).png";
 import CASINO_IMG_3 from "../../../assets/images/IMAGE (16).png";

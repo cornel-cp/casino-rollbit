@@ -6,7 +6,7 @@ export const StyledNavigationHeader = styled.div`
   align-items: center;
   column-gap: 6px;
   max-width: 100%;
-  margin-bottom: 24px;
+  margin-block: 24px;
 
   .active {
     color: rgb(255, 255, 193);

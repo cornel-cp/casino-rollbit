@@ -1,32 +1,54 @@
-import React, { useState } from "react";
-import Login from "../../LoginAndRgister/Login";
+import React, { useEffect, useState } from "react";
 import Register from "../../LoginAndRgister/Register";
 
 //model images
 import Image from "../../../assets/images/IMAGE.jpg";
 import LOGO1 from "../../../assets/images/LOGO.png";
 import CROSS from "../../../assets/images/icons8-cross-100.png";
+import Login from "../../LoginAndRgister/Login";
 import { StyledRegisterModal } from "./StyledRegisterModal";
 
-const RegisterModal = ({ buttonText }) => {
-  const [showM, setshowM] = useState(false);
-  const [navigateAcc, setnavigateAcc] = useState(true);
+const RegisterModal = ({ buttonText, modalOption }) => {
+  const [showModal, setShowModal] = useState(false);
+  const [openedModal, setOpenedModal] = useState(modalOption);
 
-  const openRegisterModal = () => {
-    setshowM(true);
-    setnavigateAcc(false);
+  const openRegisterModal = (option) => {
+    setShowModal(true);
+    setOpenedModal(option);
   };
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.height = "100vh";
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.height = "";
+      document.body.style.overflowY = "";
+    }
+  }, [showModal]);
 
   return (
     <StyledRegisterModal>
-      <button onClick={() => openRegisterModal()} className="register-button">
-        {buttonText}
-      </button>
+      {modalOption === "login" ? (
+        <button
+          onClick={() => openRegisterModal("login")}
+          className="text-white w-11 text-sm font-normal leading-5 tracking-wider mr-5 uppercase"
+        >
+          {buttonText ?? modalOption}
+        </button>
+      ) : (
+        <button
+          onClick={() => openRegisterModal("register")}
+          className="register-button uppercase"
+        >
+          {buttonText ?? modalOption}
+        </button>
+      )}
 
-      {showM && (
+      {showModal && (
         <>
           <div
-            onClick={() => setshowM(false)}
+            onClick={() => setShowModal(false)}
             style={{
               position: "fixed",
               top: "0",
@@ -46,22 +68,23 @@ const RegisterModal = ({ buttonText }) => {
               left: "50%",
               transform: "translate(-50%, -50%)",
               backgroundColor: "#1A1D29",
-              height: "41.5pc",
+              height: "auto",
               width: "55pc",
               borderRadius: "10px",
             }}
           >
-            <div>
-              <div style={{ marginTop: "24px", marginLeft: "24px" }}>
+            <div style={{ padding: "24px" }}>
+              <div style={{ marginBottom: "24px" }}>
                 <div
-                  onClick={() => setnavigateAcc(true)}
+                  onClick={() => setOpenedModal("login")}
                   style={{
                     marginRight: "15px",
                     cursor: "pointer",
                     borderRadius: "8px",
-                    background: navigateAcc
-                      ? "rgba(203, 215, 255, 0.08)"
-                      : "rgba(203, 215, 255, 0.03)",
+                    background:
+                      openedModal === "login"
+                        ? "rgba(203, 215, 255, 0.08)"
+                        : "rgba(203, 215, 255, 0.03)",
                     display: "inline-flex",
                     alignItems: "flex-start",
                     gap: "10px",
@@ -70,7 +93,7 @@ const RegisterModal = ({ buttonText }) => {
                   <span
                     style={{
                       fontSize: "13px",
-                      color: navigateAcc ? "#FFFFC1" : "#B1B6C6",
+                      color: openedModal === "login" ? "#FFFFC1" : "#B1B6C6",
                       cursor: "pointer",
                       padding: "11px 16px",
                       fontWeight: "bolder",
@@ -80,12 +103,13 @@ const RegisterModal = ({ buttonText }) => {
                   </span>
                 </div>
                 <div
-                  onClick={() => setnavigateAcc(false)}
+                  onClick={() => setOpenedModal("register")}
                   style={{
                     borderRadius: "8px",
-                    background: navigateAcc
-                      ? "rgba(203, 215, 255, 0.03)"
-                      : "rgba(203, 215, 255, 0.08)",
+                    background:
+                      openedModal === "login"
+                        ? "rgba(203, 215, 255, 0.03)"
+                        : "rgba(203, 215, 255, 0.08)",
                     display: "inline-flex",
                     alignItems: "flex-start",
                     gap: "10px",
@@ -94,7 +118,7 @@ const RegisterModal = ({ buttonText }) => {
                   <span
                     style={{
                       fontSize: "13px",
-                      color: navigateAcc ? "#B1B6C6" : "#FFFFC1",
+                      color: openedModal === "login" ? "#B1B6C6" : "#FFFFC1",
                       cursor: "pointer",
                       padding: "11px 16px",
                       fontWeight: "bolder",
@@ -104,7 +128,7 @@ const RegisterModal = ({ buttonText }) => {
                   </span>
                 </div>
               </div>
-              {navigateAcc ? <Login navigateAcc={navigateAcc} /> : <Register />}
+              {openedModal === "login" ? <Login /> : <Register />}
             </div>
 
             <div style={{}}>
@@ -114,7 +138,7 @@ const RegisterModal = ({ buttonText }) => {
                 alt="profile"
               />
               <img
-                onClick={() => setshowM(false)}
+                onClick={() => setShowModal(false)}
                 src={CROSS}
                 alt="cross"
                 style={{
@@ -128,7 +152,7 @@ const RegisterModal = ({ buttonText }) => {
               />
               <img
                 style={{
-                  height: "41.5pc",
+                  height: "100%",
                   width: "26.7pc",
                   borderTopRightRadius: "11px",
                   borderBottomRightRadius: "11px",

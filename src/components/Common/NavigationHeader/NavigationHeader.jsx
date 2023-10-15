@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
 import { ReactComponent as AK_ORIGINALS } from "../../../assets/images/AK Originals.svg";
@@ -9,7 +9,7 @@ import { ReactComponent as LIVE_CASINO } from "../../../assets/images/Live Casin
 import { ReactComponent as WITH_SIDEBETS } from "../../../assets/images/WithSidebets.svg";
 import { StyledNavHeaderBtn, StyledNavigationHeader } from "./styles";
 
-const buttons = [
+const BUTTONS_CASINO = [
   { icon: <CASINO_IMG />, label: "Lobby", url: "/casino" },
   { icon: <AK_ORIGINALS />, label: "Rollbit", url: "/ak-originals" },
   { icon: <CASINO_IMG />, label: "Slots", url: "/slots" },
@@ -19,8 +19,21 @@ const buttons = [
   { icon: <BONUS_BATTLES />, label: "Battles", url: "/bonus-battles" },
 ];
 
-const NavigationHeader = () => {
+const BUTTONS_NFT = [
+  { label: "Lobby", url: "/casino" },
+  { label: "Rollbit", url: "/ak-originals" },
+  { label: "Slots", url: "/slots" },
+  { label: "Shows", url: "/game-shows" },
+  { label: "Live", url: "/live-casino" },
+  { label: "Sidebets", url: "/with-sidebets" },
+  { label: "Battles", url: "/bonus-battles" },
+];
+
+const NavigationHeader = ({ isNftPage }) => {
   const { selectedOption, updateSelectedOption } = useContext(AppContext);
+  const [buttons, setButtons] = useState(
+    isNftPage ? BUTTONS_NFT : BUTTONS_CASINO
+  );
 
   return (
     <StyledNavigationHeader>
@@ -33,13 +46,15 @@ const NavigationHeader = () => {
             <StyledNavHeaderBtn
               className={button.url === selectedOption ? "active" : ""}
             >
-              <div
-                className={`btn-icon ${
-                  button.url === selectedOption ? "active-icon" : ""
-                }`}
-              >
-                {button.icon}
-              </div>
+              {button.icon && (
+                <div
+                  className={`btn-icon ${
+                    button.url === selectedOption ? "active-icon" : ""
+                  }`}
+                >
+                  {button.icon}
+                </div>
+              )}
               {button.label}
             </StyledNavHeaderBtn>
           </Link>

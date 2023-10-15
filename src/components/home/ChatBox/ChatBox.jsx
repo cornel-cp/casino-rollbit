@@ -1,12 +1,12 @@
 //assets
 import { Link } from "react-router-dom";
-import MSG from "../../../assets/images/Frame (31).svg";
-import SWITCH from "../../../assets/images/Frame (32).svg";
-import ARROW_DOWN from "../../../assets/images/Frame (33).svg";
-import COLLAPSE from "../../../assets/images/Frame (34).svg";
-import CROSS from "../../../assets/images/Frame (35).svg";
-import SETTINGS from "../../../assets/images/Frame (36).svg";
-import SUPPORT from "../../../assets/images/Frame (65).svg";
+import { ReactComponent as MSG } from "../../../assets/images/Frame (31).svg";
+import { ReactComponent as SWITCH } from "../../../assets/images/Frame (32).svg";
+import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Frame (33).svg";
+import { ReactComponent as COLLAPSE } from "../../../assets/images/Frame (34).svg";
+import { ReactComponent as CROSS } from "../../../assets/images/Frame (35).svg";
+import { ReactComponent as SETTINGS } from "../../../assets/images/Frame (36).svg";
+import { ReactComponent as SUPPORT } from "../../../assets/images/Frame (65).svg";
 import EMOJI from "../../../assets/images/IMAGE (43).png";
 import {
   ChatContainer,
@@ -25,19 +25,17 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
           <div className="top-actions-container">
             <div className="chat-trades">
               <ChatContainer>
-                <img src={MSG} alt="Chat" />
+                <MSG />
                 <p>Chat</p>
               </ChatContainer>
-              <img src={SWITCH} alt="switch" className="switch-icon" />
+              <SWITCH className="switch-icon" />
               <p className="trades-text">Trades</p>
-              <img src={ARROW_DOWN} alt="arrow" className="arrow-icon" />
+              <ARROW_DOWN className="arrow-icon" />
             </div>
             <SwitchContainer>
               <div className="container-buttons">
-                <img src={COLLAPSE} alt="collapse" className="collapse-icon" />
-                <img
-                  src={CROSS}
-                  alt="cross"
+                <COLLAPSE className="collapse-icon" />
+                <CROSS
                   className="cross-icon"
                   onClick={() => setIsChatBox(false)}
                 />
@@ -52,7 +50,7 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
           <StyledIconSection>
             <div className="icons">
               <img src={EMOJI} alt="emoji" className="emoji" />
-              <img src={SETTINGS} alt="settings" className="settings" />
+              <SETTINGS className="settings" />
               <p>Rules</p>
             </div>
 
@@ -77,7 +75,7 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
                 zIndex: 300,
               }}
             >
-              <img src={SUPPORT} alt="support" />
+              <SUPPORT />
             </div>
           </Link>
         </StyledChatBoxContainer>
@@ -94,7 +92,7 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
               cursor: "pointer",
             }}
           >
-            <img src={SUPPORT} alt="support" />
+            <SUPPORT />
           </div>
         </Link>
       )}

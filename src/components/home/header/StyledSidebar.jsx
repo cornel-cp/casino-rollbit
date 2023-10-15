@@ -60,7 +60,7 @@ export const StyledOpenedSidebar = styled.div`
     height: 40px;
     min-height: 40px;
     border-radius: 8px;
-    color: rgb(255, 255, 255);
+    color: #b1b6c6;
     transition: all 0.1s ease 0s;
     padding-right: 6px;
     font-weight: 500;
@@ -163,6 +163,32 @@ export const StyledClosedSidebar = styled.div`
   align-items: center;
   background: #1f2330;
   width: 55px;
-  gap: 5px;
   position: fixed;
+
+  .link {
+    position: relative;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 55px;
+    height: 40px;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background: rgba(203, 215, 255, 0.03);
+    }
+  }
+
+  .activated {
+    filter: drop-shadow(rgb(255, 93, 0) 0px 0px 6px);
+    color: rgb(255, 255, 193);
+    text-shadow: rgb(255, 93, 0) 0px 0px 8px;
+  }
+
+  svg {
+    color: #b1b6c6;
+  }
 `;

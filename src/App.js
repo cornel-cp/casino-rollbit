@@ -25,7 +25,7 @@ import ManageSportsbots from "./components/Pages/NFT/ManageSportsbots";
 import Marketplace from "./components/Pages/NFT/Marketplace";
 import NFTLoans from "./components/Pages/NFT/NFTLoans";
 import NFTLootboxes from "./components/Pages/NFT/NFTLootboxes";
-import MyBets from "./components/Pages/Sports/MyBets";
+import MyBets from "./components/Pages/Sports/MyBets/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
 import SportsHeader from "./components/Pages/Sports/SportsHeader/SportsHeader";
 import ProtectedRoute from "./components/Router/ProtectedRoute";
@@ -41,6 +41,35 @@ import SideBar from "./components/home/header/SideBar";
 import Profile from "./components/home/profile/Profile";
 import Referals from "./components/home/referals/Referals";
 import Setting from "./components/home/setting/Setting";
+import NFTMainPage from "./components/Pages/NFT/NFTMainPage";
+import MyNFTs from "./components/Pages/NFT/MyNfts";
+import NFTExternal from "./components/Pages/NFT/NFTExternal";
+import NFTMyLoans from "./components/Pages/NFT/NFTMyLoans";
+import NFTMyLootboxes from "./components/Pages/NFT/NFTMyLootboxes";
+import NFTMySales from "./components/Pages/NFT/NFTMySales";
+import NFTMyPurchases from "./components/Pages/NFT/NFTMyPurchases";
+import NFTBox from "./components/Pages/NFT/NFTBox";
+import NFTDetails from "./components/Common/NFTDetails/NFTDetails";
+
+const routesConfig = [
+  { path: "/sports", component: Sports },
+  { path: "/my-bets", component: MyBets },
+  { path: "/nft/marketplace", component: Marketplace },
+  { path: "/nft/marketplace/my-sales", component: NFTMySales },
+  { path: "/nft/marketplace/my-purchases", component: NFTMyPurchases },
+  { path: "/nft/marketplace/box", component: NFTBox },
+  { path: "/nft/portfolio", component: MyNFTs },
+  { path: "/nft/my-loans", component: NFTMyLoans },
+  { path: "/nft/external", component: NFTExternal },
+  { path: "/nft/lobby/rollbots", component: ManageRollbots },
+  { path: "/nft/lobby/sportsbots", component: ManageSportsbots },
+  { path: "/manage-akbots", component: ManageRollbots },
+  { path: "/manage-sportsbots", component: ManageSportsbots },
+  { path: "/nft/lootboxes/play", component: NFTLootboxes },
+  { path: "/nft/lootboxes/manage", component: NFTMyLootboxes },
+  { path: "/nft/details", component: NFTDetails },
+  // Add more routes as needed
+];
 
 function App() {
   const { isSidebarOpen, isChatBoxOpen, selectedOption } =
@@ -56,11 +85,12 @@ function App() {
 
       <PageLayout isSidebarOpen={isSidebarOpen} isChatBoxOpen={isChatBoxOpen}>
         {isSportsRoute || isMyBetsRoute ? <SportsHeader /> : null}
-        {isSportsRoute || isMyBetsRoute ? (
+        {routesConfig.some((route) => route.path === selectedOption) ? (
           <SportsContentLayout>
             <Routes>
-              <Route path="/sports" element={<Sports />} />
-              <Route path="/my-bets" element={<MyBets />} />
+              {routesConfig.map((route) => (
+                <Route path={route.path} element={<route.component />} />
+              ))}
             </Routes>
           </SportsContentLayout>
         ) : (
@@ -115,11 +145,9 @@ function App() {
               <Route path="/with-sidebets" element={<WithSidebets />} />
 
               {/* NFT */}
-              <Route path="/manage-rollbots" element={<ManageRollbots />} />
-              <Route path="/manage-sportsbots" element={<ManageSportsbots />} />
-              <Route path="/marketplace" element={<Marketplace />} />
-              <Route path="/nft-loans" element={<NFTLoans />} />
-              <Route path="/nft-lootboxes" element={<NFTLootboxes />} />
+              <Route path="/nft" element={<NFTMainPage />} />
+              <Route path="/nft/loans" element={<NFTLoans />} />
+              <Route path="/nft/details" element={<NFTDetails />} />
 
               {/* models */}
               {/* <Route path='/model' element={<WModel1 />} /> */}

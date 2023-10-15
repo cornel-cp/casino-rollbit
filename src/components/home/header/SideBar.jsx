@@ -117,6 +117,7 @@ const SideBar = () => {
                     {...option}
                     isActive={option.sidebarUrl === selectedOption}
                     sidebarUrl={option.sidebarUrl}
+                    isBiggerOption={true}
                   />
 
                   {option.isOpenedDropdown && option.dropdownOptions && (

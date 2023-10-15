@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { ReactComponent as SPORTS_IMG } from "../../../assets/images/Frame (10).svg";
 import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
 import { ReactComponent as FEATURES_IMG } from "../../../assets/images/Frame (12).svg";
@@ -11,30 +11,43 @@ import { ReactComponent as COLLAPSE_IMG } from "../../../assets/images/Frame (34
 import { ReactComponent as CASINO_IMG } from "../../../assets/images/Frame (9).svg";
 import { ReactComponent as JACKPOT_IMG } from "../../../assets/images/svg.svg";
 import { StyledClosedSidebar } from "./StyledSidebar";
+import { SECTIONS } from "../../../assets/MockData/mockData";
+import { Link } from "react-router-dom";
+import { AppContext } from "../../../AppContext";
 
 const SideBarClosed = ({ toggleSideBar }) => {
+  const [sections, setSections] = useState(SECTIONS);
+  const { selectedOption, isSidebarOpen, updateSelectedOption, updateSidebar } =
+    useContext(AppContext);
+
   return (
     <StyledClosedSidebar>
-      <COLLAPSE_IMG
-        onClick={() => toggleSideBar(true)}
-        style={{
-          cursor: "pointer",
-          width: "25px",
-          height: "25px",
-          marginTop: "15px",
-          marginBottom: "5px",
-        }}
-      />
-      <CASINO_IMG style={{ marginTop: "5px", cursor: "pointer" }} />
-      <SPORTS_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <NFT_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <FEATURES_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <PORTFOLIO_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <CLANS_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <LOTTERY_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <JACKPOT_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <VIDEO_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
-      <AWARD_IMG style={{ marginTop: "20px", cursor: "pointer" }} />
+      <div to={"#"} className="link">
+        <COLLAPSE_IMG
+          onClick={() => toggleSideBar(true)}
+          style={{
+            width: "25px",
+            height: "25px",
+          }}
+        />
+      </div>
+      {sections.map((section) =>
+        section.options.map((option, optionIndex) => (
+          <Link
+            to={option.sidebarUrl}
+            className="link"
+            onClick={() => updateSelectedOption(option.sidebarUrl)}
+          >
+            {option.icon && (
+              <option.icon
+                className={
+                  option.sidebarUrl === selectedOption ? "activated" : ""
+                }
+              />
+            )}
+          </Link>
+        ))
+      )}
     </StyledClosedSidebar>
   );
 };

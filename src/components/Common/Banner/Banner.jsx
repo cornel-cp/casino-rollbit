@@ -18,7 +18,7 @@ const Banner = () => {
           industry.
         </p>
 
-        <RegisterModal buttonText="REGISTER NOW" />
+        <RegisterModal buttonText="REGISTER NOW" modalOption="register" />
 
         <p className="or-join-with">Or join with</p>
 

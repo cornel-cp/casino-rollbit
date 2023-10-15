@@ -10,6 +10,10 @@ export const StyledSocialMediaButton = styled.button`
   background: rgba(31, 35, 48, 1);
   cursor: pointer;
 
+  svg {
+    color: #b1b6c6;
+  }
+
   .btn-text {
     color: #b1b6c6;
     text-align: center;

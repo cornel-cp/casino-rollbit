@@ -60,16 +60,11 @@ const NavBar = () => {
           </>
         )}
 
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           {!isLoggedIn && (
             <>
-              <button
-                onClick={() => updateLoggedIn(true)}
-                className="text-white w-11 text-sm font-normal leading-5 tracking-wider mr-5"
-              >
-                LOGIN
-              </button>
-              <RegisterModal buttonText="REGISTER" />
+              <RegisterModal modalOption="login" />
+              <RegisterModal modalOption="register" />
             </>
           )}
 

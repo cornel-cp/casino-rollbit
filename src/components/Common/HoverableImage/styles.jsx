@@ -30,6 +30,8 @@ export const StyledHoverableImage = styled.div`
   animation: 0.2s ease-out 0s 1 normal backwards running ${fadeAndSlideIn};
   ${generateAnimationDelayCSS(3, 0.02, 100)}
 
+  padding-top: 20px;
+
   .image-card {
     display: flex;
     width: 150px;

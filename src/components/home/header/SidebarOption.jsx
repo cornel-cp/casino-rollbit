@@ -16,6 +16,7 @@ const SidebarOption = ({
   isActive,
   onClick,
   sidebarUrl,
+  isBiggerOption = false,
 }) => {
   const handleDropdownClick = (e) => {
     e.preventDefault(); // Prevent the default behavior of the Link
@@ -32,11 +33,17 @@ const SidebarOption = ({
         onClick={onClick}
       >
         {Icon && (
-          <div className={`icon-img ${isActive ? "activated" : ""}`}>
+          <div
+            style={{ color: isBiggerOption ? "#fff" : "" }}
+            className={`icon-img ${isActive ? "activated" : ""}`}
+          >
             <Icon />
           </div>
         )}
-        <span className={`info-text ${isActive ? "activated" : ""}`}>
+        <span
+          style={{ color: isBiggerOption ? "#fff" : "" }}
+          className={`info-text ${isActive ? "activated" : ""}`}
+        >
           {text}
         </span>
         <div className="numbers-spacer">

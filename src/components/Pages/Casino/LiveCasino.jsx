@@ -13,9 +13,9 @@ const LiveCasino = () => {
 
   return (
     <StyledPageContainer>
-      <LiveWinsSection />
+      <LiveWinsSection title="Live wins" hasFilters={true} />
 
-      <NavigationHeader />
+      <NavigationHeader isNftPage={false} />
       <div className="content-container">
         <SearchAndFilters />
 
