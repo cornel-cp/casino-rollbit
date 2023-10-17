@@ -26,7 +26,6 @@ export const StyledSportSection = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
   grid-template-columns: ${({ numColumns, containerWidth }) => {
-    console.log("containerWidth", containerWidth);
     return numColumns ? `repeat(${numColumns}, 1fr); ` : "";
   }};
 

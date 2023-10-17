@@ -34,7 +34,6 @@ const Settings = () => {
     },
     validationSchema: emailValidationSchema,
     onSubmit: (values) => {
-      console.log("Email Form submitted with values:", values);
       displayToast("Email changed successfully.");
     },
   });
@@ -46,7 +45,6 @@ const Settings = () => {
     },
     validationSchema: passwordValidationSchema,
     onSubmit: (values) => {
-      console.log("Password Form submitted with values:", values);
       displayToast("Password changed successfully.");
     },
   });

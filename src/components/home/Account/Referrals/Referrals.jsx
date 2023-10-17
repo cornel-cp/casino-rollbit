@@ -23,16 +23,14 @@ const tabs = [
 const Referrals = () => {
   const { tab } = useParams();
 
-  console.log("tab", tab);
-
   // Depending on the selected tab, render the appropriate content
   const renderTabContent = () => {
     if (tab === "codes") {
-      console.log("Content for Referral Codes tab");
+      // console.log("Content for Referral Codes tab");
     } else if (tab === "users") {
-      console.log("Content for Referred Users tab");
+      // console.log("Content for Referred Users tab");
     } else {
-      console.log("Invalid tab selected");
+      // console.log("Invalid tab selected");
     }
   };
 

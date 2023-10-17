@@ -28,7 +28,6 @@ const Login = (props) => {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       // Handle form submission (e.g., login request)
-      console.log("Form submitted with values:", values);
       updateLoggedIn(true);
       document.body.style.height = "";
       document.body.style.overflowY = "";

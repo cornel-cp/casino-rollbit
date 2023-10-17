@@ -35,7 +35,6 @@ const RegisterComponent = ({ history }) => {
         password: values.password,
       };
 
-      console.log("newUser", newUser);
       //if register function succesful, redirect to login page
       // register(newUser).then((res) => {
       //   history.push(`/login`);

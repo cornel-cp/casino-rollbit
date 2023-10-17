@@ -1,10 +1,7 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { AppContext } from "../../../../../AppContext";
+import React from "react";
 import { StyledNavHeaderBtn, StyledNavigationHeader } from "./styles";
 
 const MyBetsNavigation = ({ buttons, onOptionChange, selectedOption }) => {
-  console.log("selectedOption", selectedOption);
   return (
     <StyledNavigationHeader>
       <div className="content-wrapper">

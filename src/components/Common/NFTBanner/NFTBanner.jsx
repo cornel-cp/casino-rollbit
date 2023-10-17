@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { StyledButtonsBanner, StyledNFTBanner } from "./styles";
 import { Link } from "react-router-dom";
 import { ReactComponent as NFT_LOANS } from "../../../assets/images/NFT_Loans.svg";
 import { ReactComponent as ARROW_RIGHT } from "../../../assets/images/arrow-line-right.svg";
 import LOANS_BANNER from "../../../assets/images/nft-loans-banner.png";
+import { StyledButtonsBanner, StyledNFTBanner } from "./styles";
 
 const NFTBanner = ({ bannerOptions, isLoansBanner = false }) => {
   const [activeOption, setActiveOption] = useState(0);
@@ -12,7 +12,6 @@ const NFTBanner = ({ bannerOptions, isLoansBanner = false }) => {
     setActiveOption(index);
   };
 
-  console.log("bannerOptions", bannerOptions);
   const { title, subTitle, color, buttonText, image, url, infoGraphics } =
     bannerOptions[activeOption];
 
