@@ -2,7 +2,7 @@ import React from "react";
 
 // assest
 
-import { ReactComponent as USER } from "../../../../assets/images/Frame (58).svg";
+import { ReactComponent as BUGER } from "../../../../assets/images/Frame (50).svg";
 
 import { useParams } from "react-router-dom";
 import AccountPageTitle from "../Common/AccountPageTitle";
@@ -76,7 +76,7 @@ const Withdrawals = () => {
   };
   return (
     <StyleProfile>
-      <AccountPageTitle icon={USER} title="Profile" />
+      <AccountPageTitle icon={BUGER} title="Withdrawals" />
 
       <AccountTabs tabs={tabs} />
 
