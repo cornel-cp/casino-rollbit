@@ -21,9 +21,6 @@ const RegisterModal = ({ buttonText, modalOption }) => {
     if (showModal) {
       document.body.style.height = "100vh";
       document.body.style.overflowY = "hidden";
-    } else {
-      document.body.style.height = "";
-      document.body.style.overflowY = "";
     }
   }, [showModal]);
 

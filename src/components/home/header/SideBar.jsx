@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ReactComponent as BALANCE_IMG } from "../../../assets/images/AK BALANCE.svg";
 
 import { AppContext } from "../../../AppContext";
@@ -18,6 +18,25 @@ const SideBar = () => {
   const [sections, setSections] = useState(SECTIONS);
   const { selectedOption, isSidebarOpen, updateSelectedOption, updateSidebar } =
     useContext(AppContext);
+
+  const handleWindowResize = () => {
+    if (window.innerWidth < 1024) {
+      // Close the sidebar when window width is smaller than your breakpoint
+      updateSidebar(false);
+    } else {
+      updateSidebar(true);
+    }
+  };
+
+  useEffect(() => {
+    // Attach the event listener when the component mounts
+    window.addEventListener("resize", handleWindowResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   const handleDropdownClick = (sectionIndex, optionIndex, sidebarUrl) => {
     const updatedSections = [...sections];
@@ -152,8 +171,6 @@ const SideBar = () => {
           </div>
         </div>
       </div>
-
-      {/* //coins buy options */}
     </StyledOpenedSidebar>
   ) : (
     <SideBarClosed toggleSideBar={updateSidebar} />

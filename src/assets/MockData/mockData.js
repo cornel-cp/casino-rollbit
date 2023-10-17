@@ -32,10 +32,6 @@ import { ReactComponent as BUILD } from "../../assets/modelImages/Frame (9).svg"
 
 import CART_ICON_2 from "../../assets/images/IMAGE (10).png";
 import CART_ICON_3 from "../../assets/images/IMAGE (11).png";
-import NFT_IMG_1 from "../../assets/images/IMAGE (39).png";
-import NFT_IMG_2 from "../../assets/images/IMAGE (40).png";
-import NFT_IMG_3 from "../../assets/images/IMAGE (41).png";
-import NFT_IMG_4 from "../../assets/images/IMAGE (42).png";
 import CART_ICON_4 from "../../assets/images/IMAGE (12).png";
 import CART_ICON_5 from "../../assets/images/IMAGE (13).png";
 import CART_IMG_1 from "../../assets/images/IMAGE (2).png";
@@ -45,19 +41,23 @@ import BONUSES_IMG_3 from "../../assets/images/IMAGE (35).png";
 import BONUSES_IMG_4 from "../../assets/images/IMAGE (36).png";
 import BONUSES_IMG_5 from "../../assets/images/IMAGE (37).png";
 import BONUSES_IMG_6 from "../../assets/images/IMAGE (38).png";
+import NFT_IMG_1 from "../../assets/images/IMAGE (39).png";
 import CART_ICON_1 from "../../assets/images/IMAGE (4).png";
+import NFT_IMG_2 from "../../assets/images/IMAGE (40).png";
+import NFT_IMG_3 from "../../assets/images/IMAGE (41).png";
+import NFT_IMG_4 from "../../assets/images/IMAGE (42).png";
 import CART_IMG_2 from "../../assets/images/IMAGE (5).png";
 import CART_IMG_3 from "../../assets/images/IMAGE (6).png";
 import CART_IMG_4 from "../../assets/images/IMAGE (8).png";
 import CART_IMG_5 from "../../assets/images/IMAGE (9).png";
 
-import NFT_Banner from "./../../assets/images/nft-banner.png";
 import CASINO_IMG_1 from "../../assets/images/IMAGE (14).png";
 import CASINO_IMG_2 from "../../assets/images/IMAGE (15).png";
 import CASINO_IMG_3 from "../../assets/images/IMAGE (16).png";
 import CASINO_IMG_4 from "../../assets/images/IMAGE (17).png";
 import CASINO_IMG_5 from "../../assets/images/IMAGE (18).png";
 import CASINO_IMG_6 from "../../assets/images/IMAGE (19).png";
+import NFT_Banner from "./../../assets/images/nft-banner.png";
 
 export const SECTIONS = [
   {
@@ -687,37 +687,37 @@ export const DAILY_BONUSES = {
 export const ACCOUNT_DROPDOWN_OPTIONS = [
   {
     label: "Profile",
-    route: "/profile",
+    route: "/account/profile",
     icon: USER,
     altText: "user",
   },
   {
     label: "Balances",
-    route: "/balances",
+    route: "/account/balances",
     icon: BAG,
     altText: "bag",
   },
   {
     label: "Referrals",
-    route: "/referrals",
+    route: "/account/referrals/codes",
     icon: FLAW,
     altText: "flaw",
   },
   {
     label: "Deposits",
-    route: "/",
+    route: "/account/deposits/ALL",
     icon: BUILD,
     altText: "build",
   },
   {
     label: "Withdrawals",
-    route: "/",
+    route: "/account/withdrawals/ALL",
     icon: BUILD,
     altText: "build",
   },
   {
     label: "Settings",
-    route: "/settings",
+    route: "/account/settings",
     icon: GEAR,
     altText: "gear",
   },

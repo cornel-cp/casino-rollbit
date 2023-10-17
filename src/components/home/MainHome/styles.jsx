@@ -1,14 +1,17 @@
 import styled from "styled-components";
 
 export const PageLayout = styled.div`
-  padding-left: ${({ isSidebarOpen }) => (isSidebarOpen ? "240px" : "55px")};
-  padding-right: ${({ isChatBoxOpen }) => (isChatBoxOpen ? "340px" : "0")};
-
+  padding-left: 55px;
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 65px);
   justify-content: space-between;
   transition: all 250ms ease 0s;
+
+  @media (min-width: 1024px) {
+    padding-left: ${({ isSidebarOpen }) => (isSidebarOpen ? "240px" : "55px")};
+    padding-right: ${({ isChatBoxOpen }) => (isChatBoxOpen ? "340px" : "0")};
+  }
 `;
 
 export const ContentLayout = styled.div`

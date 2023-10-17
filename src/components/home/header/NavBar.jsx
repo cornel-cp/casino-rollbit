@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 //assets
@@ -18,6 +18,22 @@ import TotalMoneyContainer from "./TotalMoneyContainer";
 const NavBar = () => {
   const { isChatBoxOpen, isLoggedIn, updateChatBox, updateLoggedIn } =
     useContext(AppContext);
+
+  const handleWindowResize = () => {
+    if (window.innerWidth < 1024) {
+      updateChatBox(false);
+    }
+  };
+
+  useEffect(() => {
+    // Attach the event listener when the component mounts
+    window.addEventListener("resize", handleWindowResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, []);
 
   return (
     <>

@@ -32,8 +32,6 @@ const NewTableView = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      console.log("Updating data...");
-
       const updatedData = [...data];
       updatedData.pop();
 

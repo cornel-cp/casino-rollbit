@@ -8,6 +8,7 @@ import HomeAppBar from "./components/home/header/AppBar";
 // deposit section models
 import { useContext } from "react";
 import { AppContext } from "./AppContext";
+import NFTDetails from "./components/Common/NFTDetails/NFTDetails";
 import AKOriginals from "./components/Pages/Casino/AKOriginals";
 import Blackjack from "./components/Pages/Casino/Blackjack";
 import BonusBattles from "./components/Pages/Casino/BonusBattles";
@@ -23,33 +24,35 @@ import WithSidebets from "./components/Pages/Casino/WithSidebets";
 import ManageRollbots from "./components/Pages/NFT/ManageRollbots";
 import ManageSportsbots from "./components/Pages/NFT/ManageSportsbots";
 import Marketplace from "./components/Pages/NFT/Marketplace";
+import MyNFTs from "./components/Pages/NFT/MyNfts";
+import NFTBox from "./components/Pages/NFT/NFTBox";
+import NFTExternal from "./components/Pages/NFT/NFTExternal";
 import NFTLoans from "./components/Pages/NFT/NFTLoans";
 import NFTLootboxes from "./components/Pages/NFT/NFTLootboxes";
+import NFTMainPage from "./components/Pages/NFT/NFTMainPage";
+import NFTMyLoans from "./components/Pages/NFT/NFTMyLoans";
+import NFTMyLootboxes from "./components/Pages/NFT/NFTMyLootboxes";
+import NFTMyPurchases from "./components/Pages/NFT/NFTMyPurchases";
+import NFTMySales from "./components/Pages/NFT/NFTMySales";
 import MyBets from "./components/Pages/Sports/MyBets/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
 import SportsHeader from "./components/Pages/Sports/SportsHeader/SportsHeader";
 import ProtectedRoute from "./components/Router/ProtectedRoute";
+import AccountPageLayout from "./components/home/Account/AccountPageLayout";
+import BalancesPage from "./components/home/Account/Balances/Balances";
+import Deposits from "./components/home/Account/Deposits/Deposits";
+import Profile from "./components/home/Account/Profile/Profile";
+import Referrals from "./components/home/Account/Referrals/Referrals";
+import Settings from "./components/home/Account/Settings/Settings";
+import Withdrawals from "./components/home/Account/Withdrawals/Withdrawals";
 import PageFooter from "./components/home/Footer/PageFooter";
 import {
   ContentLayout,
   PageLayout,
   SportsContentLayout,
 } from "./components/home/MainHome/styles";
-import BalancesPage from "./components/home/balances/Balances";
 import NavBar from "./components/home/header/NavBar";
 import SideBar from "./components/home/header/SideBar";
-import Profile from "./components/home/profile/Profile";
-import Referals from "./components/home/referals/Referals";
-import Setting from "./components/home/setting/Setting";
-import NFTMainPage from "./components/Pages/NFT/NFTMainPage";
-import MyNFTs from "./components/Pages/NFT/MyNfts";
-import NFTExternal from "./components/Pages/NFT/NFTExternal";
-import NFTMyLoans from "./components/Pages/NFT/NFTMyLoans";
-import NFTMyLootboxes from "./components/Pages/NFT/NFTMyLootboxes";
-import NFTMySales from "./components/Pages/NFT/NFTMySales";
-import NFTMyPurchases from "./components/Pages/NFT/NFTMyPurchases";
-import NFTBox from "./components/Pages/NFT/NFTBox";
-import NFTDetails from "./components/Common/NFTDetails/NFTDetails";
 
 const routesConfig = [
   { path: "/sports", component: Sports },
@@ -98,34 +101,62 @@ function App() {
             <Routes>
               <Route exact path="/" element={<HomeAppBar />} />
               <Route
-                path="/profile"
+                path="/account/profile"
                 element={
                   <ProtectedRoute>
-                    <Profile />
+                    <AccountPageLayout>
+                      <Profile />
+                    </AccountPageLayout>
                   </ProtectedRoute>
                 }
               />
               <Route
-                path="/balances"
+                path="/account/balances"
                 element={
                   <ProtectedRoute>
-                    <BalancesPage />
+                    <AccountPageLayout>
+                      <BalancesPage />
+                    </AccountPageLayout>
                   </ProtectedRoute>
                 }
               />
               <Route
-                path="/referrals"
+                path="/account/referrals/:tab"
                 element={
                   <ProtectedRoute>
-                    <Referals />
+                    <AccountPageLayout>
+                      <Referrals />
+                    </AccountPageLayout>
                   </ProtectedRoute>
                 }
               />
               <Route
-                path="/settings"
+                path="/account/deposits/:tab"
                 element={
                   <ProtectedRoute>
-                    <Setting />
+                    <AccountPageLayout>
+                      <Deposits />
+                    </AccountPageLayout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/account/withdrawals/:tab"
+                element={
+                  <ProtectedRoute>
+                    <AccountPageLayout>
+                      <Withdrawals />
+                    </AccountPageLayout>
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/account/settings"
+                element={
+                  <ProtectedRoute>
+                    <AccountPageLayout>
+                      <Settings />
+                    </AccountPageLayout>
                   </ProtectedRoute>
                 }
               />
@@ -148,29 +179,6 @@ function App() {
               <Route path="/nft" element={<NFTMainPage />} />
               <Route path="/nft/loans" element={<NFTLoans />} />
               <Route path="/nft/details" element={<NFTDetails />} />
-
-              {/* models */}
-              {/* <Route path='/model' element={<WModel1 />} /> */}
-              {/* <Route path='/model' element={<WModel2 />} />  */}
-              {/* <Route path='/model' element={<WModel3 />} /> */}
-              {/* <Route path='/model' element={<WModel4 />} /> */}
-              {/* <Route path='/model' element={<WModel5 />} /> */}
-
-              {/* <Route path='/model4' element={<DModel4 />} /> */}
-
-              {/* <Route path='/model2' element={<DModel2 />} />  */}
-
-              {/* //   <Route path='/model1' element={<DModel1 />} /> 
-        //  <Route path='/model3' element={<DModel3 />} />
-        //   <Route path='/model5' element={<DModel5 />} />
-        //   <Route path='/model6' element={<DModel6 />} />
-        //   <Route path='/model7' element={<DModel7 />} />   */}
-
-              {/* <Route path='/model1' element={<Model1 />} />
-        <Route path='/model2' element={<Model2 />} />
-        <Route path='/model3' element={<Model3 />} />
-        <Route path='/model4' element={<Model4 />} />
-        <Route path='/model5' element={<Model5 />} /> */}
             </Routes>
           </ContentLayout>
         )}

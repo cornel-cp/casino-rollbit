@@ -3,12 +3,12 @@ import React, { useContext, useState } from "react";
 import * as Yup from "yup";
 
 //assets
+import { AppContext } from "../../AppContext";
 import { ReactComponent as STEAM } from "../../assets/images/Frame (22).svg";
 import { ReactComponent as TWITCH } from "../../assets/images/Frame (23).svg";
 import { ReactComponent as METAMASK } from "../../assets/images/Frame (24).svg";
 import TringleButton from "../../assets/images/Vector.png";
 import SocialMediaButton from "../Common/Buttons/SocialMediaButton/SocialMediaButton";
-import { AppContext } from "../../AppContext";
 
 const Login = (props) => {
   const { updateLoggedIn } = useContext(AppContext);
@@ -30,6 +30,8 @@ const Login = (props) => {
       // Handle form submission (e.g., login request)
       console.log("Form submitted with values:", values);
       updateLoggedIn(true);
+      document.body.style.height = "";
+      document.body.style.overflowY = "";
     },
   });
 
