@@ -1,16 +1,16 @@
 import React from "react";
 
-import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
+import {
+  COLLECTION_OPTIONS,
+  SORT_BY_OPTIONS,
+} from "../../../assets/MockData/dropdownsData";
+import { BUTTONS_NFT_LOOTBOXES } from "../../../assets/MockData/mockData";
+import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
+import NFTSection from "../../Common/NFTSection/NFTSection";
+import PageTitle from "../../Common/PageTitle/PageTitle";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
-import NFTSection from "../../Common/NFTSection/NFTSection";
 import NFTNavigationHeader from "./NFTNavigationHeader";
-import {
-  BUTTONS_NFT_LOOTBOXES,
-  BUTTONS_NFT_MARKETPLACE,
-} from "../../../assets/MockData/mockData";
-import PageTitle from "../../Common/PageTitle/PageTitle";
-import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
 
 const NFTLootboxes = () => {
   return (
@@ -19,7 +19,10 @@ const NFTLootboxes = () => {
 
       <NFTNavigationHeader buttons={BUTTONS_NFT_LOOTBOXES} />
       <div className="content-container">
-        <SearchAndFilters />
+        <SearchAndFilters
+          sortByOptions={SORT_BY_OPTIONS}
+          collectionOptions={COLLECTION_OPTIONS}
+        />
 
         <NFTSection isLootbox={true} />
       </div>

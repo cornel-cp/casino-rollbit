@@ -161,7 +161,7 @@ const SideBar = () => {
         <div className="divider" />
 
         <div className="payment">
-          <Button>Buy Crypto</Button>
+          <Button className="buy-crypto">Buy Crypto</Button>
 
           <div className="payment-methods">
             <VISA_IMG />

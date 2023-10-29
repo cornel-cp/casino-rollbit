@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const useCardsLoadMore = (category, subcategory, images) => {
   const [visibleCards, setVisibleCards] = useState(35);
@@ -16,7 +16,7 @@ const useCardsLoadMore = (category, subcategory, images) => {
           (subcat) => subcat.name === subcategory
         );
         if (subcategoryData) {
-          localFilteredImages = subcategoryData.cards.map((card) => card.img);
+          localFilteredImages = subcategoryData.cards.map((card) => card);
         }
       }
     } else {

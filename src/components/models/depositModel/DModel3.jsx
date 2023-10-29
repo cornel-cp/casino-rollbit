@@ -6,20 +6,12 @@
 // import SEARCH from "../../../assets/images/Frame (61).svg";
 // import CHAIN from "../../../assets/images/IMAGE (49).png";
 
-
-
-
-
 // const DModel3 = () => {
-  
-
 
 //   return (
 //     <div style={{ width: "805px", height: "937px", flexShrink: "0", borderRadius: '10px', background: "#1A1D29", boxShadow: " 0px 10px 20px 0px rgba(0, 0, 0, 0.30)", margin: "0 10pc" }}>
 //       <div>
 //         {/* icons */}
-
-
 
 //         {/* heading sec==================== */}
 
@@ -27,10 +19,8 @@
 
 //           <p style={{ display: "flex", alignItems: "center", margin: "10px 0" }}><img src={ARROW} alt="arrow" style={{ width: "9px", height: "16px", marginTop: "3px" }} />
 
-
 //             <span style={{ margin: "0 23px" }}>Deposit ERC-20 Tokens</span>
 //           </p>
-
 
 //         </div>
 
@@ -43,7 +33,6 @@
 //             <img src={SEARCH} alt="search" style={{ width: "22px", height: "22px" }} />
 //           </div>
 //         </div>
-
 
 //         {/* table headings   */}
 //         <div style={{ display: "flex", margin: "8.5pc 4pc", gap: "16.5pc" }}>
@@ -58,10 +47,7 @@
 //           </div>
 //         </div>
 
- 
 //       </div>
-
-
 
 //       {
 //         tableRows.map((_, index) => (
@@ -69,9 +55,7 @@
 //         ))
 //       }
 
-
 //     </div>
-
 
 //   )
 // }

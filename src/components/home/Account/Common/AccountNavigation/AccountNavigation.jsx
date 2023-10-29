@@ -52,7 +52,6 @@ const AccountNavigation = () => {
   const [selectedOption, setSelectedOption] = useState(links[0].to);
   const { updateLoggedIn } = useContext(AppContext);
 
-  console.log("selectedOption", selectedOption);
   return (
     <StyleAccountNavigation>
       {links.map((button, index) => (

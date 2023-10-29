@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { Link } from "react-router-dom";
 import ArrowIcons from "../ArrowIcons/ArrowIcons";
 import FilterButtonGroup from "../Buttons/FilterButtonGroup";
 import { StyledSectionHeader } from "./styles";
@@ -7,6 +8,7 @@ import { StyledSectionHeader } from "./styles";
 const SectionHeader = ({
   iconHeader: Icon,
   sideButton,
+  sideButtonLink,
   casinoText,
   hasRecommended,
   hasArrows = true,
@@ -22,7 +24,11 @@ const SectionHeader = ({
       <div className="icon-group">
         {Icon && <Icon className="icon-header" />}
         <span className="casino-text">{casinoText}</span>
-        {sideButton && <span className="view-all-text">{sideButton}</span>}
+        {sideButton && (
+          <Link to={sideButtonLink}>
+            <span className="view-all-text">{sideButton}</span>
+          </Link>
+        )}
       </div>
 
       <div style={{ display: "flex" }}>

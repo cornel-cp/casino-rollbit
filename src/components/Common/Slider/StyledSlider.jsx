@@ -10,5 +10,5 @@ export const StyledSlider = styled.div`
   }
 
   width: 100%;
-  gap: 10px;
+  gap: 12px;
 `;

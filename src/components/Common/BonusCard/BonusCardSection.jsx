@@ -104,6 +104,7 @@ const BonusCardSection = () => {
         iconHeader={BONUS}
         casinoText="BONUS BATTLES"
         sideButton="View All"
+        sideButtonLink="/bonus-battles"
         scrollLeft={scrollLeft}
         scrollRight={scrollRight}
       />

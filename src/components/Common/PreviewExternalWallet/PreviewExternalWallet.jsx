@@ -1,16 +1,18 @@
 import React from "react";
-import { StylePreviewExternalWallet } from "./styles";
 import SectionHeader from "../SectionHeader/SectionHeader";
+import { StylePreviewExternalWallet } from "./styles";
 
-const PreviewExternalWallet = () => {
+const PreviewExternalWallet = ({ isCashierModal = false }) => {
   return (
     <>
-      <SectionHeader
-        casinoText="PREVIEW OR DEPOSIT NFTS FROM YOUR EXTERNAL WALLET"
-        sideButton="View Portfolio"
-        hasFilterOptions={false}
-        hasArrows={false}
-      />
+      {!isCashierModal && (
+        <SectionHeader
+          casinoText="PREVIEW OR DEPOSIT NFTS FROM YOUR EXTERNAL WALLET"
+          sideButton="View Portfolio"
+          hasFilterOptions={false}
+          hasArrows={false}
+        />
+      )}
 
       <StylePreviewExternalWallet>
         <div class="content-container">

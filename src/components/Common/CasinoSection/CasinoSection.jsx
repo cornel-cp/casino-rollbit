@@ -33,9 +33,9 @@ const casinoImages = [
 const CasinoSection = () => {
   const { containerRef, scrollLeft, scrollRight } = useSlider();
 
-  const CardsComponent = casinoImages.map((image, index) => (
-    <HoverableImage key={index} src={image} alt={`casino-${index}`} />
-  ));
+  const CardsComponent = casinoImages.map((image, index) => {
+    return <HoverableImage key={index} src={image} alt={`casino-${index}`} />;
+  });
 
   return (
     <StyledCasinoSection>
@@ -43,6 +43,7 @@ const CasinoSection = () => {
         iconHeader={CASINO}
         casinoText="CASINO"
         sideButton="View All"
+        sideButtonLink="/casino"
         hasRecommended={true}
         scrollLeft={scrollLeft}
         scrollRight={scrollRight}

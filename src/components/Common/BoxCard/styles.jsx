@@ -18,7 +18,7 @@ export const StyledBoxCard = styled(Boxes)`
 
   .box-wrapper {
     border-radius: 8px;
-    width: 145px;
+    width: 130px;
     height: 130px;
     display: flex;
     flex-direction: column;

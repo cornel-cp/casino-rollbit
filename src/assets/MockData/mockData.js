@@ -99,7 +99,7 @@ export const SECTIONS = [
           {
             icon: CHALLENGES,
             text: "With Challenges",
-            sidebarUrl: "/challenges",
+            sidebarUrl: "/with-challenges",
           },
           { icon: CHALLENGES, text: "Challenges", sidebarUrl: "/challenges" },
           {
@@ -143,12 +143,12 @@ export const SECTIONS = [
           {
             icon: SETTINGS_TOOL,
             text: "Manage AKbots",
-            sidebarUrl: "/manage-akbots",
+            sidebarUrl: "/nft/rollbot/portfolio",
           },
           {
             icon: SETTINGS_TOOL,
             text: "Manage Sportsbots",
-            sidebarUrl: "/manage-sportsbots",
+            sidebarUrl: "/nft/sportsbots/portfolio",
           },
         ],
       },
@@ -208,32 +208,32 @@ export const SECTIONS = [
 
 const cardsArray = [
   {
-    name: "Card 1 AK Originals",
+    name: "Sweet Bonanza",
     img: CASINO_IMG_1,
     subcategories: ["Evolution", "Original"],
   },
   {
-    name: "Card 2 AK Originals",
+    name: "Wanted Dead or a Wild",
     img: CASINO_IMG_2,
     subcategories: ["Original"],
   },
   {
-    name: "Card 3 AK Originals",
+    name: "Gates of Olympus",
     img: CASINO_IMG_3,
     subcategories: ["Evolution"],
   },
   {
-    name: "Card 4 AK Originals",
+    name: "Fruit Party",
     img: CASINO_IMG_4,
     subcategories: ["Belatra", "Original"],
   },
   {
-    name: "Card 5 AK Originals",
+    name: "Sugar Rush",
     img: CASINO_IMG_5,
     subcategories: ["Evolution", "Belatra"],
   },
   {
-    name: "Card 6 AK Originals",
+    name: "Plinko",
     img: CASINO_IMG_6,
     subcategories: ["Original"],
   },
@@ -553,21 +553,19 @@ export const DAILY_BONUSES = {
       title: "hellomotto",
       amount: "$11,393.27",
     },
-  ],
-  Week: [
     {
-      imageSrc: BONUSES_IMG_4,
-      title: "theoneforus",
-      amount: "$11,393.27",
-    },
-    {
-      imageSrc: BONUSES_IMG_5,
+      imageSrc: BONUSES_IMG_1,
       title: "Hidden",
       amount: "$11,393.27",
     },
     {
-      imageSrc: BONUSES_IMG_6,
-      title: "Phil9077",
+      imageSrc: BONUSES_IMG_2,
+      title: "Aj9",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_3,
+      title: "hellomotto",
       amount: "$11,393.27",
     },
     {
@@ -602,8 +600,83 @@ export const DAILY_BONUSES = {
       title: "Phil9077",
       amount: "$11,393.27",
     },
+    {
+      imageSrc: BONUSES_IMG_1,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_2,
+      title: "Aj9",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_3,
+      title: "hellomotto",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_4,
+      title: "theoneforus",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_5,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_6,
+      title: "Phil9077",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_1,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_2,
+      title: "Aj9",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_3,
+      title: "hellomotto",
+      amount: "$11,393.27",
+    },
   ],
   Month: [
+    {
+      imageSrc: BONUSES_IMG_4,
+      title: "theoneforus",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_5,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_6,
+      title: "Phil9077",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_4,
+      title: "theoneforus",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_5,
+      title: "Hidden",
+      amount: "$11,393.27",
+    },
+    {
+      imageSrc: BONUSES_IMG_6,
+      title: "Phil9077",
+      amount: "$11,393.27",
+    },
     {
       imageSrc: BONUSES_IMG_4,
       title: "theoneforus",
@@ -723,79 +796,6 @@ export const ACCOUNT_DROPDOWN_OPTIONS = [
   },
 ];
 
-export const NFTS_DATA = [
-  {
-    imageSrc: NFT_IMG_1,
-    title: "Golden Grizzly",
-    subTitle: "AKbots",
-    amount: "$5.88K",
-    buttonText: "OPEN FOR $20",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 4.1,
-    hasPercentageText: true,
-  },
-  {
-    imageSrc: NFT_IMG_2,
-    title: "Golden Grizzly",
-    subTitle: "AKbots",
-    amount: "$5.88K",
-    buttonText: "OPEN FOR $20",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 8.9,
-    hasPercentageText: false,
-  },
-  {
-    imageSrc: NFT_IMG_2,
-    title: "Golden Grizzly",
-    subTitle: "Sports AKbots",
-    amount: "$9.88K",
-    buttonText: "OPEN FOR $35.6",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 9.7,
-    hasPercentageText: true,
-  },
-  {
-    imageSrc: NFT_IMG_3,
-    title: "Bored Ape Yacht Club #4848",
-    subTitle: "Bored Ape Yacht Club",
-    amount: "$490",
-    buttonText: "OPEN FOR $20",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 3.8,
-    hasPercentageText: false,
-  },
-  {
-    imageSrc: NFT_IMG_4,
-    title: "POLITICS IS BULLSHIT #34",
-    subTitle: "AKbots",
-    amount: "$700K",
-    buttonText: "OPEN FOR $99",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 8.9,
-    hasPercentageText: true,
-  },
-  {
-    imageSrc: NFT_IMG_2,
-    title: "Golden Grizzly",
-    subTitle: "Sports AKbots",
-    amount: "$9.88K",
-    buttonText: "OPEN FOR $35.6",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 3.66,
-    hasPercentageText: false,
-  },
-  {
-    imageSrc: NFT_IMG_3,
-    title: "Bored Ape Yacht Club #4848",
-    subTitle: "Bored Ape Yacht Club",
-    amount: "$490",
-    buttonText: "OPEN FOR $20",
-    prices: [3.66, 6.07, 10.1],
-    currentPrice: 9.4,
-    hasPercentageText: false,
-  },
-];
-
 export const BUTTONS_MY_BETS = [
   { label: "All", url: "#" },
   { label: "Open Bets", url: "#" },
@@ -810,6 +810,19 @@ export const BUTTONS_NFT_MAIN = [
   { label: "Lobby", url: "/nft" },
   { label: "AK bots V1", url: "/nft/lobby/rollbots" },
   { label: "Sports AK bots", url: "/nft/lobby/sportsbots" },
+];
+
+export const BUTTONS_MANAGE_ROLLBOTS = [
+  { label: "Portfolio", url: "/nft/rollbot/portfolio" },
+  { label: "Marketplace", url: "/nft/rollbot/marketplace" },
+  { label: "Staked", url: "/nft/rollbot/staked" },
+  { label: "Profile", url: "/nft/rollbot/profile" },
+];
+
+export const BUTTONS_MANAGE_SPORTSBOTS = [
+  { label: "Portfolio", url: "/nft/sportsbots/portfolio" },
+  { label: "Marketplace", url: "/nft/sportsbots/marketplace" },
+  { label: "Claimed", url: "/nft/sportsbots/claimed" },
 ];
 
 export const BUTTONS_MY_NFTs = [
@@ -844,5 +857,211 @@ export const NFT_BANNER_OPTIONS = [
     buttonText: "Play Jackpot",
     image: NFT_Banner,
     url: "/jackpot",
+  },
+];
+
+// Create an object with the information
+export const sharedNFTData = {
+  detailsContainerInfo: {
+    nftImageSrc:
+      "https://sportsbot.rollbot.com/pics/694ea6487fada6b225d344b4abe82d28.webp",
+    subtitle: "Sports Rollbots",
+    price: "$743",
+    title: "#7356 Darts",
+    moreInfoLink:
+      "https://rollbit.com/nft/eth:0x1de7abda2d73a01aa8dca505bdcb773841211daf/7356",
+    openSeaLink:
+      "https://opensea.io/assets/ethereum/0x1de7abda2d73a01aa8dca505bdcb773841211daf/7356",
+    authorLink: "https://opensea.io/0x772d8d6e4a4a5251d7a174e3f60e3f954b386af0",
+    authorName: "Rollbots",
+    descriptionPart1:
+      "**OWNER COUNT and TRADED VOLUME:** The owner count and volume traded displayed on OpenSea is not entirely accurate. Majority of trading and utility staking happens on.",
+    descriptionLink: {
+      name: "Rollbot.com",
+      link: "https://rollbot.com",
+    },
+    descriptionPart2: ". Total holder count is more than 4,000.",
+    descriptionPart3:
+      "A collection of 10,000 unique robots generated algorithmically using over 600 traits with proof of ownership on the Ethereum blockchain and a focus on utility. Inspired by Rollbit's first NFT project and other popular utility NFT projects, Sports Rollbots are based on the ERC-721 standard that underlies most digital collectible and utility projects.",
+    descriptionPart4:
+      "Each Rollbot is a sports-themed piece of digital art that doubles up as a personalised VIP membership for Rollbit's new sportsbook. Own a part of Rollbit's sportsbook and enjoy the perks!",
+    prices: ["$749", "$1.22K", "$1.99K"],
+  },
+  stats: [
+    { title: "Profit Share", value: "$14.61" },
+    { title: "Max Free Bet", value: "$50" },
+    { title: "Max Combo Boost", value: "109%" },
+  ],
+  traits: [
+    { title: "Dart", value: "Green Pattern Dart" },
+    { title: "Quiver", value: "ETH Pattern Quiver" },
+    { title: "T-Shirt", value: "Green & Purple T-Shirt" },
+    { title: "Background", value: "Orange" },
+    { title: "Body", value: "Electric Space Skin" },
+    { title: "Eyes", value: "VR Eyes" },
+    { title: "Sport", value: "Darts" },
+    { title: "Teeth", value: "Silver Lips Mouth" },
+  ],
+  collection: {
+    bannerImageSrc:
+      "https://i.seadn.io/gae/57kEC5ISf2rx0C289XRZai0sIbsyKELEskI4tRWkEh8ZcTDZZaVfo8lcybI3jmKCaalzGV3PF6z2V7Fooam99Ef2HYQs-3Grt56srw?w=500&amp;auto=format",
+    nftImageSrc:
+      "https://i.seadn.io/gae/vY0sat6irhxODPlVqkFbKpwwfvTttLmwa4jj8WfNyLK8s0R7aY_3IgXd38Zb54GA1yKxEXZ0bufRBllQAy_y0mzelIk27A6RaOx22A?w=500&amp;auto=format",
+    collectionName: "Sports Rollbots",
+    authorLink: "https://opensea.io/0x772d8d6e4a4a5251d7a174e3f60e3f954b386af0",
+  },
+  links: [
+    {
+      text: "More Info",
+      link: "https://rollbit.com/nft/eth:0x1de7abda2d73a01aa8dca505bdcb773841211daf/7356",
+    },
+    {
+      text: "OpenSea",
+      link: "https://opensea.io/assets/ethereum/0x1de7abda2d73a01aa8dca505bdcb773841211daf/7356",
+    },
+    {
+      text: "Browse Marketplace",
+      link: "https://rollbit.com/nft/eth:0x1de7abda2d73a01aa8dca505bdcb773841211daf",
+    },
+    {
+      text: "OpenSea",
+      link: "https://opensea.io/collection/sportsbots",
+    },
+  ],
+};
+
+export const NFTS_DATA = [
+  {
+    imageSrc: NFT_IMG_1,
+    title: "Golden Grizzly",
+    subTitle: "AKbots",
+    amount: "$5.88K",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 4.1,
+    hasPercentageText: true,
+    id: "eh4ff4sd-44s-asd-1",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_1,
+      title: "Golden Grizzly",
+      subtitle: "AKbots",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
+  },
+  {
+    imageSrc: NFT_IMG_2,
+    title: "Golden Grizzly",
+    subTitle: "AKbots",
+    amount: "$5.88K",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 8.9,
+    hasPercentageText: false,
+    id: "eh4ff4sd-44s-asd-2",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_2,
+      title: "Golden Grizzly",
+      subtitle: "AKbots",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
+  },
+  {
+    imageSrc: NFT_IMG_2,
+    title: "Golden Grizzly",
+    subTitle: "Sports AKbots",
+    amount: "$9.88K",
+    buttonText: "OPEN FOR $35.6",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 9.7,
+    hasPercentageText: true,
+    id: "eh4ff4sd-44s-asd-3",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_2,
+      title: "Golden Grizzly",
+      subtitle: "Sports AKbots",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
+  },
+  {
+    imageSrc: NFT_IMG_3,
+    title: "Bored Ape Yacht Club #4848",
+    subTitle: "Bored Ape Yacht Club",
+    amount: "$490",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 3.8,
+    hasPercentageText: false,
+    id: "eh4ff4sd-44s-asd-4",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_3,
+      title: "Bored Ape Yacht Club #4848",
+      subtitle: "Bored Ape Yacht Club",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
+  },
+  {
+    imageSrc: NFT_IMG_4,
+    title: "POLITICS IS BULLSHIT #34",
+    subTitle: "AKbots",
+    amount: "$700K",
+    buttonText: "OPEN FOR $99",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 8.9,
+    hasPercentageText: true,
+    id: "eh4ff4sd-44s-asd-5",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_4,
+      title: "POLITICS IS BULLSHIT #34",
+      subtitle: "AKbots",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
+  },
+  {
+    imageSrc: NFT_IMG_2,
+    title: "Golden Grizzly",
+    subTitle: "Sports AKbots",
+    amount: "$9.88K",
+    buttonText: "OPEN FOR $35.6",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 3.66,
+    hasPercentageText: false,
+    id: "eh4ff4sd-44s-asd-6",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_2,
+      title: "Golden Grizzly",
+      subtitle: "Sports AKbots",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
+  },
+  {
+    imageSrc: NFT_IMG_3,
+    title: "Bored Ape Yacht Club #4848",
+    subTitle: "Bored Ape Yacht Club",
+    amount: "$490",
+    buttonText: "OPEN FOR $20",
+    prices: [3.66, 6.07, 10.1],
+    currentPrice: 9.4,
+    hasPercentageText: false,
+    id: "eh4ff4sd-44s-asd-7",
+    ...sharedNFTData,
+    detailsContainerInfo: {
+      ...sharedNFTData.detailsContainerInfo,
+      nftImageSrc: NFT_IMG_3,
+      title: "Bored Ape Yacht Club #4848",
+      subtitle: "Bored Ape Yacht Club",
+      prices: ["$3.66k", "$6.07K", "$10.1K"],
+    },
   },
 ];

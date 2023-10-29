@@ -1,11 +1,12 @@
-import React, { useMemo } from "react";
-import useCardsLoadMore from "../../../hooks/useCardsLoadMore";
+import React, { useContext, useMemo } from "react";
+import { NFTS_DATA } from "../../../assets/MockData/mockData";
 import NFTCard from "../NFTCard/NFTCard";
 import { StyledNFTSection } from "./styles";
-import { NFTS_DATA } from "../../../assets/MockData/mockData";
 
 import { useState } from "react";
+import { AppContext } from "../../../AppContext";
 import Button from "../Buttons/Button";
+import NotFound from "../NotFound/NotFound";
 
 const useNFTsLoadMore = (initialItems, itemsPerPage = 14) => {
   const [visibleItems, setVisibleItems] = useState(itemsPerPage);
@@ -31,11 +32,29 @@ const multiplyArray = (array, multiplier) => {
 };
 
 const NFTSection = ({ isLootbox }) => {
+  const { searchState } = useContext(AppContext);
+
   // Multiply the NFTS_DATA array by 5
   const multipliedNFTS_DATA = useMemo(() => multiplyArray(NFTS_DATA, 5), []);
 
   const { loadMoreItems, getVisibleItems, allItems } =
     useNFTsLoadMore(multipliedNFTS_DATA);
+
+  const filteredNFTs = useMemo(() => {
+    return allItems.filter((nft) => {
+      const passesSearchQuery = nft.title
+        ?.toLowerCase()
+        ?.includes(searchState.searchQuery?.toLowerCase());
+      const passesProviderFilter =
+        searchState.selectedProvider === "All" ||
+        nft.provider === searchState.selectedProvider;
+      const passesSortFilter =
+        searchState.selectedSort === "All" ||
+        nft.sort === searchState.selectedSort;
+
+      return passesSearchQuery && passesProviderFilter && passesSortFilter;
+    });
+  }, [searchState, allItems]);
 
   const handleLoadMore = () => {
     loadMoreItems();
@@ -44,7 +63,7 @@ const NFTSection = ({ isLootbox }) => {
   return (
     <StyledNFTSection>
       <div className="nft-cards">
-        {getVisibleItems().map((card, index) => (
+        {filteredNFTs.slice(0, getVisibleItems().length).map((card, index) => (
           <NFTCard
             key={index}
             imageSrc={card.imageSrc}
@@ -59,11 +78,14 @@ const NFTSection = ({ isLootbox }) => {
           />
         ))}
       </div>
-      {allItems.length > getVisibleItems().length && (
+      {filteredNFTs.length > getVisibleItems().length && (
         <div className="btn-wrapper">
-          <Button onClick={handleLoadMore}>Load More</Button>
+          <Button className="button-load-more" onClick={handleLoadMore}>
+            Load More
+          </Button>
         </div>
       )}
+      {filteredNFTs.length === 0 ? <NotFound text="NO NFTS FOUND" /> : null}
     </StyledNFTSection>
   );
 };

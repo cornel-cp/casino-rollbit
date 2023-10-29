@@ -13,7 +13,7 @@ export const StyledWinnerCard = styled.div`
 
   .card-content {
     border-radius: 8px;
-    width: 129px;
+    min-width: 130px;
     height: 178px;
     display: flex;
     flex-direction: column;
@@ -84,18 +84,21 @@ export const LiveWinsSectionStyled = styled.div`
     font-weight: 400;
     line-height: 16.8px;
   }
+
+  .wins-icon {
+    color: #fff;
+  }
 `;
 
 export const StyledCardsContainer = styled.div`
   display: flex;
-  overflow-x: auto; /* Use 'auto' to show scrollbars only when needed, or 'hidden' to hide them */
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
 
-  /* If you want to hide the scrollbar completely, you can use the following */
   &::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+    display: none;
   }
 
   width: 100%;
-  gap: 10px;
+  gap: 12px;
 `;

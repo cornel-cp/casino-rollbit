@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const StyledImageSection = styled.div`
   width: 100%;
 
+  .button-load-more {
+    padding: 0px 20px;
+    letter-spacing: 0.5px;
+  }
+
   .image-cards {
     display: grid;
     width: 100%;

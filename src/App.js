@@ -6,14 +6,17 @@ import HomeAppBar from "./components/home/header/AppBar";
 //reward section models
 
 // deposit section models
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppContext } from "./AppContext";
 import NFTDetails from "./components/Common/NFTDetails/NFTDetails";
+import ScrollToTop from "./components/Common/ScrollToTop";
 import AKOriginals from "./components/Pages/Casino/AKOriginals";
 import Blackjack from "./components/Pages/Casino/Blackjack";
 import BonusBattles from "./components/Pages/Casino/BonusBattles";
 import Casino from "./components/Pages/Casino/Casino";
 import Challenges from "./components/Pages/Casino/Challenges";
+import Clans from "./components/Pages/Casino/Clans";
+import CryptoPortfolio from "./components/Pages/Casino/CryptoPortfolio";
 import GameShows from "./components/Pages/Casino/GameShows";
 import LiveCasino from "./components/Pages/Casino/LiveCasino";
 import Rollercoaster from "./components/Pages/Casino/Rollercoaster";
@@ -21,6 +24,7 @@ import Roulette from "./components/Pages/Casino/Roulette";
 import Slots from "./components/Pages/Casino/Slots";
 import WithChallenges from "./components/Pages/Casino/WithChallenges";
 import WithSidebets from "./components/Pages/Casino/WithSidebets";
+import AKBots from "./components/Pages/NFT/AkBots";
 import ManageRollbots from "./components/Pages/NFT/ManageRollbots";
 import ManageSportsbots from "./components/Pages/NFT/ManageSportsbots";
 import Marketplace from "./components/Pages/NFT/Marketplace";
@@ -34,6 +38,10 @@ import NFTMyLoans from "./components/Pages/NFT/NFTMyLoans";
 import NFTMyLootboxes from "./components/Pages/NFT/NFTMyLootboxes";
 import NFTMyPurchases from "./components/Pages/NFT/NFTMyPurchases";
 import NFTMySales from "./components/Pages/NFT/NFTMySales";
+import AKLottery from "./components/Pages/Other/AKLottery";
+import Jackpot from "./components/Pages/Other/Jackpot";
+import Race25K from "./components/Pages/Other/Race25k";
+import Streams from "./components/Pages/Other/Streams";
 import MyBets from "./components/Pages/Sports/MyBets/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
 import SportsHeader from "./components/Pages/Sports/SportsHeader/SportsHeader";
@@ -54,7 +62,7 @@ import {
 import NavBar from "./components/home/header/NavBar";
 import SideBar from "./components/home/header/SideBar";
 
-const routesConfig = [
+const routesSportsLayout = [
   { path: "/sports", component: Sports },
   { path: "/my-bets", component: MyBets },
   { path: "/nft/marketplace", component: Marketplace },
@@ -64,124 +72,109 @@ const routesConfig = [
   { path: "/nft/portfolio", component: MyNFTs },
   { path: "/nft/my-loans", component: NFTMyLoans },
   { path: "/nft/external", component: NFTExternal },
-  { path: "/nft/lobby/rollbots", component: ManageRollbots },
-  { path: "/nft/lobby/sportsbots", component: ManageSportsbots },
-  { path: "/manage-akbots", component: ManageRollbots },
-  { path: "/manage-sportsbots", component: ManageSportsbots },
+  { path: "/nft/lobby/:tab", component: AKBots },
   { path: "/nft/lootboxes/play", component: NFTLootboxes },
   { path: "/nft/lootboxes/manage", component: NFTMyLootboxes },
   { path: "/nft/details", component: NFTDetails },
   // Add more routes as needed
 ];
 
+const routesContentLayout = [
+  { path: "/", component: HomeAppBar },
+  { path: "/casino", component: Casino },
+  { path: "/ak-originals", component: AKOriginals },
+  { path: "/blackjack", component: Blackjack },
+  { path: "/bonus-battles", component: BonusBattles },
+  { path: "/challenges", component: Challenges },
+  { path: "/game-shows", component: GameShows },
+  { path: "/live-casino", component: LiveCasino },
+  { path: "/rollercoaster", component: Rollercoaster },
+  { path: "/roulette", component: Roulette },
+  { path: "/slots", component: Slots },
+  { path: "/with-challenges", component: WithChallenges },
+  { path: "/with-sidebets", component: WithSidebets },
+  { path: "/crypto-portfolio", component: CryptoPortfolio },
+  { path: "/clans", component: Clans },
+  { path: "/ak-lottery", component: AKLottery },
+  { path: "/jackpot", component: Jackpot },
+  { path: "/streams", component: Streams },
+  { path: "/25k-race", component: Race25K },
+  { path: "/nft", component: NFTMainPage },
+  { path: "/nft/loans", component: NFTLoans },
+  { path: "/nft/details/:nftId", component: NFTDetails },
+  { path: "/nft/rollbot/:tab", component: ManageRollbots },
+  { path: "/nft/sportsbots/:tab", component: ManageSportsbots },
+];
+
+const routesAccountLayout = [
+  { path: "/account/profile", component: Profile },
+  { path: "/account/balances", component: BalancesPage },
+  { path: "/account/referrals/:tab", component: Referrals },
+  { path: "/account/deposits/:tab", component: Deposits },
+  { path: "/account/withdrawals/:tab", component: Withdrawals },
+  { path: "/account/settings", component: Settings },
+];
+
 function App() {
-  const { isSidebarOpen, isChatBoxOpen, selectedOption } =
+  const { isSidebarOpen, isChatBoxOpen, selectedOption, updateSelectedOption } =
     useContext(AppContext);
 
-  const isSportsRoute = selectedOption === "/sports";
-  const isMyBetsRoute = selectedOption === "/my-bets";
+  const isSportsRoute = window.location.pathname === "/sports";
+  const isMyBetsRoute = window.location.pathname === "/my-bets";
+
+  useEffect(() => {
+    console.log("window.location.pathname", window.location.pathname);
+    updateSelectedOption(window.location.pathname);
+  }, []);
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <NavBar />
       <SideBar />
 
       <PageLayout isSidebarOpen={isSidebarOpen} isChatBoxOpen={isChatBoxOpen}>
         {isSportsRoute || isMyBetsRoute ? <SportsHeader /> : null}
-        {routesConfig.some((route) => route.path === selectedOption) ? (
-          <SportsContentLayout>
-            <Routes>
-              {routesConfig.map((route) => (
-                <Route path={route.path} element={<route.component />} />
-              ))}
-            </Routes>
-          </SportsContentLayout>
-        ) : (
-          <ContentLayout>
-            <Routes>
-              <Route exact path="/" element={<HomeAppBar />} />
-              <Route
-                path="/account/profile"
-                element={
+        <Routes>
+          {routesSportsLayout.map((route) => (
+            <Route
+              path={route.path}
+              element={
+                <SportsContentLayout>
+                  <route.component />
+                </SportsContentLayout>
+              }
+            />
+          ))}
+        </Routes>
+        <Routes>
+          {routesContentLayout.map((route) => (
+            <Route
+              path={route.path}
+              element={
+                <ContentLayout>
+                  <route.component />
+                </ContentLayout>
+              }
+            />
+          ))}
+        </Routes>
+        <Routes>
+          {routesAccountLayout.map((route) => (
+            <Route
+              path={route.path}
+              element={
+                <ContentLayout>
                   <ProtectedRoute>
                     <AccountPageLayout>
-                      <Profile />
+                      <route.component />
                     </AccountPageLayout>
                   </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/account/balances"
-                element={
-                  <ProtectedRoute>
-                    <AccountPageLayout>
-                      <BalancesPage />
-                    </AccountPageLayout>
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/account/referrals/:tab"
-                element={
-                  <ProtectedRoute>
-                    <AccountPageLayout>
-                      <Referrals />
-                    </AccountPageLayout>
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/account/deposits/:tab"
-                element={
-                  <ProtectedRoute>
-                    <AccountPageLayout>
-                      <Deposits />
-                    </AccountPageLayout>
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/account/withdrawals/:tab"
-                element={
-                  <ProtectedRoute>
-                    <AccountPageLayout>
-                      <Withdrawals />
-                    </AccountPageLayout>
-                  </ProtectedRoute>
-                }
-              />
-              <Route
-                path="/account/settings"
-                element={
-                  <ProtectedRoute>
-                    <AccountPageLayout>
-                      <Settings />
-                    </AccountPageLayout>
-                  </ProtectedRoute>
-                }
-              />
-
-              {/* CASINO */}
-              <Route path="/casino" element={<Casino />} />
-              <Route path="/ak-originals" element={<AKOriginals />} />
-              <Route path="/blackjack" element={<Blackjack />} />
-              <Route path="/bonus-battles" element={<BonusBattles />} />
-              <Route path="/challenges" element={<Challenges />} />
-              <Route path="/game-shows" element={<GameShows />} />
-              <Route path="/live-casino" element={<LiveCasino />} />
-              <Route path="/rollercoaster" element={<Rollercoaster />} />
-              <Route path="/roulette" element={<Roulette />} />
-              <Route path="/slots" element={<Slots />} />
-              <Route path="/with-challenges" element={<WithChallenges />} />
-              <Route path="/with-sidebets" element={<WithSidebets />} />
-
-              {/* NFT */}
-              <Route path="/nft" element={<NFTMainPage />} />
-              <Route path="/nft/loans" element={<NFTLoans />} />
-              <Route path="/nft/details" element={<NFTDetails />} />
-            </Routes>
-          </ContentLayout>
-        )}
+                </ContentLayout>
+              }
+            />
+          ))}
+        </Routes>
 
         <PageFooter />
       </PageLayout>

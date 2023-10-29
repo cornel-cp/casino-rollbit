@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { StyledSportNavOption, StyledSportsHeader } from "./StyledSportsHeader";
 
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { AppContext } from "../../../../AppContext";
 import { ReactComponent as ARROW_DOWN } from "../../../../assets/images/Arrow-Down.svg";
 import { ReactComponent as MY_BETS } from "../../../../assets/images/MyBets.svg";
 import { ReactComponent as AMERICAN_FOOTBALL } from "../../../../assets/images/american-football.svg";
@@ -60,13 +61,33 @@ const options = [
 ];
 
 const SportsHeader = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const location = useLocation();
+
+  const { sportsSelectedOption, updateSportsSelectedOption } =
+    useContext(AppContext);
 
   const [numOptionsToDisplay, setNumOptionsToDisplay] = useState(
     options.length
   );
   const [resizeCount, setResizeCount] = useState(0);
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    const updateQueryParams = () => {
+      const urlParams = new URLSearchParams(location.search);
+      const param = urlParams.get("bt-path");
+      if (param) {
+        updateSportsSelectedOption(param); // Update the global state
+      }
+    };
+
+    // Call the function when the component mounts
+    updateQueryParams();
+
+    return () => {
+      updateSportsSelectedOption("");
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -94,11 +115,11 @@ const SportsHeader = () => {
     <StyledSportsHeader ref={containerRef}>
       <div className="navigation-options">
         {options.slice(0, numOptionsToDisplay).map((button, index) => {
-          const buttonIsActive = button.url === selectedOption;
+          const buttonIsActive = button.url === sportsSelectedOption;
           return (
             <Link
-              to={"#"}
-              onClick={() => setSelectedOption(button.url)}
+              to={`/sports?bt-path=${encodeURIComponent(button.url)}`}
+              onClick={() => updateSportsSelectedOption(button.url)}
               key={index}
             >
               <StyledSportNavOption isActive={buttonIsActive}>
@@ -112,13 +133,13 @@ const SportsHeader = () => {
         </StyledSportNavOption>
       </div>
       <div className="navigation-actions"></div>
-      <Link to={"#"} onClick={() => setSelectedOption("myBets")}>
-        <StyledSportNavOption isActive={selectedOption === "myBets"}>
+      <Link to={"#"} onClick={() => updateSportsSelectedOption("myBets")}>
+        <StyledSportNavOption isActive={sportsSelectedOption === "myBets"}>
           <MY_BETS />
         </StyledSportNavOption>
       </Link>
-      <Link to={"#"} onClick={() => setSelectedOption("search")}>
-        <StyledSportNavOption isActive={selectedOption === "search"}>
+      <Link to={"#"} onClick={() => updateSportsSelectedOption("search")}>
+        <StyledSportNavOption isActive={sportsSelectedOption === "search"}>
           <SEARCH />
         </StyledSportNavOption>
       </Link>

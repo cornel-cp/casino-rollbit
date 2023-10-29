@@ -1,6 +1,13 @@
 import styled from "styled-components";
+import {
+  fadeAndSlideIn,
+  generateAnimationDelayCSS,
+} from "../HoverableImage/styles";
 
 export const StyledNFTCard = styled.div`
+  animation: 0.2s ease-out 0s 1 normal backwards running ${fadeAndSlideIn};
+  ${generateAnimationDelayCSS(3, 0.02, 100)}
+
   border-radius: 8px;
   width: ${(props) => (props.isSliderElement ? "214.8px" : "100%")};
   height: 100%;
@@ -10,10 +17,6 @@ export const StyledNFTCard = styled.div`
   background: rgba(203, 215, 255, 0.03);
   gap: 12px;
   padding: 16px;
-
-  .padding-wrapper {
-    /* padding: 20px 0; */
-  }
 
   .text-section {
     display: flex;

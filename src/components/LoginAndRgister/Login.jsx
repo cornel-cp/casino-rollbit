@@ -29,8 +29,6 @@ const Login = (props) => {
     onSubmit: (values) => {
       // Handle form submission (e.g., login request)
       updateLoggedIn(true);
-      document.body.style.height = "";
-      document.body.style.overflowY = "";
     },
   });
 

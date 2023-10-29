@@ -8,7 +8,7 @@ import {
 } from "./StyledSportSection";
 import TopMatch from "./TopMatch/TopMatch";
 
-const SportSection = ({ titleIcon }) => {
+const SportSection = ({ titleIcon, isLive = false }) => {
   const containerRef = useRef(null);
   const [numColumns, setNumColumns] = useState(1);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -51,7 +51,7 @@ const SportSection = ({ titleIcon }) => {
         {Array(9)
           .fill()
           .map((_, index) => (
-            <SportCard key={index} />
+            <SportCard key={index} isLive={isLive} />
           ))}
         <TopMatch icon={titleIcon} numColumns={numColumns} />
       </StyledSportSection>

@@ -1,25 +1,70 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
-import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Arrow-Down.svg";
-import { ReactComponent as ARROW_UP } from "../../../assets/images/Arrow-Up.svg";
-import { ButtonWithDropdown, SearchInput, StyledSearchFilters } from "./styles";
+import Dropdown from "../Dropdowns/Dropdown";
+import SwitchToggle from "../SwitchToggle/SwitchToggle";
+import { SearchInput, StyledSearchFilters } from "./styles";
 
-const SearchAndFilters = ({ placeholder, provider, sortBy }) => {
-  const { selectedOption } = useContext(AppContext);
+const SearchAndFilters = ({
+  hasSwitchToggle = false,
+  labelSwitchToggle,
+  providerOptions,
+  sortByOptions,
+  collectionOptions,
+  traitsOptions,
+}) => {
+  const {
+    selectedOption,
+    searchState,
+    setSearchState,
+    updateProvider,
+    updateSort,
+  } = useContext(AppContext);
 
-  const [isOpenedDropdownProvider, setIsOpenedDropdownProvider] =
-    useState(false);
-  const [isOpenedDropdownSort, setIsOpenedDropdownSort] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const toggleDropdownProvider = () => {
-    setIsOpenedDropdownProvider(
-      (prevIsOpenedDropdown) => !prevIsOpenedDropdown
-    );
+  const [isToggle, setIsToggle] = useState(false);
+  const previousSearchStateRef = useRef(searchState);
+
+  const updateURL = () => {
+    if (searchState === previousSearchStateRef.current) {
+      return;
+    }
+
+    const queryParams = new URLSearchParams();
+
+    if (searchState.searchQuery) {
+      queryParams.set("query", searchState.searchQuery);
+    }
+
+    if (searchState.selectedProvider !== providerOptions?.[0].label) {
+      queryParams.set("provider", searchState.selectedProvider);
+    }
+
+    if (searchState.selectedSort !== sortByOptions?.[0].label) {
+      queryParams.set("sort", searchState.selectedSort);
+    }
+
+    // Update the previousSearchState reference
+    previousSearchStateRef.current = searchState;
+
+    const currentPath = location.pathname;
+
+    navigate(`${currentPath}?${queryParams.toString()}`);
   };
 
-  const toggleDropdownSort = () => {
-    setIsOpenedDropdownSort((prevIsOpenedDropdown) => !prevIsOpenedDropdown);
-  };
+  useEffect(() => {
+    updateURL();
+  }, [searchState]);
+
+  useEffect(() => {
+    return () => {
+      setSearchState({ type: "UPDATE_SEARCH", payload: "" }); // Reset the search state
+      updateProvider(providerOptions?.[0].label); // Reset the provider state
+      updateSort(sortByOptions?.[0].label); // Reset the sort state
+    };
+  }, []);
 
   return (
     <StyledSearchFilters>
@@ -28,30 +73,50 @@ const SearchAndFilters = ({ placeholder, provider, sortBy }) => {
         placeholder={`Search ${
           selectedOption?.replace(/[^a-zA-Z]/g, " ")?.split("-") || " option"
         }`}
+        value={searchState.searchQuery}
+        onChange={(e) =>
+          setSearchState({ type: "UPDATE_SEARCH", payload: e.target.value })
+        }
       />
-      <ButtonWithDropdown onClick={toggleDropdownProvider}>
-        Provider: <span className="provider-text">All</span>
-        <span style={{ marginLeft: "6px" }}>
-          {isOpenedDropdownProvider ? <ARROW_UP /> : <ARROW_DOWN />}
-        </span>
-      </ButtonWithDropdown>
-      {isOpenedDropdownProvider && (
-        <div>
-          Dropdown content for Provider
-          {/* Add your dropdown content here */}
-        </div>
+      {hasSwitchToggle && (
+        <SwitchToggle
+          checked={isToggle}
+          toggle={setIsToggle}
+          label={labelSwitchToggle}
+        />
       )}
-      <ButtonWithDropdown onClick={toggleDropdownSort}>
-        Sort by: <span className="provider-text">All</span>
-        <span style={{ marginLeft: "6px" }}>
-          {isOpenedDropdownSort ? <ARROW_UP /> : <ARROW_DOWN />}
-        </span>
-      </ButtonWithDropdown>
-      {isOpenedDropdownSort && (
-        <div>
-          Dropdown content for Sort
-          {/* Add your dropdown content here */}
-        </div>
+      {providerOptions && (
+        <Dropdown
+          options={providerOptions}
+          label="Provider"
+          selectedOption={searchState.selectedProvider}
+          onSelectOption={updateProvider}
+          hasSearchInput={true}
+        />
+      )}
+      {sortByOptions && (
+        <Dropdown
+          options={sortByOptions}
+          label="Sort by"
+          selectedOption={searchState.selectedSort}
+          onSelectOption={updateSort}
+        />
+      )}
+      {collectionOptions && (
+        <Dropdown
+          options={collectionOptions}
+          label="Collection"
+          selectedOption={searchState.selectedSort}
+          onSelectOption={updateSort}
+        />
+      )}
+      {traitsOptions && (
+        <Dropdown
+          options={traitsOptions}
+          label="Traits"
+          selectedOption={searchState.selectedSort}
+          onSelectOption={updateSort}
+        />
       )}
     </StyledSearchFilters>
   );

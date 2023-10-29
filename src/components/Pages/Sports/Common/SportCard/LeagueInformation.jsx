@@ -2,7 +2,7 @@ import React from "react";
 
 import { ReactComponent as ARROW_RIGHT } from "../../../../../assets/images/arrow-right.svg";
 import { ReactComponent as FOOTBALL } from "../../../../../assets/images/football-icon.svg";
-import { ReactComponent as STATISTICS } from "../../../../../assets/images/statistics-icon.svg";
+import { ReactComponent as STATISTICS } from "../../../../../assets/images/statistics.svg";
 import { StyledLeagueInformation } from "./StyledSportCard";
 
 const LeagueInformation = ({ sportType, country, league, date }) => {
@@ -18,7 +18,11 @@ const LeagueInformation = ({ sportType, country, league, date }) => {
           <div>{league}</div>
         </div>
       </div>
-      {date ? <div className="header-text">{date}</div> : <STATISTICS />}
+      {date ? (
+        <div className="header-text">{date}</div>
+      ) : (
+        <STATISTICS style={{ width: "32px" }} />
+      )}
     </StyledLeagueInformation>
   );
 };

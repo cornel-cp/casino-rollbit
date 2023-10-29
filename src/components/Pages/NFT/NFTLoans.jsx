@@ -1,26 +1,13 @@
 import React from "react";
 
-import {
-  BUTTONS_MY_NFTs,
-  DATA_CONTENT,
-} from "../../../assets/MockData/mockData";
-import ImagesSection from "../../Common/ImagesSection/ImagesSection";
-import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
-import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
-import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
-import { StyledPageContainer } from "../Casino/styles";
-import SupportedCollectionSection from "../../Common/SupportedCollection/SupportedCollectionSection";
-import NTFSection from "../../Common/NFTCard/NFTSection";
-import { SearchInput } from "../../Common/SearchAndFilters/styles";
-import HeaderCollection from "../../Common/SupportedCollection/HeaderCollection";
-import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
-import NFTNavigationHeader from "./NFTNavigationHeader";
-import NFTBanner from "../../Common/NFTBanner/NFTBanner";
-import StepsSection from "../../Common/StepSection/StepsSection";
-import NFT_Banner from "./../../../assets/images/nft-banner.png";
 import DepositedNFTsSection from "../../Common/DepositedNFTs/DepositedNFTsSection";
+import NFTBanner from "../../Common/NFTBanner/NFTBanner";
 import PreviewExternalWallet from "../../Common/PreviewExternalWallet/PreviewExternalWallet";
+import StepsSection from "../../Common/StepSection/StepsSection";
+import HeaderCollection from "../../Common/SupportedCollection/HeaderCollection";
 import SupportedCollectionTable from "../../Common/SupportedCollection/SupportedCollectionTable";
+import { StyledPageContainer } from "../Casino/styles";
+import NFT_Banner from "./../../../assets/images/nft-banner.png";
 
 const options = [
   {
@@ -56,10 +43,10 @@ const steps = [
 
 const NFTLoans = () => {
   return (
-    <StyledPageContainer>
+    <StyledPageContainer className="@container">
       <NFTBanner bannerOptions={options} isLoansBanner={true} />
 
-      <StepsSection steps={steps} />
+      <StepsSection steps={steps} className="@xl:block hidden" />
 
       <DepositedNFTsSection />
 

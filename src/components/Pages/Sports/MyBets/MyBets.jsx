@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 
-import {
-  BUTTONS_MY_BETS,
-  DATA_CONTENT,
-} from "../../../../assets/MockData/mockData";
-import ImagesSection from "../../../Common/ImagesSection/ImagesSection";
-import NavigationHeader from "../../../Common/NavigationHeader/NavigationHeader";
-import SearchAndFilters from "../../../Common/SearchAndFilters/SearchAndFilters";
-import LiveWinsSection from "../../../Common/WinnerCard/LiveWinsSection";
+import { BUTTONS_MY_BETS } from "../../../../assets/MockData/mockData";
+import { ReactComponent as MY_BETS } from "../../../../assets/images/MyBets.svg";
+import PageTitle from "../../../Common/PageTitle/PageTitle";
 import { StyledPageContainer } from "../../Casino/styles";
 import MyBetsNavigation from "../Common/MyBetsNavigation/MyBetsNavigation";
-import PageTitle from "../../../Common/PageTitle/PageTitle";
-import { ReactComponent as MY_BETS } from "../../../../assets/images/MyBets.svg";
 import NoBetsFound from "../Common/NoBetsFound/NoBetsFound";
 
 const MyBets = () => {

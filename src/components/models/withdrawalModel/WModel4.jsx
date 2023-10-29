@@ -1,10 +1,9 @@
 import React from 'react';
 
 //assets
-import CLOSE from "../../../assets/modelImages/Frame (3).svg";
-import ARROW from "../../../assets/modelImages/Frame (5).svg";
 import LTC from "../../../assets/images/IMAGE (24).png";
 import COIN from "../../../assets/images/IMAGE (5).svg";
+import ARROW from "../../../assets/modelImages/Frame (5).svg";
 
 
 const WModel4 = () => {

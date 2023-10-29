@@ -153,6 +153,15 @@ export const StyledOpenedSidebar = styled.div`
       margin-top: 20px;
       margin-left: -2px;
     }
+
+    .buy-crypto {
+      width: 100%;
+      letter-spacing: 0.5px;
+      padding: 0px 20px;
+
+      color: rgb(255, 255, 255);
+      background: rgba(203, 215, 255, 0.075);
+    }
   }
 `;
 

@@ -29,6 +29,7 @@ const BoxesSection = () => {
         iconHeader={BONUSES}
         casinoText="Daily Bonuses"
         sideButton="My Rewards"
+        sideButtonLink="/nft/lootboxes/play"
         hasFilterOptions={true}
         onOptionChange={handleOptionChange}
         filterOptions={filterOptions}

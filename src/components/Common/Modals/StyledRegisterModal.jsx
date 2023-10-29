@@ -15,7 +15,7 @@ export const StyledRegisterModal = styled.div`
     letter-spacing: 0.5px;
     cursor: pointer;
     user-select: none;
-    height: 48px;
+    height: 40px;
     padding: 0px 24px;
     border-radius: 8px;
     font-weight: 800;

@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const fadeAndSlideIn = keyframes`
+export const fadeAndSlideIn = keyframes`
   0% {
     transform: translateY(10px);
     opacity: 0;
@@ -11,7 +11,11 @@ const fadeAndSlideIn = keyframes`
   }
 `;
 
-const generateAnimationDelayCSS = (startIndex, delayIncrease, elements) => {
+export const generateAnimationDelayCSS = (
+  startIndex,
+  delayIncrease,
+  elements
+) => {
   let css = "";
   let delay;
   for (let i = 1; i <= elements; i++) {
@@ -30,20 +34,27 @@ export const StyledHoverableImage = styled.div`
   animation: 0.2s ease-out 0s 1 normal backwards running ${fadeAndSlideIn};
   ${generateAnimationDelayCSS(3, 0.02, 100)}
 
-  padding-top: 20px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 140%;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
 
   .image-card {
-    display: flex;
-    width: 150px;
-    height: 210px;
-    flex-shrink: 0;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
     border-radius: 8px;
-    transition: transform 0.3s ease;
-    max-width: none;
-
-    &:hover {
-      transform: translateY(-10px);
-      cursor: pointer;
-    }
+    object-fit: cover;
+    cursor: pointer;
   }
 `;

@@ -24,7 +24,7 @@ const LiveWinsSection = ({ icon: Icon, title, hasFilters }) => {
           {hasFilters ? (
             <img src={DOT} alt="dot" className="dot-icon" />
           ) : (
-            <Icon />
+            <Icon className="wins-icon" />
           )}
           {/* {icon && <img src={DOT} alt="dot" className="dot-icon" />} */}
           {title && <span className="live-wins-text uppercase">{title}</span>}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Register from "../../LoginAndRgister/Register";
 
 //model images
@@ -6,6 +6,7 @@ import Image from "../../../assets/images/IMAGE.jpg";
 import LOGO1 from "../../../assets/images/LOGO.png";
 import CROSS from "../../../assets/images/icons8-cross-100.png";
 import Login from "../../LoginAndRgister/Login";
+import Modal from "../../Modals/Modal";
 import { StyledRegisterModal } from "./StyledRegisterModal";
 
 const RegisterModal = ({ buttonText, modalOption }) => {
@@ -16,13 +17,6 @@ const RegisterModal = ({ buttonText, modalOption }) => {
     setShowModal(true);
     setOpenedModal(option);
   };
-
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.height = "100vh";
-      document.body.style.overflowY = "hidden";
-    }
-  }, [showModal]);
 
   return (
     <StyledRegisterModal>
@@ -42,19 +36,8 @@ const RegisterModal = ({ buttonText, modalOption }) => {
         </button>
       )}
 
-      {showModal && (
-        <>
-          <div
-            onClick={() => setShowModal(false)}
-            style={{
-              position: "fixed",
-              top: "0",
-              right: "0",
-              left: "0",
-              bottom: "0",
-              backgroundColor: "#000000aa",
-            }}
-          ></div>
+      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
+        <StyledRegisterModal>
           <div
             style={{
               justifyContent: "space-between",
@@ -176,8 +159,8 @@ const RegisterModal = ({ buttonText, modalOption }) => {
               </div>
             </div>
           </div>
-        </>
-      )}
+        </StyledRegisterModal>
+      </Modal>
     </StyledRegisterModal>
   );
 };

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const StyledCryptoCard = styled.div`
+  min-width: 130px;
   height: 210px;
   flex-shrink: 0;
   border-radius: 8px;
   transition: transform 0.3s ease;
-  gap: 200px;
 
   &:hover {
     transform: translateY(-10px);

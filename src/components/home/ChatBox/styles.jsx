@@ -10,6 +10,7 @@ export const StyledChatBoxContainer = styled.div`
   right: 0;
   top: 64px;
   background: #1f2330;
+  z-index: 8;
 
   svg {
     color: #b1b6c6;

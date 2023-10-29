@@ -11,129 +11,122 @@ const FooterWrapper = styled.footer`
   bottom: 0;
   padding-inline: 20px;
   background: #141622;
-  /* margin: 0 auto; */
+
+  .logo {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .footer-container {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    padding: 55px 30px;
+    font-size: 14px;
+    max-width: 1020px;
+    width: 100%;
+    margin: 0px auto;
+
+    @media (max-width: 800px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @media (min-width: 374px) {
+      width: 50%;
+    }
+
+    @media (min-width: 440px) {
+      width: auto;
+    }
+
+    @media (max-width: 800px) {
+      margin-bottom: 30px;
+
+      &:first-of-type {
+        width: 100%;
+        margin: 20px 0px 0px;
+        order: 100;
+      }
+    }
+  }
 `;
 
 const StyledP = styled.p`
-  color: #fff;
-  font-size: 15px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 14.4px;
+  color: rgb(255, 255, 255);
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 `;
 
 const StyledLink = styled.a`
-  text-decoration: none;
-  color: #b1b6c6;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 16.8px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  color: rgb(177, 182, 198);
 `;
 
 const StyledCopyrightText = styled.p`
   color: #b1b6c6;
-  width: 320px;
+  max-width: 310px;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: 12px;
-  margin: 20px 0;
+  margin-bottom: 16px;
 `;
 
 const PageFooter = () => {
   return (
     <FooterWrapper>
-      <div className="sm">
-        <div
-          className="sm-text"
-          style={{
-            width: "430px",
-            margin: "80px 85px",
-          }}
-        >
-          <div
-            className="logo"
-            style={{
-              width: "208px",
-              height: "50px",
-              margin: "30px -80px",
-            }}
-          >
-            <img src={LOGO} alt="" />
-            <StyledCopyrightText>
-              Copyright © 2023 AK47.com. All rights reserved. AK is a brand name
-              of Anoukha Gaming A.K. Company Address: Bangalore, karnataka,
-              India, 560090.
-            </StyledCopyrightText>
-            <StyledCopyrightText>
-              Anoukha Gaming A.K. payments can be processed by WINGAMING SUPPORT
-              LIMITED (Registration Number HE406701). Company Address: Avlonos,
-              1, MARIA HOUSE, 1075, Nicosia, Cyprus.
-            </StyledCopyrightText>
-            <StyledCopyrightText>
-              Crypto trading is not gambling, and therefore not covered by our
-              gaming license.
-            </StyledCopyrightText>
-          </div>
+      <div className="footer-container">
+        <div className="footer-column">
+          <img src={LOGO} alt="" className="logo" />
+          <StyledCopyrightText>
+            Copyright © 2023 AK47.com. All rights reserved. AK is a brand name
+            of Anoukha Gaming A.K. Company Address: Bangalore, karnataka, India,
+            560090.
+          </StyledCopyrightText>
+          <StyledCopyrightText>
+            Anoukha Gaming A.K. payments can be processed by WINGAMING SUPPORT
+            LIMITED (Registration Number HE406701). Company Address: Avlonos, 1,
+            MARIA HOUSE, 1075, Nicosia, Cyprus.
+          </StyledCopyrightText>
+          <StyledCopyrightText>
+            Crypto trading is not gambling, and therefore not covered by our
+            gaming license.
+          </StyledCopyrightText>
         </div>
-      </div>
 
-      <div style={{ margin: "80px 0" }}>
-        <div style={{ marginLeft: "-200px" }}>
+        <div className="footer-column">
           <StyledP>PLATFORM</StyledP>
-          <li style={{ listStyle: "none", marginTop: "20px" }}>
-            <StyledLink href="#">Support</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">FAQ</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Partnership Program</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Blog</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Help Center</StyledLink>
-          </li>
+          <StyledLink href="#">Support</StyledLink>
+          <StyledLink href="#">FAQ</StyledLink>
+          <StyledLink href="#">Partnership Program</StyledLink>
+          <StyledLink href="#">Blog</StyledLink>
+          <StyledLink href="#">Help Center</StyledLink>
         </div>
-      </div>
-      <div style={{ margin: "80px 0px" }}>
-        <div>
+        <div className="footer-column">
           <StyledP>ABOUT US</StyledP>
-          <li style={{ listStyle: "none", marginTop: "20px" }}>
-            <StyledLink href="#">AML Policy</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Sports Policy</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Responsible Gaming</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Privacy Policy</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Terms and Conditions</StyledLink>
-          </li>
+          <StyledLink href="#">AML Policy</StyledLink>
+          <StyledLink href="#">Sports Policy</StyledLink>
+          <StyledLink href="#">Responsible Gaming</StyledLink>
+          <StyledLink href="#">Privacy Policy</StyledLink>
+          <StyledLink href="#">Terms and Conditions</StyledLink>
         </div>
-      </div>
-      <div style={{ margin: "80px 40px" }}>
-        <div>
+        <div className="footer-column">
           <StyledP>COMMUNITY</StyledP>
-          <li style={{ listStyle: "none", marginTop: "20px" }}>
-            <StyledLink href="#">Facebook</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Twitter</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Instagram</StyledLink>
-          </li>
-          <li style={{ listStyle: "none", marginTop: "10px" }}>
-            <StyledLink href="#">Discord</StyledLink>
-          </li>
+          <StyledLink href="#">Facebook</StyledLink>
+          <StyledLink href="#">Twitter</StyledLink>
+          <StyledLink href="#">Instagram</StyledLink>
+          <StyledLink href="#">Discord</StyledLink>
         </div>
       </div>
     </FooterWrapper>

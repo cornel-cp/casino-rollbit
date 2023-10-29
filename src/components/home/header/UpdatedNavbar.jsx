@@ -10,9 +10,9 @@ import CLOSE from "../../../assets/modelImages/Frame (3).svg";
 import ROLLBIT from "../../../assets/modelImages/IMAGE (8).png";
 
 //models
+import CashierModal from "../../Modals/CashierModals/CashierModal";
 import AccountButton from "./AccountButton/AccountButton";
 import BuyCryptoModal from "./BuyCryptoModal/BuyCryptoModal";
-import CashierModal from "./CashierModal/CashierModal";
 import RewardsButton from "./RewardsButton/RewardsButton";
 import TotalMoneyContainer from "./TotalMoneyContainer";
 

@@ -23,9 +23,21 @@ const Banner = () => {
         <p className="or-join-with">Or join with</p>
 
         <div className="social-media-container">
-          <SocialMediaButton socialIcon={STEAM} socialName={"Steam"} />
-          <SocialMediaButton socialIcon={TWITCH} socialName={"Twitch"} />
-          <SocialMediaButton socialIcon={METAMASK} socialName={"Metamask"} />
+          <SocialMediaButton
+            socialIcon={STEAM}
+            socialName={"Steam"}
+            url={"https://steamcommunity.com"}
+          />
+          <SocialMediaButton
+            socialIcon={TWITCH}
+            socialName={"Twitch"}
+            url={"https://www.twitch.tv"}
+          />
+          <SocialMediaButton
+            socialIcon={METAMASK}
+            socialName={"Metamask"}
+            url={"https://metamask.io"}
+          />
         </div>
       </div>
 

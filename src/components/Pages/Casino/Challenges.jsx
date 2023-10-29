@@ -1,29 +1,29 @@
 import React from "react";
 
-import { DATA_CONTENT } from "../../../assets/MockData/mockData";
-import ImagesSection from "../../Common/ImagesSection/ImagesSection";
+import { SORT_BY_OPTIONS } from "../../../assets/MockData/dropdownsData";
+import ChallengesCardSection from "../../Common/ChallengesCard/ChallengesCardSection";
 import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
+import Modal from "../../Modals/Modal";
 import { StyledPageContainer } from "./styles";
 
 const Challenges = () => {
-  const category = "Casino";
-  const subcategory = "CHALLENGES";
-
   return (
     <StyledPageContainer>
       <LiveWinsSection title="Live wins" hasFilters={true} />
 
       <NavigationHeader isNftPage={false} />
       <div className="content-container">
-        <SearchAndFilters />
-
-        <ImagesSection
-          category={category}
-          subcategory={subcategory}
-          images={DATA_CONTENT}
+        <SearchAndFilters
+          hasSwitchToggle={true}
+          labelSwitchToggle={"Featured First"}
+          sortByOptions={SORT_BY_OPTIONS}
         />
+
+        <Modal />
+
+        <ChallengesCardSection />
       </div>
     </StyledPageContainer>
   );

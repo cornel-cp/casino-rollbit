@@ -3,9 +3,11 @@ import { StyledHoverableImage } from "./styles";
 
 const HoverableImage = ({ src, alt }) => {
   return (
-    <StyledHoverableImage>
-      <img src={src} alt={alt} className="image-card" />
-    </StyledHoverableImage>
+    <div>
+      <StyledHoverableImage>
+        <img src={src} alt={alt} className="image-card" />
+      </StyledHoverableImage>
+    </div>
   );
 };
 

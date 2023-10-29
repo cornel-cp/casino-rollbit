@@ -2,18 +2,16 @@ import React, { useState } from 'react';
 
 
 //assets
-import CLOSE from "../../../assets/modelImages/Frame (3).svg";
+import styled from 'styled-components';
+import RLB from "../../../assets/images/Frame (60).svg";
+import ERC from "../../../assets/images/Frame 160.svg";
 import BTC from "../../../assets/images/IMAGE (1).svg";
-import NFT from "../../../assets/images/svg.svg";
 import ETH from "../../../assets/images/IMAGE (2).svg";
 import LTC from "../../../assets/images/IMAGE (3).svg";
 import SOL from "../../../assets/images/IMAGE (4).svg";
-import RLB from "../../../assets/images/Frame (60).svg";
-import ERC from "../../../assets/images/Frame 160.svg";
-import CRYPTO from "../../../assets/images/Frame 166.svg";
-import ARROW from "../../../assets/modelImages/Frame (5).svg";
 import COIN from "../../../assets/images/IMAGE (5).svg";
-import styled from 'styled-components';
+import NFT from "../../../assets/images/svg.svg";
+import ARROW from "../../../assets/modelImages/Frame (5).svg";
 
 
 

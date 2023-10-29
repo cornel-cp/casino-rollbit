@@ -1,10 +1,18 @@
 import styled from "styled-components";
 
 export const StyleAccountNavigation = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  a {
+    width: 100%;
+  }
+
   .nav-link {
     display: flex;
-    margin: 8px 0;
-    width: 165px;
+    width: 100%;
     padding: 10px 16px;
     flex-direction: column;
     align-items: flex-start;
@@ -48,5 +56,21 @@ export const StyleAccountNavigation = styled.div`
   .active-icon {
     filter: drop-shadow(rgb(255, 93, 0) 0px 0px 6px);
     color: rgb(255, 255, 193);
+  }
+
+  @media (min-width: 440px) {
+    a {
+      width: auto;
+    }
+  }
+
+  @media (min-width: 800px) {
+    flex-direction: column;
+    gap: 0;
+
+    .nav-link {
+      width: 165px;
+      margin: 8px 0;
+    }
   }
 `;

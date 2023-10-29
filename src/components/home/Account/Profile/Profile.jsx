@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 // assest
 
@@ -10,13 +10,19 @@ import { ReactComponent as STEAM } from "../../../../assets/images/Frame (22).sv
 import { ReactComponent as TWITCH } from "../../../../assets/images/Frame (23).svg";
 import { ReactComponent as METAMASK } from "../../../../assets/images/Frame (24).svg";
 import { ReactComponent as CHECKMARK } from "../../../../assets/images/checkmark.svg";
+import SwitchToggle from "../../../Common/SwitchToggle/SwitchToggle";
 import AccountPageTitle from "../Common/AccountPageTitle";
+import UserContainer from "./UserContainer";
 
 const Profile = () => {
+  const [useRollbotAsAvatar, setUseRollbotAsAvatar] = useState(false);
+  const [isPrivateProfile, setIsPrivateProfile] = useState(false);
+
   return (
     <StyleProfile>
       <AccountPageTitle icon={USER} title="Profile" />
 
+      <UserContainer />
       <div className="section-container">
         <h3 className="section-title">Profile Settings</h3>
         <form>
@@ -46,39 +52,18 @@ const Profile = () => {
           </div>
         </form>
         <div className="checkbox-container">
-          <div>
-            <input
-              type="checkbox"
-              id="proof-checkbox-62401"
-              className="input-checkbox"
-            />
-            <label
-              tabindex="0"
-              for="proof-checkbox-62401"
-              className="label-checkbox"
-            >
-              <div className="circle"></div>
-              <span style={{ whiteSpace: "normal" }}>
-                Use profile linked rollbot as chat/lottery avatar
-              </span>
-            </label>
-          </div>
+          <SwitchToggle
+            checked={useRollbotAsAvatar}
+            toggle={setUseRollbotAsAvatar}
+            label={"Use profile linked rollbot as chat/lottery avatar"}
+          />
         </div>
         <div className="checkbox-container">
-          <div>
-            <input
-              type="checkbox"
-              id="proof-checkbox-62402"
-              className="input-checkbox"
-            />
-            <label
-              tabindex="0"
-              for="proof-checkbox-62402"
-              className="label-checkbox"
-            >
-              <div className="circle"></div>Private profile
-            </label>
-          </div>
+          <SwitchToggle
+            checked={isPrivateProfile}
+            toggle={setIsPrivateProfile}
+            label={"Use profile linked rollbot as chat/lottery avatar"}
+          />
           <svg
             width="16"
             height="16"

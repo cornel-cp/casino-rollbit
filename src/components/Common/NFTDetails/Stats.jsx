@@ -1,16 +1,10 @@
 import React from "react";
 import { StyleStats } from "./styles";
 
-const statsData = [
-  { title: "Profit Share", value: "$14.61" },
-  { title: "Max Free Bet", value: "$50" },
-  { title: "Max Combo Boost", value: "109%" },
-];
-
-const Stats = () => {
+const Stats = ({ stats }) => {
   return (
     <StyleStats>
-      {statsData.map((stat, index) => (
+      {stats.map((stat, index) => (
         <div className="stat-container">
           <div className="title">{stat.title}</div>
           <div className="value-container">

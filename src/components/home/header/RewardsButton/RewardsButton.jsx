@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 
 import { AppContext } from "../../../../AppContext";
-import ARROW_DOWN from "../../../../assets/images/Frame (33).svg";
+import { ReactComponent as ARROW_DOWN } from "../../../../assets/images/Frame (33).svg";
 import TREASURE from "../../../../assets/images/IMAGE (44).png";
 import Model1 from "../../../models/rewardModel/Model1";
 
@@ -44,11 +44,7 @@ const RewardsButton = () => {
         >
           Rewards
         </p>
-        <img
-          src={ARROW_DOWN}
-          alt="arrow"
-          style={{ width: "8px", height: "6px" }}
-        />
+        <ARROW_DOWN style={{ width: "8px", height: "6px", color: "#b1b6c6" }} />
       </div>
       {openDropdown === "rewards" ? (
         <>

@@ -22,6 +22,10 @@ export const StyleNFTDetails = styled.div`
     font-style: normal;
     cursor: pointer;
     color: rgb(255, 176, 24);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .author {
@@ -60,10 +64,15 @@ export const StyleNFTDetails = styled.div`
     text-transform: none;
     color: rgb(177, 182, 198);
     background: rgba(203, 215, 255, 0.03);
+
+    &:hover {
+      background: rgba(203, 215, 255, 0.055);
+    }
   }
 
   .container-nft {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
     margin-top: 16px;
     gap: 40px;
@@ -127,13 +136,23 @@ export const StyleNFTDetails = styled.div`
       }
 
       .description-button {
-        display: inline-block;
+        display: flex;
+        align-items: center;
+        width: 50px;
         margin-top: 12px;
 
         font-weight: 700;
         font-style: normal;
         cursor: pointer;
         color: rgb(255, 176, 24);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .open {
+        display: flex;
       }
     }
 
@@ -160,6 +179,10 @@ export const StyleNFTDetails = styled.div`
         rgb(255, 176, 24) 50%,
         rgb(255, 73, 73) 100%
       );
+    }
+
+    @media (min-width: 768px) {
+      flex-direction: row;
     }
   }
 

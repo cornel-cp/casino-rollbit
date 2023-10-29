@@ -4,10 +4,11 @@ import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
 import NFTNavigationHeader from "./NFTNavigationHeader";
 
-import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
-import PageTitle from "../../Common/PageTitle/PageTitle";
-import NotFound from "../../Common/NotFound/NotFound";
+import { SORT_BY_OPTIONS } from "../../../assets/MockData/dropdownsData";
 import { BUTTONS_NFT_MARKETPLACE } from "../../../assets/MockData/mockData";
+import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
+import NotFound from "../../Common/NotFound/NotFound";
+import PageTitle from "../../Common/PageTitle/PageTitle";
 
 const NFTMySales = () => {
   return (
@@ -16,7 +17,7 @@ const NFTMySales = () => {
 
       <NFTNavigationHeader buttons={BUTTONS_NFT_MARKETPLACE} />
       <div className="content-container">
-        <SearchAndFilters />
+        <SearchAndFilters sortByOptions={SORT_BY_OPTIONS} />
         {/* <NFTSection isLootbox={false} /> */}
         <NotFound text="YOU DON'T HAVE ANY SALES YET" />
       </div>

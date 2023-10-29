@@ -1,5 +1,9 @@
 import React from "react";
 
+import {
+  PROVIDER_OPTIONS,
+  SORT_BY_OPTIONS,
+} from "../../../assets/MockData/dropdownsData";
 import { DATA_CONTENT } from "../../../assets/MockData/mockData"; // Import from the correct path
 import ImagesSection from "../../Common/ImagesSection/ImagesSection";
 import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
@@ -17,7 +21,12 @@ const Slots = () => {
 
       <NavigationHeader isNftPage={false} />
       <div className="content-container">
-        <SearchAndFilters />
+        <SearchAndFilters
+          hasSwitchToggle={true}
+          labelSwitchToggle={"Bonus Buys"}
+          sortByOptions={SORT_BY_OPTIONS}
+          providerOptions={PROVIDER_OPTIONS}
+        />
 
         <ImagesSection
           category={category}

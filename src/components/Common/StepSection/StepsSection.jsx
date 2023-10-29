@@ -1,9 +1,12 @@
 import React from "react";
 import { StyledStepSection } from "./StyledStepSection";
 
-const StepsSection = ({ steps }) => {
+const StepsSection = ({ steps, className }) => {
   return (
-    <StyledStepSection style={{ paddingTop: "0px", paddingBottom: "0px" }}>
+    <StyledStepSection
+      style={{ paddingTop: "0px", paddingBottom: "0px" }}
+      className={className || ""}
+    >
       <div class="class-1">
         <div class="class-2">
           {steps.map((step) => (

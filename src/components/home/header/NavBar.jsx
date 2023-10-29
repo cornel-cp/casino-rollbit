@@ -3,15 +3,16 @@ import { Link } from "react-router-dom";
 
 //assets
 import LOGO_IMG from "../../../assets/images/LOGO.svg";
-import MESSAGE_ICON from "../../../assets/images/MESSAGE.png";
-import SEARCH_ICON from "../../../assets/images/SEARCH.png";
+import { ReactComponent as MESSAGE_ICON } from "../../../assets/images/message.svg";
+import { ReactComponent as SEARCH_ICON } from "../../../assets/images/navbar-search-icon.svg";
 import ChatBox from "../ChatBox/ChatBox";
 
 import { AppContext } from "../../../AppContext";
+import Button from "../../Common/Buttons/Button";
 import RegisterModal from "../../Common/Modals/RegisterModal";
 import AccountButton from "./AccountButton/AccountButton";
-import BuyCryptoModal from "./BuyCryptoModal/BuyCryptoModal";
-import CashierModal from "./CashierModal/CashierModal";
+// import CashierModal from "./CashierModal/CashierModal";
+import CashierModal from "../../Modals/CashierModals/CashierModal";
 import RewardsButton from "./RewardsButton/RewardsButton";
 import TotalMoneyContainer from "./TotalMoneyContainer";
 
@@ -46,7 +47,7 @@ const NavBar = () => {
           left: "0",
           right: "0",
           background: "#1A1D29",
-          zIndex: 100,
+          zIndex: 9,
         }}
       >
         <div style={{ display: "flex" }}>
@@ -69,9 +70,9 @@ const NavBar = () => {
             >
               <TotalMoneyContainer money="$0.00" />
 
-              <CashierModal />
+              <CashierModal button={"Cashier"} />
 
-              <BuyCryptoModal />
+              <CashierModal button={"Buy Crypto"} />
             </div>
           </>
         )}
@@ -84,19 +85,17 @@ const NavBar = () => {
             </>
           )}
 
-          <div class="flex">
+          <div style={{ display: "flex" }}>
             {/* Account Section */}
             {isLoggedIn && <AccountButton />}
 
-            <img src={SEARCH_ICON} alt="search" class="ml-4 mr-4" />
+            <Button style={{ marginLeft: "1rem", marginRight: "1rem" }}>
+              <SEARCH_ICON />
+            </Button>
             {isChatBoxOpen === false ? (
-              <img
-                onClick={() => updateChatBox(true)}
-                src={MESSAGE_ICON}
-                alt="message"
-                class="mr-5"
-                style={{ cursor: "pointer" }}
-              />
+              <Button className="mr-5" onClick={() => updateChatBox(true)}>
+                <MESSAGE_ICON />
+              </Button>
             ) : null}
           </div>
         </div>

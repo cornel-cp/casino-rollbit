@@ -7,9 +7,8 @@ import BoxesSection from "../../Common/BoxCard/BoxesSection";
 import CasinoSection from "../../Common/CasinoSection/CasinoSection";
 import CryptoSection from "../../Common/CryptoCard/CryptoSection";
 import NTFSection from "../../Common/NFTCard/NFTSection";
-import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
-import TableView from "./TableView";
 import StepsSection from "../../Common/StepSection/StepsSection";
+import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
 import NewTableView from "./NewTableView";
 
 const steps = [
@@ -29,12 +28,12 @@ const steps = [
 
 const MainHome = ({ update }) => {
   return (
-    <>
+    <div className="@container">
       <Banner />
 
       {/* Homepage main image area */}
 
-      <StepsSection steps={steps} />
+      <StepsSection steps={steps} className="@xl:block hidden" />
 
       {/* image area frame main */}
 
@@ -58,11 +57,15 @@ const MainHome = ({ update }) => {
 
       {/* NFT LOOT BOXES */}
 
-      <NTFSection title="NFT Lootboxes" buttonText="View All" />
+      <NTFSection
+        title="NFT Lootboxes"
+        buttonText="View All"
+        buttonLink="/nft/lootboxes/play"
+      />
 
       {/* table view */}
       <NewTableView />
-    </>
+    </div>
   );
 };
 

@@ -1,26 +1,66 @@
 import React from "react";
 
-import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
+import { useParams } from "react-router-dom";
+import {
+  SORT_BY_OPTIONS,
+  TRAITS_OPTIONS,
+} from "../../../assets/MockData/dropdownsData";
+import { BUTTONS_MANAGE_ROLLBOTS } from "../../../assets/MockData/mockData";
+import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
+import ManageTopSection from "../../Common/NFTSection/ManageTopSection";
+import NFTSection from "../../Common/NFTSection/NFTSection";
+import NotFound from "../../Common/NotFound/NotFound";
+import PageTitle from "../../Common/PageTitle/PageTitle";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
-import NFTSection from "../../Common/NFTSection/NFTSection";
 import NFTNavigationHeader from "./NFTNavigationHeader";
-import NFTBanner from "../../Common/NFTBanner/NFTBanner";
-import {
-  BUTTONS_NFT_MAIN,
-  NFT_BANNER_OPTIONS,
-} from "../../../assets/MockData/mockData";
+
+const TABS = {
+  PORTFOLIO: "portfolio",
+  MARKETPLACE: "marketplace",
+  STAKED: "staked",
+  PROFILE: "profile",
+};
+
+const topSectionData = [
+  { name: "Lootbox Share:", value: "0.00%", showInfo: false },
+  { name: "Market Share:", value: "0.00%", showInfo: true },
+  { name: "Buy & Burn:", value: "0.00%", showInfo: true },
+  { name: "Market Claimed:", value: "$0", showInfo: true },
+  { name: "Buy & Burn Claimed:", value: "0 RLB", showInfo: true },
+  // Add more data items as needed
+];
 
 const ManageRollbots = () => {
+  const { tab } = useParams();
+
+  const renderContent = () => {
+    switch (tab) {
+      case TABS.PORTFOLIO:
+        return <NotFound text="NO NFTS FOUND" />;
+      case TABS.MARKETPLACE:
+        return <NFTSection isLootbox={false} />;
+      case TABS.STAKED:
+        return <NotFound text="NO ROLLBOTS FOUND" />;
+      default:
+        return <NotFound text="NO NFTS FOUND" />;
+    }
+  };
+
   return (
     <StyledPageContainer>
-      <NFTBanner bannerOptions={NFT_BANNER_OPTIONS} />
+      <PageTitle icon={NFT_IMG} title="ROLLBOTS" />
 
-      <NFTNavigationHeader buttons={BUTTONS_NFT_MAIN} />
+      <ManageTopSection data={topSectionData} />
+
+      <NFTNavigationHeader buttons={BUTTONS_MANAGE_ROLLBOTS} />
       <div className="content-container">
-        <SearchAndFilters />
+        <SearchAndFilters
+          sortByOptions={SORT_BY_OPTIONS}
+          traitsOptions={TRAITS_OPTIONS}
+        />
 
-        <NFTSection isLootbox={false} />
+        {renderContent()}
       </div>
     </StyledPageContainer>
   );

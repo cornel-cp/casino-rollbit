@@ -1,7 +1,7 @@
 import React from "react";
-import { StyleCollection } from "./styles";
-import { ReactComponent as LINK_IMG } from "../../../assets/images/link.svg";
 import { ReactComponent as ARROW_RIGHT } from "../../../assets/images/arrow-line-right.svg";
+import { ReactComponent as LINK_IMG } from "../../../assets/images/link.svg";
+import { StyleCollection } from "./styles";
 
 const Collection = () => {
   return (
@@ -46,15 +46,19 @@ const Collection = () => {
         <a target="blank" href="https://rollbot.com">
           Rollbot.com
         </a>
-        . Total holder count is more than 4,000. A collection of 10,000 unique
-        robots generated algorithmically using over 600 traits with proof of
-        ownership on the Ethereum blockchain and a focus on utility. Inspired by
-        Rollbit's first NFT project and other popular utility NFT projects,
-        Sports Rollbots are based on the ERC-721 standard that underlies most
-        digital collectible and utility projects. Each Rollbot is a
-        sports-themed piece of digital art that doubles up as a personalised VIP
-        membership for Rollbit's new sportsbook. Own a part of Rollbit's
-        sportsbook and enjoy the perks!
+        . Total holder count is more than 4,000.
+        <br />
+        <br />
+        A collection of 10,000 unique robots generated algorithmically using
+        over 600 traits with proof of ownership on the Ethereum blockchain and a
+        focus on utility. Inspired by Rollbit's first NFT project and other
+        popular utility NFT projects, Sports Rollbots are based on the ERC-721
+        standard that underlies most digital collectible and utility projects.
+        <br />
+        <br />
+        Each Rollbot is a sports-themed piece of digital art that doubles up as
+        a personalised VIP membership for Rollbit's new sportsbook. Own a part
+        of Rollbit's sportsbook and enjoy the perks!
       </div>
       <div style={{ display: "flex" }}>
         <a

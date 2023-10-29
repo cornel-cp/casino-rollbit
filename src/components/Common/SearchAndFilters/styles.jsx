@@ -32,6 +32,7 @@ export const SearchInput = styled.input`
   border-radius: 6px;
   border: 1px solid transparent;
   background: rgba(15, 17, 26, 0.55);
+  color: #fff;
   transition: background 0.1s ease 0s;
   flex: 1 1 0%;
   min-width: 170px;
