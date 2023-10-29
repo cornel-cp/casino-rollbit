@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import SportCard from "../SportCard/SportCard";
 import SportsNavigation from "../SportsNavigation/SportsNavigation";
+import NoSportFound from "./NoSportFound";
 import SportsSectionTitle from "./SportsSectionTitle";
 import {
   SportSectionContainer,
@@ -12,6 +13,7 @@ const SportSection = ({ titleIcon, isLive = false }) => {
   const containerRef = useRef(null);
   const [numColumns, setNumColumns] = useState(1);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [selectedSport, setSelectedSport] = useState("/soccer");
 
   useEffect(() => {
     const updateNumColumns = () => {
@@ -42,19 +44,26 @@ const SportSection = ({ titleIcon, isLive = false }) => {
   return (
     <SportSectionContainer>
       <SportsSectionTitle icon={titleIcon} name={"Top Matches"} />
-      <SportsNavigation />
-      <StyledSportSection
-        ref={containerRef}
-        numColumns={numColumns}
-        containerWidth={containerWidth}
-      >
-        {Array(9)
-          .fill()
-          .map((_, index) => (
-            <SportCard key={index} isLive={isLive} />
-          ))}
-        <TopMatch icon={titleIcon} numColumns={numColumns} />
-      </StyledSportSection>
+      <SportsNavigation
+        selectedSport={selectedSport}
+        updateSelectedSport={setSelectedSport}
+      />
+      {selectedSport === "/soccer" ? (
+        <StyledSportSection
+          ref={containerRef}
+          numColumns={numColumns}
+          containerWidth={containerWidth}
+        >
+          {Array(9)
+            .fill()
+            .map((_, index) => (
+              <SportCard key={index} isLive={isLive} />
+            ))}
+          <TopMatch icon={titleIcon} numColumns={numColumns} />
+        </StyledSportSection>
+      ) : (
+        <NoSportFound />
+      )}
     </SportSectionContainer>
   );
 };

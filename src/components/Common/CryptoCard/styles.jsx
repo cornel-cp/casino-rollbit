@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCryptoCard = styled.div`
   min-width: 130px;
-  height: 210px;
+  height: auto;
   flex-shrink: 0;
   border-radius: 8px;
   transition: transform 0.3s ease;
@@ -13,7 +13,7 @@ export const StyledCryptoCard = styled.div`
   }
 
   .padding-wrapper {
-    padding: 20px 0;
+    padding-top: 20px;
   }
 
   .card-wrapper {

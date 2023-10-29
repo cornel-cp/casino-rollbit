@@ -85,7 +85,7 @@ const SportsHeader = () => {
     updateQueryParams();
 
     return () => {
-      updateSportsSelectedOption("");
+      updateSportsSelectedOption("/home");
     };
   }, []);
 
@@ -133,7 +133,10 @@ const SportsHeader = () => {
         </StyledSportNavOption>
       </div>
       <div className="navigation-actions"></div>
-      <Link to={"#"} onClick={() => updateSportsSelectedOption("myBets")}>
+      <Link
+        to={"/my-bets"}
+        onClick={() => updateSportsSelectedOption("myBets")}
+      >
         <StyledSportNavOption isActive={sportsSelectedOption === "myBets"}>
           <MY_BETS />
         </StyledSportNavOption>

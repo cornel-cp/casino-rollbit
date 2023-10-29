@@ -27,7 +27,7 @@ const StyledPriceDisplay = ({ value, onChange }) => {
   return <StyledInput type="text" value={value} onChange={onChange} />;
 };
 
-const eventStartTime = new Date("2023-10-11T01:07:00Z");
+const eventStartTime = new Date("2023-11-08T01:07:00Z");
 
 const calculateTimeRemaining = () => {
   const now = new Date();

@@ -58,3 +58,28 @@ export const StyledHoverableImage = styled.div`
     cursor: pointer;
   }
 `;
+
+export const StyledHoverableImgMainHome = styled.div`
+  animation: 0.2s ease-out 0s 1 normal backwards running ${fadeAndSlideIn};
+  ${generateAnimationDelayCSS(3, 0.02, 100)}
+
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding-top: 20px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    cursor: pointer;
+  }
+
+  .image-card {
+    border-radius: 8px;
+    max-width: none;
+    object-fit: cover;
+    cursor: pointer;
+  }
+`;

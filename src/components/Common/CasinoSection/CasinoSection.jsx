@@ -9,7 +9,7 @@ import CASINO_IMG_4 from "../../../assets/images/IMAGE (17).png";
 import CASINO_IMG_5 from "../../../assets/images/IMAGE (18).png";
 import CASINO_IMG_6 from "../../../assets/images/IMAGE (19).png";
 import useSlider from "../../../hooks/useSlider";
-import HoverableImage from "../HoverableImage/HoverableImage";
+import HoverableImgMainHome from "../HoverableImage/HoverableImgMainHome";
 import Slider from "../Slider/Slider";
 import { StyledCasinoSection } from "./StyledCasinoSection";
 
@@ -34,7 +34,9 @@ const CasinoSection = () => {
   const { containerRef, scrollLeft, scrollRight } = useSlider();
 
   const CardsComponent = casinoImages.map((image, index) => {
-    return <HoverableImage key={index} src={image} alt={`casino-${index}`} />;
+    return (
+      <HoverableImgMainHome key={index} src={image} alt={`casino-${index}`} />
+    );
   });
 
   return (

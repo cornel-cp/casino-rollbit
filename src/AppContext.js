@@ -33,11 +33,15 @@ const AppProvider = ({ children }) => {
   const [onClickFunctionNext, setOnClickFunctionNext] = useState(null);
   const [onClickFunctionPrev, setOnClickFunctionPrev] = useState(null);
   const [searchState, setSearchState] = useReducer(searchReducer, initialState);
-  const [sportsSelectedOption, setSportsSelectedOption] = useState(null);
+  const [sportsSelectedOption, setSportsSelectedOption] = useState("/home");
   const [selectedOptionCashier, setSelectedOptionCashier] = useState("Deposit");
+  const [selectedSport, setSelectedSport] = useState("/soccer");
 
   const updateCashierOption = (option) => {
     setSelectedOptionCashier(option);
+  };
+  const updateSelectedSport = (option) => {
+    setSelectedSport(option);
   };
 
   const updateSportsSelectedOption = (newOption) => {
@@ -85,6 +89,7 @@ const AppProvider = ({ children }) => {
         searchState,
         sportsSelectedOption,
         selectedOptionCashier,
+        selectedSport,
         updateSelectedOption,
         updateSidebar,
         updateChatBox,
@@ -97,6 +102,7 @@ const AppProvider = ({ children }) => {
         updateSort,
         updateSportsSelectedOption,
         updateCashierOption,
+        updateSelectedSport,
       }}
     >
       {children}

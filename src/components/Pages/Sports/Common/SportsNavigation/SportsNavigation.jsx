@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ReactComponent as BASKETBALL } from "../../../../../assets/images/basketball.svg";
 import { ReactComponent as BOXING } from "../../../../../assets/images/boxing.svg";
@@ -29,17 +29,15 @@ const buttons = [
   { icon: <NBA_2K />, label: "NBA 2K", url: "/nba-2k" },
 ];
 
-const SportsNavigation = () => {
-  const [selectedOption, setSelectedOption] = useState(null);
-
+const SportsNavigation = ({ selectedSport, updateSelectedSport }) => {
   return (
     <StyledNavigationHeader>
       <div className="content-wrapper">
         {buttons.map((button, index) => {
-          const buttonIsActive = button.url === selectedOption;
+          const buttonIsActive = button.url === selectedSport;
           return (
             // <Link to={button.url} onClick={() => setSelectedOption(button.url)}>
-            <Link to={"#"} onClick={() => setSelectedOption(button.url)}>
+            <Link to={"#"} onClick={() => updateSelectedSport(button.url)}>
               <StyledNavHeaderBtn isActive={buttonIsActive}>
                 <div className="btn-icon">{button.icon}</div>
                 {button.label}

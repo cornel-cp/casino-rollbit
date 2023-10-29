@@ -57,6 +57,7 @@ const RewardsButton = () => {
               top: "50px",
               boxShadow: "0px 5px 8px 0px rgba(0, 0, 0, 0.25)",
               borderRadius: "6px",
+              zIndex: 19,
             }}
           >
             <Model1 />
