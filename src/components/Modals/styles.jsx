@@ -6,6 +6,7 @@ export const StyleModal = styled.div`
     position: relative;
     width: 100%;
     max-width: ${(props) => props.maxWidth};
+    max-height: ${(props) => `${props.maxHeight}`};
     vertical-align: middle;
     border-radius: 10px;
     background: rgb(26, 29, 41);

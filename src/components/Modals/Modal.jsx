@@ -40,6 +40,7 @@ const Modal = ({ children, isOpen = false, onClose, ...props }) => {
           <StyleModal
             className="fixed inset-0 flex w-screen items-center justify-center p-4 overflow-hidden"
             maxWidth={`${props.maxWidth}px`}
+            maxHeight={props.maxHeight}
           >
             {/* The actual dialog panel  */}
             <Dialog.Panel className="overflow-modal w-full max-w-sm rounded modal-panel max-h-screen overflow-y-auto">

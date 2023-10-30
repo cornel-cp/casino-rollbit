@@ -3,6 +3,7 @@ import { AppContext } from "../../../AppContext";
 import useCardsLoadMore from "../../../hooks/useCardsLoadMore";
 import Button from "../Buttons/Button";
 import HoverableImage from "../HoverableImage/HoverableImage";
+import NotFound from "../NotFound/NotFound";
 import { StyledImageSection } from "./styles";
 
 const ImagesSection = ({ category, subcategory, images }) => {
@@ -42,6 +43,9 @@ const ImagesSection = ({ category, subcategory, images }) => {
           </Button>
         </div>
       )}
+      {filteredImagesAgain?.length === 0 ? (
+        <NotFound text="NO GAMES FOUND" />
+      ) : null}
     </StyledImageSection>
   );
 };

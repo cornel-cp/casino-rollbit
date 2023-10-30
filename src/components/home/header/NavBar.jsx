@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 //assets
 import LOGO_IMG from "../../../assets/images/LOGO.svg";
 import { ReactComponent as MESSAGE_ICON } from "../../../assets/images/message.svg";
-import { ReactComponent as SEARCH_ICON } from "../../../assets/images/navbar-search-icon.svg";
 import ChatBox from "../ChatBox/ChatBox";
 
 import { AppContext } from "../../../AppContext";
@@ -13,6 +12,7 @@ import RegisterModal from "../../Common/Modals/RegisterModal";
 import AccountButton from "./AccountButton/AccountButton";
 // import CashierModal from "./CashierModal/CashierModal";
 import CashierModal from "../../Modals/CashierModals/CashierModal";
+import SearchModal from "../../Modals/SearchModal/SearchModal";
 import RewardsButton from "./RewardsButton/RewardsButton";
 import TotalMoneyContainer from "./TotalMoneyContainer";
 
@@ -89,9 +89,7 @@ const NavBar = () => {
             {/* Account Section */}
             {isLoggedIn && <AccountButton />}
 
-            <Button style={{ marginLeft: "1rem", marginRight: "1rem" }}>
-              <SEARCH_ICON />
-            </Button>
+            <SearchModal />
             {isChatBoxOpen === false ? (
               <Button className="mr-5" onClick={() => updateChatBox(true)}>
                 <MESSAGE_ICON />
