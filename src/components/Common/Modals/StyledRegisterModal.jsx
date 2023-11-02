@@ -54,7 +54,7 @@ export const StyledRegisterModal = styled.div`
   .form-input {
     color: #fff;
     background-color: rgba(15, 17, 26, 0.55);
-    width: 400px;
+    width: 100%;
     height: 40px;
     padding-left: 15px;
     border-radius: 10px;
@@ -95,7 +95,7 @@ export const StyledRegisterModal = styled.div`
     margin-bottom: 4px;
     color: #fff;
     background-color: rgba(15, 17, 26, 0.55);
-    width: 400px;
+    width: 100%;
     height: 40px;
     padding-left: 15px;
     border-radius: 10px;
@@ -135,6 +135,6 @@ export const StyledRegisterModal = styled.div`
     color: #b1b6c6;
     font-size: 14px;
     margin-right: 5px;
-    width: 390px;
+    width: 100%;
   }
 `;

@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const StyledChatBoxContainer = styled.div`
   width: 340px;
-  height: calc(100vh - 64px);
+  height: ${(props) =>
+    props.isMobileScreen ? "calc(100vh - 64px - 50px)" : "calc(100vh - 64px)"};
   padding: 0px 16px 16px;
   display: flex;
   flex-direction: column;
@@ -198,15 +199,13 @@ export const StyledIconSection = styled.div`
       box-shadow: 0px 0px 10px 0px rgba(118, 255, 25, 0.4);
       cursor: pointer;
 
-      .send-text {
-        color: #141722;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: 14.4px;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-      }
+      color: #141722;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 14.4px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
   }
 `;

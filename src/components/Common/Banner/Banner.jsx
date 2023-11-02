@@ -10,8 +10,8 @@ import { StyledBanner } from "./StyledBanner";
 
 const Banner = () => {
   return (
-    <StyledBanner>
-      <div className="main-content">
+    <StyledBanner className="@container">
+      <div className="main-content w-full @xl:w-auto">
         <img src={LOGO} alt="logo" />
         <p className="main-heading">
           Experience true innovation with the highest rewards program within the
@@ -22,7 +22,7 @@ const Banner = () => {
 
         <p className="or-join-with">Or join with</p>
 
-        <div className="social-media-container">
+        <div className="social-media-container flex-col @xl:flex-row">
           <SocialMediaButton
             socialIcon={STEAM}
             socialName={"Steam"}
@@ -41,7 +41,7 @@ const Banner = () => {
         </div>
       </div>
 
-      <div className="side-text">
+      <div className="side-text hidden @xl:block">
         <p className="leverage-text">1000X LEVERAGE CRYPTO FUTURES</p>
         <p className="small-text">
           Instant execution, 0% slippage, 0% fees on loss

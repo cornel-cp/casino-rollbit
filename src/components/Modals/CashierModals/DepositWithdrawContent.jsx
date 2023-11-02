@@ -16,7 +16,6 @@ import { StyledModalContent } from "./styles";
 const DepositWithdrawContent = ({ option }) => {
   const [selectedOption, setSelectedOption] = useState(null); // Use null instead of a boolean
 
-  console.log("selectedOption", selectedOption);
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };

@@ -64,7 +64,8 @@ export const LiveWinsSectionStyled = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-top: 36px;
+  flex-wrap: wrap;
+  gap: 8px;
 
   .dot-section {
     display: flex;

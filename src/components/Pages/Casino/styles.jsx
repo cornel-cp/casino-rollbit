@@ -30,8 +30,15 @@ export const StyledPageContainer = styled.div`
       display: grid;
       width: 100%;
       align-items: stretch;
-      grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-      gap: 18px 12px;
+      grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+      gap: 12px 6px;
+    }
+
+    @media (min-width: 600px) {
+      .image-cards {
+        gap: 18px 12px;
+        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+      }
     }
   }
 `;

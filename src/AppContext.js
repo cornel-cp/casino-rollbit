@@ -26,8 +26,11 @@ const searchReducer = (state, action) => {
 
 const AppProvider = ({ children }) => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [isChatBoxOpen, setIsChatBoxOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isChatBoxOpen, setIsChatBoxOpen] = useState(false);
+  const [prevChatBoxOpen, setPrevChatBoxOpen] = useState(false);
+  const [prevSidebarOpen, setPrevSidebarOpen] = useState(false);
+  const [isMobileScreen, setIsMobileScreen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [onClickFunctionNext, setOnClickFunctionNext] = useState(null);
@@ -37,6 +40,9 @@ const AppProvider = ({ children }) => {
   const [selectedOptionCashier, setSelectedOptionCashier] = useState("Deposit");
   const [selectedSport, setSelectedSport] = useState("/soccer");
 
+  const updateMobileScreen = (option) => {
+    setIsMobileScreen(option);
+  };
   const updateCashierOption = (option) => {
     setSelectedOptionCashier(option);
   };
@@ -56,6 +62,12 @@ const AppProvider = ({ children }) => {
   };
   const updateChatBox = (option) => {
     setIsChatBoxOpen(option);
+  };
+  const updatePrevSidebar = (option) => {
+    setPrevSidebarOpen(option);
+  };
+  const updatePrevChatBox = (option) => {
+    setPrevChatBoxOpen(option);
   };
   const toggleDropdown = (option) => {
     setOpenDropdown(option);
@@ -90,6 +102,12 @@ const AppProvider = ({ children }) => {
         sportsSelectedOption,
         selectedOptionCashier,
         selectedSport,
+        isMobileScreen,
+        prevSidebarOpen,
+        prevChatBoxOpen,
+        updatePrevSidebar,
+        updatePrevChatBox,
+        updateMobileScreen,
         updateSelectedOption,
         updateSidebar,
         updateChatBox,

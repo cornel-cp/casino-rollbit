@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 //assets
 import { ReactComponent as IMG1 } from "../../../assets/images/Frame (28).svg";
 
+import { AppContext } from "../../../AppContext";
 import SectionHeader from "../../Common/SectionHeader/SectionHeader";
 import GameInfoItem from "../../Common/TableView/GameInfoItem";
 import { StyleTableView } from "../../Common/TableView/styles";
@@ -19,6 +20,7 @@ const gameInfoData = [
 ];
 
 const NewTableView = () => {
+  const { isMobileScreen } = useContext(AppContext);
   const filterOptions = ["All Bets", "High Rollers", "Lucky Bets", "Trades"];
 
   const [activeOption, setActiveOption] = useState(filterOptions[0]);
@@ -63,15 +65,19 @@ const NewTableView = () => {
               <th class="th-collection">
                 <div>Game</div>
               </th>
-              <th class="th-collection">
-                <div>Player/Clan</div>
-              </th>
-              <th class="th-borrow">
-                <div>Time</div>
-              </th>
-              <th class="th-borrow">
-                <div>Wager</div>
-              </th>
+              {!isMobileScreen && (
+                <>
+                  <th class="th-collection">
+                    <div>Player/Clan</div>
+                  </th>
+                  <th class="th-borrow">
+                    <div>Time</div>
+                  </th>
+                  <th class="th-borrow">
+                    <div>Wager</div>
+                  </th>
+                </>
+              )}
 
               <th class="th-borrow">
                 <div>Multiplier</div>
@@ -85,7 +91,15 @@ const NewTableView = () => {
             {data.map((gameInfo, index) => (
               <GameInfoItem
                 key={index}
-                gameInfo={gameInfo}
+                gameInfo={
+                  isMobileScreen
+                    ? {
+                        name: gameInfo.name,
+                        multiplier: gameInfo.multiplier,
+                        payout: gameInfo.payout,
+                      }
+                    : gameInfo
+                }
                 index={index}
                 uniqueKey={uniqueKey} // Pass the unique key to trigger re-render
               />

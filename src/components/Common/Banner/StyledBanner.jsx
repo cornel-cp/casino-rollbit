@@ -20,7 +20,7 @@ export const StyledBanner = styled.div`
   }
 
   .main-heading {
-    width: 368px;
+    max-width: 368px;
     color: #fff;
     text-align: center;
     font-size: 18px;

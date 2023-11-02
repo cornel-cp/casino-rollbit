@@ -1,5 +1,7 @@
 //assets
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AppContext } from "../../../AppContext";
 import { ReactComponent as MSG } from "../../../assets/images/Frame (31).svg";
 import { ReactComponent as SWITCH } from "../../../assets/images/Frame (32).svg";
 import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Frame (33).svg";
@@ -18,10 +20,30 @@ import {
 } from "./styles";
 
 const ChatBox = ({ isChatBox, setIsChatBox }) => {
+  const { isMobileScreen } = useContext(AppContext);
+
+  const [message, setMessage] = useState(""); // Track the input message
+  const [messages, setMessages] = useState([]); // Store chat messages
+
+  const handleSend = () => {
+    if (message) {
+      // Add the new message to the messages list
+      setMessages([...messages, message]);
+      // Clear the message input field
+      setMessage("");
+    }
+  };
+
+  const handleInputKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSend();
+    }
+  };
+
   return (
     <>
       {isChatBox ? (
-        <StyledChatBoxContainer>
+        <StyledChatBoxContainer isMobileScreen={isMobileScreen}>
           <div className="top-actions-container">
             <div className="chat-trades">
               <ChatContainer>
@@ -43,10 +65,28 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
             </SwitchContainer>
           </div>
 
-          <ImagePart>
-            <p>No Messages Yet</p>
-          </ImagePart>
-          <MessageInput type="text" placeholder="Login to chat" />
+          {messages.length === 0 ? (
+            <ImagePart>
+              <p>No Messages Yet</p>
+            </ImagePart>
+          ) : (
+            <div className="chat-messages">
+              {messages.map((msg, index) => (
+                <div key={index} className="chat-message">
+                  {msg}
+                </div>
+              ))}
+            </div>
+          )}
+
+          <MessageInput
+            type="text"
+            placeholder="Type a message..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyPress={handleInputKeyPress}
+          />
+
           <StyledIconSection>
             <div className="icons">
               <img src={EMOJI} alt="emoji" className="emoji" />
@@ -56,9 +96,9 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
 
             <div className="info">
               <p className="info-value">200</p>
-              <div className="send-button">
-                <p className="send-text">Send</p>
-              </div>
+              <button onClick={handleSend} className="send-button">
+                Send
+              </button>
             </div>
           </StyledIconSection>
 

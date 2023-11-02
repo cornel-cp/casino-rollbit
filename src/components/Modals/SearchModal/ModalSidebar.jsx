@@ -20,7 +20,6 @@ const BUTTONS_CASINO = [
 ];
 
 const ModalSidebar = ({ selectedCategory, onCategoryChange }) => {
-  console.log("selectedCategory", selectedCategory);
   return (
     <StyledModalSidebar>
       {BUTTONS_CASINO.map((button, index) => (

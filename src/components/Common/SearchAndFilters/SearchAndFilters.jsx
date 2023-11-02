@@ -21,6 +21,11 @@ const SearchAndFilters = ({
     updateSort,
   } = useContext(AppContext);
 
+  console.log("providerOptions", providerOptions);
+  console.log("sortByOptions", sortByOptions);
+  console.log("collectionOptions", collectionOptions);
+  console.log("traitsOptions", traitsOptions);
+
   const navigate = useNavigate();
   const location = useLocation();
 

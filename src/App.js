@@ -53,10 +53,9 @@ import Profile from "./components/home/Account/Profile/Profile";
 import Referrals from "./components/home/Account/Referrals/Referrals";
 import Settings from "./components/home/Account/Settings/Settings";
 import Withdrawals from "./components/home/Account/Withdrawals/Withdrawals";
-import PageFooter from "./components/home/Footer/PageFooter";
+import PageLayout from "./components/home/MainHome/PageLayout";
 import {
   ContentLayout,
-  PageLayout,
   SportsContentLayout,
 } from "./components/home/MainHome/styles";
 import NavBar from "./components/home/header/NavBar";
@@ -64,7 +63,6 @@ import SideBar from "./components/home/header/SideBar";
 
 const routesSportsLayout = [
   { path: "/sports", component: Sports },
-  { path: "/my-bets", component: MyBets },
   { path: "/nft/marketplace", component: Marketplace },
   { path: "/nft/marketplace/my-sales", component: NFTMySales },
   { path: "/nft/marketplace/my-purchases", component: NFTMyPurchases },
@@ -72,12 +70,13 @@ const routesSportsLayout = [
   { path: "/nft/portfolio", component: MyNFTs },
   { path: "/nft/my-loans", component: NFTMyLoans },
   { path: "/nft/external", component: NFTExternal },
-  { path: "/nft/lobby/:tab", component: AKBots },
   { path: "/nft/lootboxes/play", component: NFTLootboxes },
   { path: "/nft/lootboxes/manage", component: NFTMyLootboxes },
   { path: "/nft/details", component: NFTDetails },
   // Add more routes as needed
 ];
+
+const routesBets = [{ path: "/my-bets", component: MyBets }];
 
 const routesContentLayout = [
   { path: "/", component: HomeAppBar },
@@ -100,6 +99,7 @@ const routesContentLayout = [
   { path: "/streams", component: Streams },
   { path: "/25k-race", component: Race25K },
   { path: "/nft", component: NFTMainPage },
+  { path: "/nft/lobby/:tab", component: AKBots },
   { path: "/nft/loans", component: NFTLoans },
   { path: "/nft/details/:nftId", component: NFTDetails },
   { path: "/nft/rollbot/:tab", component: ManageRollbots },
@@ -116,14 +116,12 @@ const routesAccountLayout = [
 ];
 
 function App() {
-  const { isSidebarOpen, isChatBoxOpen, selectedOption, updateSelectedOption } =
-    useContext(AppContext);
+  const { isMobileScreen, updateSelectedOption } = useContext(AppContext);
 
   const isSportsRoute = window.location.pathname === "/sports";
   const isMyBetsRoute = window.location.pathname === "/my-bets";
 
   useEffect(() => {
-    console.log("window.location.pathname", window.location.pathname);
     updateSelectedOption(window.location.pathname);
   }, []);
 
@@ -133,38 +131,46 @@ function App() {
       <NavBar />
       <SideBar />
 
-      <PageLayout isSidebarOpen={isSidebarOpen} isChatBoxOpen={isChatBoxOpen}>
+      <PageLayout>
         {isSportsRoute || isMyBetsRoute ? <SportsHeader /> : null}
         <Routes>
           {routesSportsLayout.map((route) => (
             <Route
               path={route.path}
               element={
-                <SportsContentLayout>
+                <SportsContentLayout isMobileScreen={isMobileScreen}>
                   <route.component />
                 </SportsContentLayout>
               }
             />
           ))}
         </Routes>
+
         <Routes>
           {routesContentLayout.map((route) => (
             <Route
               path={route.path}
               element={
-                <ContentLayout>
+                <ContentLayout isMobileScreen={isMobileScreen}>
                   <route.component />
                 </ContentLayout>
               }
             />
           ))}
         </Routes>
+
+        <Routes>
+          {routesBets.map((route) => (
+            <Route path={route.path} element={<route.component />} />
+          ))}
+        </Routes>
+
         <Routes>
           {routesAccountLayout.map((route) => (
             <Route
               path={route.path}
               element={
-                <ContentLayout>
+                <ContentLayout isMobileScreen={isMobileScreen}>
                   <ProtectedRoute>
                     <AccountPageLayout>
                       <route.component />
@@ -175,8 +181,6 @@ function App() {
             />
           ))}
         </Routes>
-
-        <PageFooter />
       </PageLayout>
     </BrowserRouter>
   );

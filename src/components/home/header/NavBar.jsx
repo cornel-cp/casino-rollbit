@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 //assets
@@ -17,24 +17,13 @@ import RewardsButton from "./RewardsButton/RewardsButton";
 import TotalMoneyContainer from "./TotalMoneyContainer";
 
 const NavBar = () => {
-  const { isChatBoxOpen, isLoggedIn, updateChatBox, updateLoggedIn } =
-    useContext(AppContext);
-
-  const handleWindowResize = () => {
-    if (window.innerWidth < 1024) {
-      updateChatBox(false);
-    }
-  };
-
-  useEffect(() => {
-    // Attach the event listener when the component mounts
-    window.addEventListener("resize", handleWindowResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
+  const {
+    isChatBoxOpen,
+    isLoggedIn,
+    isMobileScreen,
+    updateChatBox,
+    updateLoggedIn,
+  } = useContext(AppContext);
 
   return (
     <>
@@ -50,7 +39,7 @@ const NavBar = () => {
           zIndex: 9,
         }}
       >
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", flexDirection: "space-between" }}>
           <Link to="/ " className="w-40 flex h-10 flex-shrink-0 cursor-pointer">
             <img src={LOGO_IMG} alt="logo" />
           </Link>
@@ -68,11 +57,15 @@ const NavBar = () => {
                 gap: "15px",
               }}
             >
-              <TotalMoneyContainer money="$0.00" />
+              {!isMobileScreen && (
+                <>
+                  <TotalMoneyContainer money="$0.00" />
 
-              <CashierModal button={"Cashier"} />
+                  <CashierModal button={"Cashier"} />
 
-              <CashierModal button={"Buy Crypto"} />
+                  <CashierModal button={"Buy Crypto"} />
+                </>
+              )}
             </div>
           </>
         )}
@@ -85,17 +78,19 @@ const NavBar = () => {
             </>
           )}
 
-          <div style={{ display: "flex" }}>
-            {/* Account Section */}
-            {isLoggedIn && <AccountButton />}
+          {!isMobileScreen && (
+            <div style={{ display: "flex" }}>
+              {/* Account Section */}
+              {isLoggedIn && <AccountButton />}
 
-            <SearchModal />
-            {isChatBoxOpen === false ? (
-              <Button className="mr-5" onClick={() => updateChatBox(true)}>
-                <MESSAGE_ICON />
-              </Button>
-            ) : null}
-          </div>
+              <SearchModal />
+              {isChatBoxOpen === false ? (
+                <Button className="mr-5" onClick={() => updateChatBox(true)}>
+                  <MESSAGE_ICON />
+                </Button>
+              ) : null}
+            </div>
+          )}
         </div>
       </div>
 

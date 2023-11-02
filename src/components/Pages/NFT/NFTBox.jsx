@@ -1,6 +1,5 @@
 import React from "react";
 
-import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
 import NFTNavigationHeader from "./NFTNavigationHeader";
 
@@ -16,8 +15,6 @@ const NFTBox = () => {
 
       <NFTNavigationHeader buttons={BUTTONS_NFT_MARKETPLACE} />
       <div className="content-container">
-        <SearchAndFilters />
-        {/* <NFTSection isLootbox={false} /> */}
         <NotFound text="YOU DON'T HAVE ANY BOX YET" />
       </div>
     </StyledPageContainer>

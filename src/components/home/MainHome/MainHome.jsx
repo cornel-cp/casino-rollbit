@@ -33,7 +33,11 @@ const MainHome = ({ update }) => {
 
       {/* Homepage main image area */}
 
-      <StepsSection steps={steps} className="@xl:block hidden" />
+      <StepsSection
+        hasMarginBottom={true}
+        steps={steps}
+        className="@xl:block hidden"
+      />
 
       {/* image area frame main */}
 

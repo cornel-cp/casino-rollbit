@@ -4,6 +4,8 @@ export const StyledSectionHeader = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 36px;
+  flex-wrap: wrap;
+  gap: 8px;
 
   svg {
     color: #fff;

@@ -71,6 +71,11 @@ const StyledLink = styled.a`
   font-weight: 500;
   cursor: pointer;
   color: rgb(177, 182, 198);
+
+  &:hover {
+    color: rgb(255, 176, 24);
+    text-decoration: underline;
+  }
 `;
 
 const StyledCopyrightText = styled.p`

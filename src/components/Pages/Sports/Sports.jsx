@@ -6,6 +6,7 @@ import { AppContext } from "../../../AppContext";
 import { ReactComponent as LIVE_MATCHES } from "../../../assets/images/live-matches.svg";
 import { ReactComponent as TOP_MATCHES } from "../../../assets/images/top-matches.svg";
 import NoSportFound from "./Common/SportSection/NoSportFound";
+import FooterSports from "./MyBets/FooterSports";
 import {
   SportsBannerImage,
   StyledSportsContainer,
@@ -28,6 +29,7 @@ const Sports = () => {
       ) : (
         <NoSportFound />
       )}
+      <FooterSports />
     </StyledSportsContainer>
   );
 };

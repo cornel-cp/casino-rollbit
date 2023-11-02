@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 import { AppContext } from "../../../../../AppContext";
 import { ReactComponent as USER_COLORED } from "../../../../../assets/images/Frame (44).svg";
@@ -51,6 +51,15 @@ const links = [
 const AccountNavigation = () => {
   const [selectedOption, setSelectedOption] = useState(links[0].to);
   const { updateLoggedIn } = useContext(AppContext);
+
+  const location = useLocation();
+
+  // Change the selected location also if I change it from Account Dropdown
+  useEffect(() => {
+    if (location.pathname.includes("/account")) {
+      setSelectedOption(location.pathname);
+    }
+  }, [location]);
 
   return (
     <StyleAccountNavigation>
