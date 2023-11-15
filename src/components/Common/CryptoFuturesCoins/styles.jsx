@@ -19,7 +19,6 @@ export const StyledCryptoCoin = styled.div`
 
   .search-bar {
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
     width: 100%;
     padding: 0px 5px 0px 15px;

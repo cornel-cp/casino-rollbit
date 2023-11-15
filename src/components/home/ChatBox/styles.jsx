@@ -13,9 +13,12 @@ export const StyledChatBoxContainer = styled.div`
   background: #1f2330;
   z-index: 8;
 
-  svg {
-    color: #b1b6c6;
-  }
+  color: #b1b6c6;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 14.4px;
+  text-transform: uppercase;
 
   .top-actions-container {
     display: flex;
@@ -27,9 +30,46 @@ export const StyledChatBoxContainer = styled.div`
   }
 
   .chat-trades {
+    flex: 1 1 0%;
     display: flex;
+    -webkit-box-align: center;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
+    white-space: nowrap;
+    overflow: auto hidden;
+  }
+
+  .btn-chatbox {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    column-gap: 6px;
+    height: 30px;
+    min-height: 30px;
+    padding: 0px 10px;
+    border-radius: 6px;
+    color: rgb(103, 109, 124);
+    text-transform: uppercase;
+    transition: all 0.1s ease 0s;
+    font-size: 12px;
+    font-weight: 800;
+    font-style: normal;
+    cursor: pointer;
+    user-select: none;
+
+    &:hover {
+      background: rgba(203, 215, 255, 0.03);
+    }
+  }
+
+  .active-btn {
+    background: rgba(203, 215, 255, 0.03);
+    color: rgb(255, 255, 193);
+    text-shadow: rgb(255, 93, 0) 0px 0px 10px;
+
+    svg {
+      filter: drop-shadow(rgb(255, 93, 0) 0px 0px 6px);
+    }
   }
 
   .switch-icon {
@@ -37,19 +77,82 @@ export const StyledChatBoxContainer = styled.div`
     height: 14px;
   }
 
-  .trades-text {
-    width: 46px;
-    color: #b1b6c6;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14.4px;
-    text-transform: uppercase;
-  }
-
   .arrow-icon {
     width: 7px;
     height: 5px;
+  }
+
+  .chat-messages {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0%;
+    min-height: 0px;
+    padding-right: 4px;
+    overflow-wrap: break-word;
+    color: rgb(177, 182, 198);
+    overflow: hidden auto;
+
+    &::-webkit-scrollbar {
+      height: 5px;
+      width: 5px;
+    }
+    &::-webkit-scrollbar-corner,
+    ::-webkit-scrollbar-track {
+      background: 0 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(203, 215, 255, 0.1);
+      border-radius: 6px;
+    }
+  }
+
+  .container-bets {
+    flex: 1 1 0%;
+    min-height: 0px;
+    padding: 15px 8px 0px 0px;
+    margin-right: -12px;
+    overflow: hidden auto;
+  }
+
+  .section-title {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 800;
+    font-style: normal;
+  }
+
+  .active-bets {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 16px;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 24px 0px 48px;
+
+    color: rgb(103, 109, 124);
+
+    svg {
+      fill: currentcolor;
+      width: 16px;
+      min-width: 16px;
+      height: auto;
+    }
+
+    .text {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-style: normal;
+      font-size: 14px;
+    }
   }
 `;
 
@@ -123,12 +226,17 @@ export const ImagePart = styled.div`
 
 export const MessageInput = styled.input`
   display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  min-height: 40px;
   width: 100%;
-  padding: 8px 11px;
-  align-items: flex-start;
-  gap: 10px;
+  padding: 6px 5px 6px 15px;
   border-radius: 6px;
+  border: 1px solid transparent;
   background: rgba(15, 17, 26, 0.55);
+  transition: background 0.1s ease 0s;
+  position: relative;
+  height: auto;
   margin: 0 auto;
   color: #fff;
   margin-top: auto;

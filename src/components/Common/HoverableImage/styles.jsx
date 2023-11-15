@@ -11,6 +11,17 @@ export const fadeAndSlideIn = keyframes`
   }
 `;
 
+export const fadeAndSlideDown = keyframes`
+  100% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+`;
+
 export const generateAnimationDelayCSS = (
   startIndex,
   delayIncrease,

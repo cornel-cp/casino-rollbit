@@ -12,6 +12,66 @@ const cryptoCoins = [
     name: "ETH",
     price: 2587.23,
   },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    name: "BTC",
+    price: 35646.69,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    name: "ETH",
+    price: 2587.23,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    name: "BTC",
+    price: 35646.69,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    name: "ETH",
+    price: 2587.23,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    name: "BTC",
+    price: 35646.69,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    name: "ETH",
+    price: 2587.23,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    name: "BTC",
+    price: 35646.69,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    name: "ETH",
+    price: 2587.23,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    name: "BTC",
+    price: 35646.69,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    name: "ETH",
+    price: 2587.23,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+    name: "BTC",
+    price: 35646.69,
+  },
+  {
+    icon: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+    name: "ETH",
+    price: 2587.23,
+  },
   // Add more coins as needed
 ];
 

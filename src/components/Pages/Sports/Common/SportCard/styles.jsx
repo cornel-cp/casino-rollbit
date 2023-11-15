@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { fadeAndSlideDown } from "../../../../Common/HoverableImage/styles";
 
 export const StyledExtendedCard = styled.div`
   position: relative;
@@ -150,7 +151,7 @@ export const StyledExtendedCard = styled.div`
 `;
 
 export const StyledHeaderDropdown = styled.div`
-  top: 64px;
+  top: 54px;
   left: 0;
   width: 100%;
   z-index: 99;
@@ -158,15 +159,10 @@ export const StyledHeaderDropdown = styled.div`
   position: absolute;
   padding-bottom: 50px;
 
-  /* overflow: hidden;
-
-  transition: all 0.5s ease-in-out;
-  height: 0;
-
-  &:target {
-    max-height: 450px;
-    height: 100%;
-  } */
+  & > * {
+    animation-delay: 0s;
+    animation: 0.2s ease-in-out 0s 1 normal both running ${fadeAndSlideDown};
+  }
 
   .bt6357 {
     color: #ffffff;
