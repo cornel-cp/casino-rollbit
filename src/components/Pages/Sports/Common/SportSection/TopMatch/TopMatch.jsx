@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import LeagueInformation from "../../SportCard/LeagueInformation";
 import { FullColumnWrapper } from "../FullColumnWrapper";
 import {
@@ -14,6 +14,7 @@ import {
 } from "./StyledTopMatch";
 import TeamCard from "./TeamCard";
 
+import { AppContext } from "../../../../../../AppContext";
 import { ReactComponent as ARROW_DOWN } from "../../../../../../assets/images/Arrow-Down.svg";
 import { ReactComponent as ARROW_LEFT } from "../../../../../../assets/images/arrow-left-container.svg";
 import { ReactComponent as ARROW_RIGHT } from "../../../../../../assets/images/arrow-right-container.svg";
@@ -47,6 +48,8 @@ const calculateTimeRemaining = () => {
 };
 
 const TopMatch = ({ icon, numColumns }) => {
+  const { isMobileScreen } = useContext(AppContext);
+
   const [selectedBetAmount, setSelectedBetAmount] = useState(betAmounts[0]);
   const [timeRemaining, setTimeRemaining] = useState(calculateTimeRemaining);
 
@@ -119,15 +122,19 @@ const TopMatch = ({ icon, numColumns }) => {
                 value={`${selectedBetAmount}$`}
                 onChange={handleInputChange}
               />
-              {betAmounts.map((amount) => (
-                <StyledBetButton
-                  key={amount}
-                  isActive={+selectedBetAmount === amount}
-                  onClick={() => handleBetButtonClick(amount)}
-                >
-                  {amount}
-                </StyledBetButton>
-              ))}
+              {betAmounts.map((amount, index) =>
+                isMobileScreen &&
+                (index === betAmounts.length - 1 ||
+                  index === betAmounts.length - 2) ? null : (
+                  <StyledBetButton
+                    key={amount}
+                    isActive={+selectedBetAmount === amount}
+                    onClick={() => handleBetButtonClick(amount)}
+                  >
+                    {amount}
+                  </StyledBetButton>
+                )
+              )}
             </div>
             <StyledPlaceBetButton
               onClick={() => setSelectedBetAmount(betAmounts[0])}

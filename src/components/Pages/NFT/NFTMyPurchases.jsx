@@ -4,7 +4,6 @@ import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
 import NFTNavigationHeader from "./NFTNavigationHeader";
 
-import { SORT_BY_OPTIONS } from "../../../assets/MockData/dropdownsData";
 import { BUTTONS_NFT_MARKETPLACE } from "../../../assets/MockData/mockData";
 import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
 import NotFound from "../../Common/NotFound/NotFound";
@@ -17,7 +16,7 @@ const NFTMyPurchases = () => {
 
       <NFTNavigationHeader buttons={BUTTONS_NFT_MARKETPLACE} />
       <div className="content-container">
-        <SearchAndFilters sortByOptions={SORT_BY_OPTIONS} />
+        <SearchAndFilters hasSortByOptions={true} />
         {/* <NFTSection isLootbox={false} /> */}
         <NotFound text="YOU DON'T HAVE ANY PURCHASES YET" />
       </div>

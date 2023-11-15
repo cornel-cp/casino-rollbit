@@ -42,6 +42,7 @@ import AKLottery from "./components/Pages/Other/AKLottery";
 import Jackpot from "./components/Pages/Other/Jackpot";
 import Race25K from "./components/Pages/Other/Race25k";
 import Streams from "./components/Pages/Other/Streams";
+import Betslip from "./components/Pages/Sports/Common/Betslip/Betslip";
 import MyBets from "./components/Pages/Sports/MyBets/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
 import SportsHeader from "./components/Pages/Sports/SportsHeader/SportsHeader";
@@ -58,7 +59,7 @@ import {
   ContentLayout,
   SportsContentLayout,
 } from "./components/home/MainHome/styles";
-import NavBar from "./components/home/header/NavBar";
+import NavBar from "./components/home/header/NavBar/NavBar";
 import SideBar from "./components/home/header/SideBar";
 
 const routesSportsLayout = [
@@ -116,7 +117,7 @@ const routesAccountLayout = [
 ];
 
 function App() {
-  const { isMobileScreen, updateSelectedOption } = useContext(AppContext);
+  const { isTabletScreen, updateSelectedOption } = useContext(AppContext);
 
   const isSportsRoute = window.location.pathname === "/sports";
   const isMyBetsRoute = window.location.pathname === "/my-bets";
@@ -138,7 +139,7 @@ function App() {
             <Route
               path={route.path}
               element={
-                <SportsContentLayout isMobileScreen={isMobileScreen}>
+                <SportsContentLayout isTabletScreen={isTabletScreen}>
                   <route.component />
                 </SportsContentLayout>
               }
@@ -151,7 +152,7 @@ function App() {
             <Route
               path={route.path}
               element={
-                <ContentLayout isMobileScreen={isMobileScreen}>
+                <ContentLayout isTabletScreen={isTabletScreen}>
                   <route.component />
                 </ContentLayout>
               }
@@ -170,7 +171,7 @@ function App() {
             <Route
               path={route.path}
               element={
-                <ContentLayout isMobileScreen={isMobileScreen}>
+                <ContentLayout isTabletScreen={isTabletScreen}>
                   <ProtectedRoute>
                     <AccountPageLayout>
                       <route.component />
@@ -181,6 +182,7 @@ function App() {
             />
           ))}
         </Routes>
+        {isSportsRoute || isMyBetsRoute ? <Betslip /> : null}
       </PageLayout>
     </BrowserRouter>
   );

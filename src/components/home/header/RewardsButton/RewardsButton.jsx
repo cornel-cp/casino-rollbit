@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import { AppContext } from "../../../../AppContext";
 import { ReactComponent as ARROW_DOWN } from "../../../../assets/images/Frame (33).svg";
@@ -6,16 +6,49 @@ import TREASURE from "../../../../assets/images/IMAGE (44).png";
 import Model1 from "../../../models/rewardModel/Model1";
 
 const RewardsButton = () => {
-  const { openDropdown, toggleDropdown } = useContext(AppContext);
+  const { openDropdown, toggleDropdown, isTabletScreen } =
+    useContext(AppContext);
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const dropdownRef = useRef(null);
 
   const handleBtnClick = () => {
     toggleDropdown((prev) => (prev ? "" : "rewards"));
   };
 
+  const handleCloseDropdown = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      toggleDropdown("");
+    }
+  };
+
+  const handleBtnClickWithPropagation = (event) => {
+    // Prevent the click event from reaching the window click event
+    event.stopPropagation();
+    handleBtnClick();
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 440);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    window.addEventListener("click", handleCloseDropdown);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("click", handleCloseDropdown);
+    };
+  }, []);
+
   return (
     <div style={{ position: "relative" }}>
       <div
-        onClick={handleBtnClick}
+        onClick={handleBtnClickWithPropagation}
         style={{
           display: "inline-flex",
           padding: "7px 12px",
@@ -47,22 +80,20 @@ const RewardsButton = () => {
         <ARROW_DOWN style={{ width: "8px", height: "6px", color: "#b1b6c6" }} />
       </div>
       {openDropdown === "rewards" ? (
-        <>
-          <div
-            style={{
-              height: "625px",
-              background: "#1F2330",
-              width: "420px",
-              position: "absolute",
-              top: "50px",
-              boxShadow: "0px 5px 8px 0px rgba(0, 0, 0, 0.25)",
-              borderRadius: "6px",
-              zIndex: 19,
-            }}
-          >
-            <Model1 />
+        <div
+          ref={dropdownRef}
+          className="rewards-container"
+          style={{
+            right: isTabletScreen ? "10px" : null,
+            left: isTabletScreen ? (isSmallScreen ? "0px" : null) : "15px",
+          }}
+        >
+          <div className="container-items">
+            <div style={{ padding: "16px" }}>
+              <Model1 />
+            </div>
           </div>
-        </>
+        </div>
       ) : null}
     </div>
   );

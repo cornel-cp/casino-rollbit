@@ -11,9 +11,10 @@ const PageLayout = ({ children }) => {
     isChatBoxOpen,
     prevSidebarOpen,
     prevChatBoxOpen,
-    isMobileScreen,
+    isTabletScreen,
     updateChatBox,
     updateMobileScreen,
+    updateTabletScreen,
     updateSidebar,
     updatePrevSidebar,
     updatePrevChatBox,
@@ -25,15 +26,21 @@ const PageLayout = ({ children }) => {
     location.pathname.includes("/my-bets");
 
   const handleWindowResize = () => {
-    if (window.innerWidth < 1024) {
+    if (window.innerWidth < 576) {
       updateMobileScreen(true);
     } else {
       updateMobileScreen(false);
     }
+
+    if (window.innerWidth < 1024) {
+      updateTabletScreen(true);
+    } else {
+      updateTabletScreen(false);
+    }
   };
 
   useEffect(() => {
-    // Call handleWindowResize when the component mounts to set isMobileScreen initially
+    // Call handleWindowResize when the component mounts to set isTabletScreen initially
     handleWindowResize();
 
     // Attach the event listener when the component mounts
@@ -47,7 +54,7 @@ const PageLayout = ({ children }) => {
 
   // Open the sidebar and chatbox only if their previous state was set on true
   useEffect(() => {
-    if (isMobileScreen) {
+    if (isTabletScreen) {
       if (isSidebarOpen) updatePrevSidebar(true);
       if (isChatBoxOpen) updatePrevChatBox(true);
       updateChatBox(false);
@@ -62,7 +69,7 @@ const PageLayout = ({ children }) => {
         updatePrevSidebar(false);
       }
     }
-  }, [isMobileScreen]);
+  }, [isTabletScreen]);
 
   return (
     <StyledPageLayout
@@ -72,7 +79,7 @@ const PageLayout = ({ children }) => {
       <>{children}</>
 
       {!isOnSportsPage && <PageFooter />}
-      {isMobileScreen && <MobileNavBar />}
+      {isTabletScreen && <MobileNavBar />}
     </StyledPageLayout>
   );
 };

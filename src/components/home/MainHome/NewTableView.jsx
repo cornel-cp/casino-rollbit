@@ -20,7 +20,7 @@ const gameInfoData = [
 ];
 
 const NewTableView = () => {
-  const { isMobileScreen } = useContext(AppContext);
+  const { isTabletScreen } = useContext(AppContext);
   const filterOptions = ["All Bets", "High Rollers", "Lucky Bets", "Trades"];
 
   const [activeOption, setActiveOption] = useState(filterOptions[0]);
@@ -65,7 +65,7 @@ const NewTableView = () => {
               <th class="th-collection">
                 <div>Game</div>
               </th>
-              {!isMobileScreen && (
+              {!isTabletScreen && (
                 <>
                   <th class="th-collection">
                     <div>Player/Clan</div>
@@ -92,7 +92,7 @@ const NewTableView = () => {
               <GameInfoItem
                 key={index}
                 gameInfo={
-                  isMobileScreen
+                  isTabletScreen
                     ? {
                         name: gameInfo.name,
                         multiplier: gameInfo.multiplier,

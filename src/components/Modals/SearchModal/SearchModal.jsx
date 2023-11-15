@@ -1,8 +1,5 @@
-import React, { useState } from "react";
-import {
-  PROVIDER_OPTIONS,
-  SORT_BY_OPTIONS,
-} from "../../../assets/MockData/dropdownsData";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../../AppContext";
 import { DATA_CONTENT } from "../../../assets/MockData/mockData";
 import { ReactComponent as SEARCH_ICON } from "../../../assets/images/navbar-search-icon.svg";
 import Button from "../../Common/Buttons/Button";
@@ -13,6 +10,8 @@ import ModalSidebar from "./ModalSidebar";
 import { StyledSearchContent } from "./styles";
 
 const SearchModal = () => {
+  const { isTabletScreen } = useContext(AppContext);
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("Casino");
   const [selectedSubcategory, setSelectedSubcategory] =
@@ -52,16 +51,18 @@ const SearchModal = () => {
         >
           <div class="content-container">
             <div className="div-container">
-              <ModalSidebar
-                selectedCategory={selectedCategory}
-                onCategoryChange={handleCategoryChange}
-              />
+              {!isTabletScreen && (
+                <ModalSidebar
+                  selectedCategory={selectedCategory}
+                  onCategoryChange={handleCategoryChange}
+                />
+              )}
               <div className="game-container">
                 <h1 class="title">Select Game</h1>
 
                 <SearchAndFilters
-                  sortByOptions={SORT_BY_OPTIONS}
-                  providerOptions={PROVIDER_OPTIONS}
+                  hasSortByOptions={true}
+                  hasProviderOptions={true}
                 />
 
                 <ImagesSection

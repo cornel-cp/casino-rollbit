@@ -2,36 +2,40 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 
 //assets
-import LOGO_IMG from "../../../assets/images/LOGO.svg";
-import { ReactComponent as MESSAGE_ICON } from "../../../assets/images/message.svg";
-import ChatBox from "../ChatBox/ChatBox";
+import FULL_LOGO from "../../../../assets/LOGO Gamblify/Full LOGO.png";
+import SMALL_LOGO_NO_BG from "../../../../assets/LOGO Gamblify/LOGO PNG.png";
+// import SMALL_LOGO_BLACK_BG from "../../../../assets/LOGO Gamblify/LOGO.png";
+import { ReactComponent as MESSAGE_ICON } from "../../../../assets/images/message.svg";
+import ChatBox from "../../ChatBox/ChatBox";
 
-import { AppContext } from "../../../AppContext";
-import Button from "../../Common/Buttons/Button";
-import RegisterModal from "../../Common/Modals/RegisterModal";
-import AccountButton from "./AccountButton/AccountButton";
+import { AppContext } from "../../../../AppContext";
+import Button from "../../../Common/Buttons/Button";
+import RegisterModal from "../../../Common/Modals/RegisterModal";
+import AccountButton from "../AccountButton/AccountButton";
 // import CashierModal from "./CashierModal/CashierModal";
-import CashierModal from "../../Modals/CashierModals/CashierModal";
-import SearchModal from "../../Modals/SearchModal/SearchModal";
-import RewardsButton from "./RewardsButton/RewardsButton";
-import TotalMoneyContainer from "./TotalMoneyContainer";
+import CashierModal from "../../../Modals/CashierModals/CashierModal";
+import SearchModal from "../../../Modals/SearchModal/SearchModal";
+import RewardsButton from "../RewardsButton/RewardsButton";
+import TotalMoneyContainer from "../TotalMoneyContainer";
+import { StyledNavBar } from "./styles";
 
 const NavBar = () => {
   const {
     isChatBoxOpen,
     isLoggedIn,
     isMobileScreen,
+    isTabletScreen,
     updateChatBox,
     updateLoggedIn,
   } = useContext(AppContext);
 
   return (
-    <>
+    <StyledNavBar>
       <div
         className="h-16 flex justify-between items-center p-3"
         style={{
           boxShadow: "2px 2px 2px rgba(0,0,0,0.3)",
-          position: "sticky",
+          position: "fixed",
           top: "0",
           left: "0",
           right: "0",
@@ -39,12 +43,26 @@ const NavBar = () => {
           zIndex: 9,
         }}
       >
-        <div style={{ display: "flex", flexDirection: "space-between" }}>
+        <div
+          className={`logo-container ${
+            isTabletScreen ? "logo-container-mobile" : ""
+          }`}
+        >
           <Link to="/ " className="w-40 flex h-10 flex-shrink-0 cursor-pointer">
-            <img src={LOGO_IMG} alt="logo" />
+            <img
+              src={isMobileScreen ? SMALL_LOGO_NO_BG : FULL_LOGO}
+              alt="logo"
+            />
           </Link>
           {/* Rewards Button */}
-          {isLoggedIn && <RewardsButton />}
+          {isLoggedIn && (
+            <div className="money-container">
+              {isTabletScreen && !isMobileScreen ? (
+                <TotalMoneyContainer money="$0.00" />
+              ) : null}
+              <RewardsButton />
+            </div>
+          )}
         </div>
 
         {isLoggedIn && (
@@ -57,7 +75,7 @@ const NavBar = () => {
                 gap: "15px",
               }}
             >
-              {!isMobileScreen && (
+              {!isTabletScreen && (
                 <>
                   <TotalMoneyContainer money="$0.00" />
 
@@ -78,7 +96,7 @@ const NavBar = () => {
             </>
           )}
 
-          {!isMobileScreen && (
+          {!isTabletScreen && (
             <div style={{ display: "flex" }}>
               {/* Account Section */}
               {isLoggedIn && <AccountButton />}
@@ -95,7 +113,7 @@ const NavBar = () => {
       </div>
 
       <ChatBox isChatBox={isChatBoxOpen} setIsChatBox={updateChatBox} />
-    </>
+    </StyledNavBar>
   );
 };
 

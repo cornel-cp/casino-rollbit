@@ -45,6 +45,7 @@ export const StyledBanner = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
   }
 
   .side-text {

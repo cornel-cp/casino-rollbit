@@ -17,7 +17,7 @@ import { StyledOpenedSidebar } from "./StyledSidebar";
 const SideBar = () => {
   const [sections, setSections] = useState(SECTIONS);
   const {
-    isMobileScreen,
+    isTabletScreen,
     selectedOption,
     isSidebarOpen,
     updateSelectedOption,
@@ -82,7 +82,7 @@ const SideBar = () => {
     setSections(updatedSections);
   };
 
-  if (isMobileScreen && !isSidebarOpen) return null;
+  if (isTabletScreen && !isSidebarOpen) return null;
 
   return isSidebarOpen ? (
     <StyledOpenedSidebar>

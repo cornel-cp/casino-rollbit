@@ -1,6 +1,5 @@
 import React from "react";
 
-import { SORT_BY_OPTIONS } from "../../../assets/MockData/dropdownsData";
 import ChallengesCardSection from "../../Common/ChallengesCard/ChallengesCardSection";
 import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
@@ -18,7 +17,7 @@ const Challenges = () => {
         <SearchAndFilters
           hasSwitchToggle={true}
           labelSwitchToggle={"Featured First"}
-          sortByOptions={SORT_BY_OPTIONS}
+          hasSortByOptions={true}
         />
 
         <Modal />

@@ -8,7 +8,7 @@ import NavigationCashier from "./NavigationCashier";
 import { StyledCashierModal } from "./styles";
 
 const CashierModal = ({ button }) => {
-  const { selectedOptionCashier, isMobileScreen } = useContext(AppContext);
+  const { selectedOptionCashier, isTabletScreen } = useContext(AppContext);
 
   const [isOpen, setIsOpen] = useState(false);
   const handleOpenModal = () => {
@@ -17,7 +17,7 @@ const CashierModal = ({ button }) => {
 
   return (
     <>
-      {!isMobileScreen ? (
+      {!isTabletScreen ? (
         button === "Cashier" ? (
           <div
             onClick={handleOpenModal}

@@ -13,17 +13,19 @@ import {
 } from "./StyledSportsContainer";
 
 const Sports = () => {
-  const { selectedOption, sportsSelectedOption } = useContext(AppContext);
+  const { sportsSelectedOption } = useContext(AppContext);
 
   return (
     <StyledSportsContainer>
-      {selectedOption === "/sports" ||
-      sportsSelectedOption === "/home" ||
-      sportsSelectedOption === "" ? (
+      {sportsSelectedOption === "/home" || sportsSelectedOption === "" ? (
         <>
           <SportsBannerImage />
-          <SportSection titleIcon={<TOP_MATCHES />} />
-          <SportSection titleIcon={<LIVE_MATCHES />} isLive={true} />
+          <SportSection titleIcon={<TOP_MATCHES />} hasBigContainer={true} />
+          <SportSection
+            titleIcon={<LIVE_MATCHES />}
+            isLive={true}
+            hasBigContainer={true}
+          />
           <SportSection titleIcon={<LIVE_MATCHES />} />
         </>
       ) : (

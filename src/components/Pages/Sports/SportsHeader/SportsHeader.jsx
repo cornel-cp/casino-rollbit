@@ -29,48 +29,102 @@ import { ReactComponent as STAR } from "../../../../assets/images/star-icon.svg"
 import { ReactComponent as TABLE_TENNIS } from "../../../../assets/images/table-tennis-icon.svg";
 import { ReactComponent as TENNIS } from "../../../../assets/images/tennis-icon.svg";
 import { ReactComponent as VOLLEYBALL } from "../../../../assets/images/volleyball.svg";
+import FireIcon from "../Common/SportCard/FireIcon";
+import SportHeaderDropdown from "../Common/SportCard/SportHeaderDropdown";
 
-const options = [
-  { icon: <HOME />, url: "/home" },
-  { icon: <LIVE />, url: "/live" },
-  { icon: <STAR />, url: "/star" },
-  { icon: <FOOTBALL />, url: "/soccer" },
+export const optionsSport = [
+  { name: "Home", isFire: false, icon: <HOME />, url: "/home" },
+  { name: "Live", isFire: false, icon: <LIVE />, url: "/live" },
+  { name: "Star", isFire: false, icon: <STAR />, url: "/star" },
+  { name: "Soccer", isFire: true, icon: <FOOTBALL />, url: "/soccer" },
   {
+    name: "Basketball",
+    isFire: true,
     icon: <BASKETBALL />,
-
     url: "/basketball",
   },
-  { icon: <ICE_HOCKEY />, url: "/ice-hockey" },
-  { icon: <HEADPHONES />, url: "/headphones" },
-  { icon: <FIFA />, url: "/fifa" },
-  { icon: <VOLLEYBALL />, url: "/volleyball" },
-  { icon: <TENNIS />, url: "/tennis" },
-  { icon: <AMERICAN_FOOTBALL />, url: "/american-footbal" },
-  { icon: <MMA />, url: "/mma" },
-  { icon: <BASEBALL />, url: "/baseball" },
-  { icon: <PADDLEBOARD />, url: "/paddleboard" },
-  { icon: <E_BASEBALL />, url: "/e-baseball" },
-  { icon: <HANDBALL />, url: "/handball" },
-  { icon: <TABLE_TENNIS />, url: "/table-tennis" },
-  { icon: <E_BATTLES />, url: "/e-battles" },
-  { icon: <BOXING />, url: "/boxing" },
-  { icon: <NBA_2K />, url: "/nba-2k" },
-  { icon: <ROCKET_LEAGUE />, url: "/rocket-league" },
-  { icon: <RUGBY />, url: "/rugby" },
-  { icon: <E_PADDLEBOARD />, url: "/e-paddleboard" },
+  {
+    name: "Ice Hockey",
+    isFire: true,
+    icon: <ICE_HOCKEY />,
+    url: "/ice-hockey",
+  },
+  {
+    name: "Headphones",
+    isFire: false,
+    icon: <HEADPHONES />,
+    url: "/headphones",
+  },
+  { name: "Fifa", isFire: false, icon: <FIFA />, url: "/fifa" },
+  {
+    name: "Volleyball",
+    isFire: true,
+    icon: <VOLLEYBALL />,
+    url: "/volleyball",
+  },
+  { name: "Tennis", isFire: false, icon: <TENNIS />, url: "/tennis" },
+  {
+    name: "American Football",
+    isFire: false,
+    icon: <AMERICAN_FOOTBALL />,
+    url: "/american-footbal",
+  },
+  { name: "MMA", isFire: true, icon: <MMA />, url: "/mma" },
+  { name: "Baseball", isFire: false, icon: <BASEBALL />, url: "/baseball" },
+  {
+    name: "Paddleboard",
+    isFire: false,
+    icon: <PADDLEBOARD />,
+    url: "/paddleboard",
+  },
+  {
+    name: "E-Baseball",
+    isFire: false,
+    icon: <E_BASEBALL />,
+    url: "/e-baseball",
+  },
+  { name: "Handball", isFire: false, icon: <HANDBALL />, url: "/handball" },
+  {
+    name: "Table Tennis",
+    isFire: false,
+    icon: <TABLE_TENNIS />,
+    url: "/table-tennis",
+  },
+  { name: "E-Battles", isFire: false, icon: <E_BATTLES />, url: "/e-battles" },
+  { name: "Boxing", isFire: false, icon: <BOXING />, url: "/boxing" },
+  { name: "NBA-2k", isFire: false, icon: <NBA_2K />, url: "/nba-2k" },
+  {
+    name: "Rocket League",
+    isFire: false,
+    icon: <ROCKET_LEAGUE />,
+    url: "/rocket-league",
+  },
+  { name: "Rugby", isFire: false, icon: <RUGBY />, url: "/rugby" },
+  {
+    name: "E-Paddleboard",
+    isFire: false,
+    icon: <E_PADDLEBOARD />,
+    url: "/e-paddleboard",
+  },
 ];
 
 const SportsHeader = () => {
   const location = useLocation();
 
-  const { sportsSelectedOption, updateSportsSelectedOption } =
+  const { isMobileScreen, sportsSelectedOption, updateSportsSelectedOption } =
     useContext(AppContext);
 
   const [numOptionsToDisplay, setNumOptionsToDisplay] = useState(
-    options.length
+    optionsSport.length
   );
   const [resizeCount, setResizeCount] = useState(0);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
   const containerRef = useRef(null);
+
+  const handleArrowDownClick = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   useEffect(() => {
     const updateQueryParams = () => {
@@ -93,11 +147,13 @@ const SportsHeader = () => {
     const handleResize = () => {
       if (containerRef.current) {
         const newResizeCount = Math.floor(
-          containerRef.current.offsetWidth / 32
+          containerRef.current.offsetWidth / (isMobileScreen ? 36 : 32)
         );
         if (newResizeCount !== resizeCount) {
           setResizeCount(newResizeCount);
-          setNumOptionsToDisplay(Math.min(options.length, newResizeCount / 2));
+          setNumOptionsToDisplay(
+            Math.min(optionsSport.length, newResizeCount / 2)
+          );
         }
       }
     };
@@ -114,7 +170,7 @@ const SportsHeader = () => {
   return (
     <StyledSportsHeader ref={containerRef}>
       <div className="navigation-options">
-        {options.slice(0, numOptionsToDisplay).map((button, index) => {
+        {optionsSport.slice(0, numOptionsToDisplay).map((button, index) => {
           const buttonIsActive = button.url === sportsSelectedOption;
           return (
             <Link
@@ -123,14 +179,27 @@ const SportsHeader = () => {
               key={index}
             >
               <StyledSportNavOption isActive={buttonIsActive}>
+                {button?.isFire && <FireIcon />}
                 {button.icon}
               </StyledSportNavOption>
             </Link>
           );
         })}
-        <StyledSportNavOption style={{ width: "10px", height: "10px" }}>
-          <ARROW_DOWN />
-        </StyledSportNavOption>
+        <div style={{ display: "flex" }}>
+          <div style={{ position: "relative" }}>
+            <a href="#nav2">
+              <StyledSportNavOption onClick={handleArrowDownClick}>
+                <ARROW_DOWN
+                  style={{
+                    width: "10px",
+                    height: "10px",
+                    rotate: isDropdownOpen ? "180deg" : "",
+                  }}
+                />
+              </StyledSportNavOption>
+            </a>
+          </div>
+        </div>
       </div>
       <div className="navigation-actions"></div>
       <Link
@@ -146,6 +215,7 @@ const SportsHeader = () => {
           <SEARCH />
         </StyledSportNavOption>
       </Link>
+      {isDropdownOpen && <SportHeaderDropdown isOpen={isDropdownOpen} />}
     </StyledSportsHeader>
   );
 };

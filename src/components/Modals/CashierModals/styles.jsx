@@ -103,7 +103,6 @@ export const StyledNavigationCashier = styled.div`
   column-gap: 6px;
   max-width: 100%;
   margin-bottom: 24px;
-  margin-right: 30px;
 
   .options-container {
     flex: 1 1 0%;
@@ -429,6 +428,8 @@ export const StyledBitcoinContent = styled.div`
     }
 
     .label {
+      display: inline-block;
+
       text-transform: uppercase;
       color: rgb(177, 182, 198);
       margin-bottom: 10px;

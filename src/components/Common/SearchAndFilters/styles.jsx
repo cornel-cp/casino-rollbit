@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import SEARCH_ICON from "../../../assets/images/navbar-search-icon.svg";
 
 export const StyledSearchFilters = styled.div`
   display: flex;
@@ -36,6 +37,9 @@ export const SearchInput = styled.input`
   transition: background 0.1s ease 0s;
   flex: 1 1 0%;
   min-width: 170px;
+
+  padding: 9px 4px 9px 40px;
+  background: rgba(15, 17, 26, 0.55) url(${SEARCH_ICON}) no-repeat 13px center;
 `;
 
 export const ButtonWithDropdown = styled.button`

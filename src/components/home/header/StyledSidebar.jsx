@@ -166,13 +166,14 @@ export const StyledOpenedSidebar = styled.div`
 `;
 
 export const StyledClosedSidebar = styled.div`
-  height: 100vh;
+  height: calc(100vh - 64px);
   display: flex;
   flex-direction: column;
   align-items: center;
   background: #1f2330;
   width: 55px;
   position: fixed;
+  top: 64px;
 
   .link {
     position: relative;

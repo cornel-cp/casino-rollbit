@@ -5,10 +5,6 @@ import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
 import NFTNavigationHeader from "./NFTNavigationHeader";
 
-import {
-  COLLECTION_OPTIONS,
-  SORT_BY_OPTIONS,
-} from "../../../assets/MockData/dropdownsData";
 import { BUTTONS_NFT_MARKETPLACE } from "../../../assets/MockData/mockData";
 import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
 import PageTitle from "../../Common/PageTitle/PageTitle";
@@ -27,10 +23,7 @@ const Marketplace = () => {
 
       <NFTNavigationHeader buttons={BUTTONS_NFT_MARKETPLACE} />
       <div className="content-container">
-        <SearchAndFilters
-          sortByOptions={SORT_BY_OPTIONS}
-          collectionOptions={COLLECTION_OPTIONS}
-        />
+        <SearchAndFilters hasSortByOptions={true} hasCollectionOptions={true} />
 
         <NFTSection isLootbox={false} />
       </div>

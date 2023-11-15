@@ -148,3 +148,143 @@ export const StyledExtendedCard = styled.div`
     gap: 4px;
   }
 `;
+
+export const StyledHeaderDropdown = styled.div`
+  top: 64px;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  overflow: hidden;
+  position: absolute;
+  padding-bottom: 50px;
+
+  /* overflow: hidden;
+
+  transition: all 0.5s ease-in-out;
+  height: 0;
+
+  &:target {
+    max-height: 450px;
+    height: 100%;
+  } */
+
+  .bt6357 {
+    color: #ffffff;
+    width: 100%;
+    position: relative;
+    background: #171924;
+    box-shadow: none;
+    box-sizing: border-box;
+    padding-top: 60px;
+  }
+
+  .bt7960 {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+
+  .bt6360 {
+    padding-inline: 5%;
+    justify-content: center;
+  }
+
+  .bt6359 {
+    display: flex;
+    padding: 0 16px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    justify-content: left;
+  }
+
+  .bt7964 {
+    justify-content: center;
+  }
+
+  .bt7961 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: left; */
+  }
+
+  .bt7964 .bt7963 {
+    flex: initial;
+    width: 100px;
+  }
+
+  .bt7963 {
+    flex: 0 0 33.333%;
+    display: flex;
+    max-width: 33.333%;
+    min-height: 70px;
+    margin-bottom: 32px;
+    justify-content: center;
+  }
+
+  .bt7962 {
+    color: #ffffff;
+  }
+
+  .bt7965 {
+    color: inherit;
+    cursor: pointer;
+    display: flex;
+    max-width: 104px;
+    box-sizing: border-box;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-decoration: none;
+  }
+
+  .bt7968 {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+
+    .fire-icon {
+      color: #e23838;
+      top: -8px;
+      right: -8px;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      z-index: 2;
+      position: absolute;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      background-color: #fff;
+    }
+  }
+
+  .bt7967 {
+    opacity: 0.5;
+    transition: opacity 0.5s;
+
+    svg {
+      fill: currentcolor;
+      color: rgb(255, 255, 255);
+      width: auto;
+      height: 32px;
+    }
+  }
+
+  .bt7970 {
+    hyphens: auto;
+    opacity: 0.7;
+    font-size: 12px;
+    margin-top: 8px;
+    transition: opacity 0.5s;
+  }
+
+  .active {
+    opacity: 1;
+    color: #fff;
+  }
+`;

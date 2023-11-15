@@ -1,4 +1,12 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
+
+import {
+  COLLECTION_OPTIONS,
+  PROVIDER_OPTIONS,
+  SORT_BY_OPTIONS,
+  TRAITS_OPTIONS,
+} from "../../../assets/MockData/dropdownsData";
+
 import { useLocation, useNavigate } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
 import Dropdown from "../Dropdowns/Dropdown";
@@ -8,10 +16,14 @@ import { SearchInput, StyledSearchFilters } from "./styles";
 const SearchAndFilters = ({
   hasSwitchToggle = false,
   labelSwitchToggle,
-  providerOptions,
-  sortByOptions,
-  collectionOptions,
-  traitsOptions,
+  hasProviderOptions = false,
+  hasSortByOptions = false,
+  hasCollectionOptions = false,
+  hasTraitsOptions = false,
+  providerOptions = PROVIDER_OPTIONS,
+  sortByOptions = SORT_BY_OPTIONS,
+  collectionOptions = COLLECTION_OPTIONS,
+  traitsOptions = TRAITS_OPTIONS,
 }) => {
   const {
     selectedOption,
@@ -19,12 +31,9 @@ const SearchAndFilters = ({
     setSearchState,
     updateProvider,
     updateSort,
+    updateCollection,
+    updateTrait,
   } = useContext(AppContext);
-
-  console.log("providerOptions", providerOptions);
-  console.log("sortByOptions", sortByOptions);
-  console.log("collectionOptions", collectionOptions);
-  console.log("traitsOptions", traitsOptions);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -51,6 +60,14 @@ const SearchAndFilters = ({
       queryParams.set("sort", searchState.selectedSort);
     }
 
+    if (searchState.selectedCollection !== collectionOptions?.[0].label) {
+      queryParams.set("collection", searchState.selectedCollection);
+    }
+
+    if (searchState.selectedTrait !== traitsOptions?.[0].label) {
+      queryParams.set("trait", searchState.selectedTrait);
+    }
+
     // Update the previousSearchState reference
     previousSearchStateRef.current = searchState;
 
@@ -64,10 +81,17 @@ const SearchAndFilters = ({
   }, [searchState]);
 
   useEffect(() => {
+    updateProvider(providerOptions?.[0].label); // Reset the provider state
+    updateSort(sortByOptions?.[0].label); // Reset the sort state
+    updateCollection(collectionOptions?.[0].label); // Reset the provider state
+    updateTrait(traitsOptions?.[0].label); // Reset the sort state
+
     return () => {
       setSearchState({ type: "UPDATE_SEARCH", payload: "" }); // Reset the search state
       updateProvider(providerOptions?.[0].label); // Reset the provider state
       updateSort(sortByOptions?.[0].label); // Reset the sort state
+      updateCollection(collectionOptions?.[0].label); // Reset the provider state
+      updateTrait(traitsOptions?.[0].label); // Reset the sort state
     };
   }, []);
 
@@ -90,7 +114,7 @@ const SearchAndFilters = ({
           label={labelSwitchToggle}
         />
       )}
-      {providerOptions && (
+      {hasProviderOptions && (
         <Dropdown
           options={providerOptions}
           label="Provider"
@@ -99,7 +123,7 @@ const SearchAndFilters = ({
           hasSearchInput={true}
         />
       )}
-      {sortByOptions && (
+      {hasSortByOptions && (
         <Dropdown
           options={sortByOptions}
           label="Sort by"
@@ -107,20 +131,20 @@ const SearchAndFilters = ({
           onSelectOption={updateSort}
         />
       )}
-      {collectionOptions && (
+      {hasCollectionOptions && (
         <Dropdown
           options={collectionOptions}
           label="Collection"
-          selectedOption={searchState.selectedSort}
-          onSelectOption={updateSort}
+          selectedOption={searchState.selectedCollection}
+          onSelectOption={updateCollection}
         />
       )}
-      {traitsOptions && (
+      {hasTraitsOptions && (
         <Dropdown
           options={traitsOptions}
           label="Traits"
-          selectedOption={searchState.selectedSort}
-          onSelectOption={updateSort}
+          selectedOption={searchState.selectedTrait}
+          onSelectOption={updateTrait}
         />
       )}
     </StyledSearchFilters>

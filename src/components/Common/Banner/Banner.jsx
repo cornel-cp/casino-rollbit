@@ -4,7 +4,9 @@ import { ReactComponent as TWITCH } from "../../../assets/images/Frame (23).svg"
 import { ReactComponent as METAMASK } from "../../../assets/images/Frame (24).svg";
 import SocialMediaButton from "../Buttons/SocialMediaButton/SocialMediaButton";
 
-import LOGO from "../../../assets/images/LOGO.svg";
+import FULL_LOGO from "../../../assets/LOGO Gamblify/Full LOGO.png";
+// import SMALL_LOGO_NO_BG from "../../../assets/LOGO Gamblify/LOGO PNG.png";
+// import SMALL_LOGO_BLACK_BG from "../../../assets/LOGO Gamblify/LOGO.png";
 import RegisterModal from "../Modals/RegisterModal";
 import { StyledBanner } from "./StyledBanner";
 
@@ -12,7 +14,7 @@ const Banner = () => {
   return (
     <StyledBanner className="@container">
       <div className="main-content w-full @xl:w-auto">
-        <img src={LOGO} alt="logo" />
+        <img src={FULL_LOGO} alt="logo" style={{ maxHeight: "40px" }} />
         <p className="main-heading">
           Experience true innovation with the highest rewards program within the
           industry.

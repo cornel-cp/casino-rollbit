@@ -10,6 +10,8 @@ import { ReactComponent as CROSS } from "../../../assets/images/Frame (35).svg";
 import { ReactComponent as SETTINGS } from "../../../assets/images/Frame (36).svg";
 import { ReactComponent as SUPPORT } from "../../../assets/images/Frame (65).svg";
 import EMOJI from "../../../assets/images/IMAGE (43).png";
+import RANK_ICON from "../../../assets/images/rank-icon-gold.png";
+import CardMessage from "./CardMessage";
 import {
   ChatContainer,
   ImagePart,
@@ -20,7 +22,7 @@ import {
 } from "./styles";
 
 const ChatBox = ({ isChatBox, setIsChatBox }) => {
-  const { isMobileScreen } = useContext(AppContext);
+  const { isTabletScreen } = useContext(AppContext);
 
   const [message, setMessage] = useState(""); // Track the input message
   const [messages, setMessages] = useState([]); // Store chat messages
@@ -43,7 +45,7 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
   return (
     <>
       {isChatBox ? (
-        <StyledChatBoxContainer isMobileScreen={isMobileScreen}>
+        <StyledChatBoxContainer isTabletScreen={isTabletScreen}>
           <div className="top-actions-container">
             <div className="chat-trades">
               <ChatContainer>
@@ -72,9 +74,12 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
           ) : (
             <div className="chat-messages">
               {messages.map((msg, index) => (
-                <div key={index} className="chat-message">
-                  {msg}
-                </div>
+                <CardMessage
+                  key={index}
+                  rankIcon={RANK_ICON}
+                  playerName={"Alfred"}
+                  messageText={msg}
+                />
               ))}
             </div>
           )}

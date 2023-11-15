@@ -154,11 +154,17 @@ export const SECTIONS = [
       },
       {
         icon: FEATURES_IMG,
-        text: "Crypto Features",
+        text: "Crypto Futures",
         hasDropdown: true,
         selectedSubOption: null,
         isOpenedDropdown: false,
-        dropdownOptions: [], // Add dropdown options and sidebarUrl as needed
+        dropdownOptions: [
+          {
+            icon: NFT_IMG,
+            text: "Crypto Futures",
+            sidebarUrl: "/nft/portfolio",
+          },
+        ], // Add dropdown options and sidebarUrl as needed
       },
       {
         icon: PORTFOLIO_IMG,

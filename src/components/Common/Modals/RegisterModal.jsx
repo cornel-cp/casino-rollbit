@@ -11,7 +11,7 @@ import Modal from "../../Modals/Modal";
 import { StyledRegisterModal } from "./StyledRegisterModal";
 
 const RegisterModal = ({ buttonText, modalOption }) => {
-  const { isMobileScreen } = useContext(AppContext);
+  const { isTabletScreen } = useContext(AppContext);
 
   const [showModal, setShowModal] = useState(false);
   const [openedModal, setOpenedModal] = useState(modalOption);
@@ -49,14 +49,14 @@ const RegisterModal = ({ buttonText, modalOption }) => {
             style={{
               justifyContent: "space-between",
               position: "fixed",
-              flexDirection: isMobileScreen ? "column-reverse" : "row",
+              flexDirection: isTabletScreen ? "column-reverse" : "row",
               display: "flex",
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
               backgroundColor: "#1A1D29",
               height: "auto",
-              width: isMobileScreen ? "90%" : "55pc",
+              width: isTabletScreen ? "90%" : "55pc",
               borderRadius: "10px",
             }}
           >
@@ -118,7 +118,7 @@ const RegisterModal = ({ buttonText, modalOption }) => {
               {openedModal === "login" ? <Login /> : <Register />}
             </div>
 
-            {!isMobileScreen && (
+            {!isTabletScreen && (
               <div>
                 <img
                   src={LOGO1}

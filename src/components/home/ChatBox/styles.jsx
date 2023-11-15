@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const StyledChatBoxContainer = styled.div`
   width: 340px;
   height: ${(props) =>
-    props.isMobileScreen ? "calc(100vh - 64px - 50px)" : "calc(100vh - 64px)"};
+    props.isTabletScreen ? "calc(100vh - 64px - 50px)" : "calc(100vh - 64px)"};
   padding: 0px 16px 16px;
   display: flex;
   flex-direction: column;
@@ -207,5 +207,64 @@ export const StyledIconSection = styled.div`
       letter-spacing: 0.5px;
       text-transform: uppercase;
     }
+  }
+`;
+
+export const StyledCardMessage = styled.div`
+  font-size: 1rem;
+  line-height: 1.2;
+  overflow-wrap: break-word;
+  color: rgb(177, 182, 198);
+  box-sizing: border-box;
+  position: relative;
+  padding: 8px;
+  background: rgba(203, 215, 255, 0.03);
+  border-radius: 6px;
+  margin-bottom: 8px;
+
+  .container-name {
+    align-items: center;
+    cursor: pointer;
+    column-gap: 5.5794px;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: inline-flex;
+    vertical-align: middle;
+    margin-right: 5px;
+    max-width: 100%;
+
+    .icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 19.5px;
+      width: 19.5px;
+      min-height: 19.5px;
+      height: 19.5px;
+
+      img {
+        width: 80%;
+        vertical-align: middle;
+      }
+    }
+
+    .name {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+
+      color: white;
+      font-weight: 600;
+    }
+  }
+
+  .message {
+    vertical-align: middle;
+    line-height: 22px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 13px;
   }
 `;

@@ -1,9 +1,5 @@
 import React, { useState } from "react";
 
-import {
-  PROVIDER_OPTIONS,
-  SORT_BY_OPTIONS,
-} from "../../../assets/MockData/dropdownsData";
 import { DATA_CONTENT } from "../../../assets/MockData/mockData";
 import ImagesSection from "../../Common/ImagesSection/ImagesSection";
 import NavigationHeader from "../../Common/NavigationHeader/NavigationHeader";
@@ -27,10 +23,7 @@ const WithSidebets = () => {
 
       <NavigationHeader isNftPage={false} />
       <div className="content-container">
-        <SearchAndFilters
-          sortByOptions={SORT_BY_OPTIONS}
-          providerOptions={PROVIDER_OPTIONS}
-        />
+        <SearchAndFilters hasSortByOptions={true} hasProviderOptions={true} />
 
         <ImagesSection
           category={category}

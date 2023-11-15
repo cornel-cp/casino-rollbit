@@ -55,7 +55,8 @@ const Model1 = () => {
         <div
           key={index}
           style={{
-            padding: "30px 25px",
+            padding: "12px",
+            marginBottom: "8px",
             display: "flex ",
             justifyContent: "space-between",
           }}
@@ -86,7 +87,7 @@ const Model1 = () => {
             </div>
           </div>
 
-          <div
+          <button
             style={{
               display: "flex",
               padding: "10px 14px",
@@ -101,7 +102,7 @@ const Model1 = () => {
             }}
           >
             {option.buttonType}
-          </div>
+          </button>
         </div>
       ))}
     </>

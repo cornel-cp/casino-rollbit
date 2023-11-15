@@ -1,10 +1,6 @@
 import React from "react";
 
 import { useParams } from "react-router-dom";
-import {
-  SORT_BY_OPTIONS,
-  TRAITS_OPTIONS,
-} from "../../../assets/MockData/dropdownsData";
 import { BUTTONS_MANAGE_SPORTSBOTS } from "../../../assets/MockData/mockData";
 import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
 import ManageTopSection from "../../Common/NFTSection/ManageTopSection";
@@ -54,10 +50,7 @@ const ManageSportsbots = () => {
       <NFTNavigationHeader buttons={BUTTONS_MANAGE_SPORTSBOTS} />
 
       <div className="content-container">
-        <SearchAndFilters
-          sortByOptions={SORT_BY_OPTIONS}
-          traitsOptions={TRAITS_OPTIONS}
-        />
+        <SearchAndFilters hasSortByOptions={true} hasTraitsOptions={true} />
 
         {renderContent()}
       </div>

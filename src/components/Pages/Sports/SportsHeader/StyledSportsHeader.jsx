@@ -5,7 +5,7 @@ export const StyledSportsHeader = styled.div`
   justify-content: space-between;
   padding: 16px;
   gap: 10px;
-
+  position: relative;
   background: #2b2e3b;
 
   .navigation-options {
@@ -34,6 +34,20 @@ export const StyledSportNavOption = styled.div`
   border-radius: 6px;
   flex-direction: column;
   justify-content: center;
+
+  .fire-icon {
+    color: #e23838;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    background-color: #fff;
+  }
 
   svg {
     width: auto;

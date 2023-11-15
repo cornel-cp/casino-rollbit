@@ -19,6 +19,10 @@ const searchReducer = (state, action) => {
       return { ...state, selectedProvider: action.payload };
     case "UPDATE_SORT":
       return { ...state, selectedSort: action.payload };
+    case "UPDATE_COLLECTION":
+      return { ...state, selectedCollection: action.payload };
+    case "UPDATE_TRAIT":
+      return { ...state, selectedTrait: action.payload };
     default:
       return state;
   }
@@ -31,6 +35,7 @@ const AppProvider = ({ children }) => {
   const [prevChatBoxOpen, setPrevChatBoxOpen] = useState(false);
   const [prevSidebarOpen, setPrevSidebarOpen] = useState(false);
   const [isMobileScreen, setIsMobileScreen] = useState(false);
+  const [isTabletScreen, setIsTabletScreen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [onClickFunctionNext, setOnClickFunctionNext] = useState(null);
@@ -42,6 +47,9 @@ const AppProvider = ({ children }) => {
 
   const updateMobileScreen = (option) => {
     setIsMobileScreen(option);
+  };
+  const updateTabletScreen = (option) => {
+    setIsTabletScreen(option);
   };
   const updateCashierOption = (option) => {
     setSelectedOptionCashier(option);
@@ -87,6 +95,12 @@ const AppProvider = ({ children }) => {
   const updateSort = (sort) => {
     setSearchState({ type: "UPDATE_SORT", payload: sort });
   };
+  const updateCollection = (collection) => {
+    setSearchState({ type: "UPDATE_COLLECTION", payload: collection });
+  };
+  const updateTrait = (trait) => {
+    setSearchState({ type: "UPDATE_TRAIT", payload: trait });
+  };
 
   return (
     <AppContext.Provider
@@ -103,11 +117,13 @@ const AppProvider = ({ children }) => {
         selectedOptionCashier,
         selectedSport,
         isMobileScreen,
+        isTabletScreen,
         prevSidebarOpen,
         prevChatBoxOpen,
         updatePrevSidebar,
         updatePrevChatBox,
         updateMobileScreen,
+        updateTabletScreen,
         updateSelectedOption,
         updateSidebar,
         updateChatBox,
@@ -118,6 +134,8 @@ const AppProvider = ({ children }) => {
         setSearchState,
         updateProvider,
         updateSort,
+        updateCollection,
+        updateTrait,
         updateSportsSelectedOption,
         updateCashierOption,
         updateSelectedSport,

@@ -37,7 +37,7 @@ const SportCard = ({ isLive }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <div className="card-footer">
             <div className="team-options">
               <WinningRateBtn option="Team 13213" rate="3.4" />

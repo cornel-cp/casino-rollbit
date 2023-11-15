@@ -1,10 +1,6 @@
 import React from "react";
 
 import {
-  SORT_BY_OPTIONS,
-  TRAITS_OPTIONS,
-} from "../../../assets/MockData/dropdownsData";
-import {
   BUTTONS_NFT_MAIN,
   NFT_BANNER_OPTIONS,
 } from "../../../assets/MockData/mockData";
@@ -24,8 +20,8 @@ const SportsAKBots = () => {
         <SearchAndFilters
           hasSwitchToggle={true}
           labelSwitchToggle={"Mine only"}
-          sortByOptions={SORT_BY_OPTIONS}
-          traitsOptions={TRAITS_OPTIONS}
+          hasSortByOptions={true}
+          hasTraitsOptions={true}
         />
 
         <NFTSection isLootbox={false} />

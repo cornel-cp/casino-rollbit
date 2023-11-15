@@ -85,7 +85,8 @@ export const StyledTopMatchContent = styled.div`
 export const StyledTeamCard = styled.div`
   display: flex;
   flex-direction: column;
-  width: 155px;
+  flex: 1 1 0%;
+  /* width: 155px; */
   height: 192px;
   padding: 14px 11px;
   justify-content: space-between;

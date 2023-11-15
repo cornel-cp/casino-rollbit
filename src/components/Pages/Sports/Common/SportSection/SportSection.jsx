@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import { AppContext } from "../../../../../AppContext";
 import SportCard from "../SportCard/SportCard";
 import SportsNavigation from "../SportsNavigation/SportsNavigation";
 import NoSportFound from "./NoSportFound";
@@ -9,7 +10,13 @@ import {
 } from "./StyledSportSection";
 import TopMatch from "./TopMatch/TopMatch";
 
-const SportSection = ({ titleIcon, isLive = false }) => {
+const SportSection = ({
+  titleIcon,
+  isLive = false,
+  hasBigContainer = true,
+}) => {
+  const { isTabletScreen } = useContext(AppContext);
+
   const containerRef = useRef(null);
   const [numColumns, setNumColumns] = useState(1);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -41,6 +48,8 @@ const SportSection = ({ titleIcon, isLive = false }) => {
     };
   }, []);
 
+  const numElementsToShow = isTabletScreen ? (hasBigContainer ? 5 : 6) : 9;
+
   return (
     <SportSectionContainer>
       <SportsSectionTitle icon={titleIcon} name={"Top Matches"} />
@@ -54,12 +63,14 @@ const SportSection = ({ titleIcon, isLive = false }) => {
           numColumns={numColumns}
           containerWidth={containerWidth}
         >
-          {Array(9)
+          {Array(numElementsToShow)
             .fill()
             .map((_, index) => (
               <SportCard key={index} isLive={isLive} />
             ))}
-          <TopMatch icon={titleIcon} numColumns={numColumns} />
+          {hasBigContainer && (
+            <TopMatch icon={titleIcon} numColumns={numColumns} />
+          )}
         </StyledSportSection>
       ) : (
         <NoSportFound />

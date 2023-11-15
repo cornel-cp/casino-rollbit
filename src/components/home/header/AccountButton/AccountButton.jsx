@@ -13,7 +13,7 @@ import { StyleAccountButton } from "./StyledAccountButton";
 //models
 
 const AccountButton = () => {
-  const { openDropdown, toggleDropdown, isMobileScreen } =
+  const { openDropdown, toggleDropdown, isTabletScreen } =
     useContext(AppContext);
 
   const handleBtnClick = () => {
@@ -22,7 +22,7 @@ const AccountButton = () => {
 
   return (
     <StyleAccountButton>
-      {isMobileScreen ? (
+      {isTabletScreen ? (
         <button class="button" onClick={handleBtnClick}>
           <USER />
         </button>
@@ -70,8 +70,8 @@ const AccountButton = () => {
           <div
             style={{
               position: "absolute",
-              top: isMobileScreen ? "auto" : "50px",
-              bottom: isMobileScreen ? "50px" : "auto",
+              top: isTabletScreen ? "auto" : "50px",
+              bottom: isTabletScreen ? "50px" : "auto",
               background: "#1F2330",
               borderRadius: "6px",
               boxShadow: " 0px 5px 8px 0px rgba(0, 0, 0, 0.25)",
