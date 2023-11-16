@@ -1,6 +1,6 @@
 //assets
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
 import { ReactComponent as MSG } from "../../../assets/images/Frame (31).svg";
 import { ReactComponent as CANDLE_ICON } from "../../../assets/images/Frame (32).svg";
@@ -8,7 +8,6 @@ import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Frame (33).
 import { ReactComponent as COLLAPSE } from "../../../assets/images/Frame (34).svg";
 import { ReactComponent as CROSS } from "../../../assets/images/Frame (35).svg";
 import { ReactComponent as SETTINGS } from "../../../assets/images/Frame (36).svg";
-import { ReactComponent as SUPPORT } from "../../../assets/images/Frame (65).svg";
 import EMOJI from "../../../assets/images/IMAGE (43).png";
 import RANK_ICON from "../../../assets/images/rank-icon-gold.png";
 import CryptoFuturesCoins from "../../Common/CryptoFuturesCoins/CryptoFuturesCoins";
@@ -22,7 +21,10 @@ import {
 } from "./styles";
 
 const ChatBox = ({ isChatBox, setIsChatBox }) => {
-  const { isTabletScreen } = useContext(AppContext);
+  const { pathname } = useLocation();
+
+  const { isTabletScreen, isChatBoxCollapsed, updateChatBoxCollapsed } =
+    useContext(AppContext);
 
   const [message, setMessage] = useState(""); // Track the input message
   const [messages, setMessages] = useState([]); // Store chat messages
@@ -42,6 +44,10 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
     }
   };
 
+  const handleCollapse = () => {
+    updateChatBoxCollapsed(!isChatBoxCollapsed);
+  };
+
   const handleInputKeyPress = (e) => {
     if (e.key === "Enter") {
       handleSend();
@@ -51,7 +57,15 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
   return (
     <>
       {isChatBox ? (
-        <StyledChatBoxContainer isTabletScreen={isTabletScreen}>
+        <StyledChatBoxContainer
+          isTabletScreen={isTabletScreen}
+          style={{
+            padding: pathname.includes("/sports")
+              ? "0px 16px 64px"
+              : "0px 16px 16px",
+            width: isChatBoxCollapsed ? "248px" : "340px",
+          }}
+        >
           <div className="top-actions-container">
             <div className="chat-trades">
               <div
@@ -78,7 +92,12 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
 
             <SwitchContainer>
               <div className="container-buttons">
-                <COLLAPSE className="collapse-icon" />
+                <COLLAPSE
+                  className={`collapse-icon ${
+                    isChatBoxCollapsed ? "collapsed" : ""
+                  }`}
+                  onClick={handleCollapse}
+                />
                 <CROSS
                   className="cross-icon"
                   onClick={() => setIsChatBox(false)}
@@ -148,41 +167,8 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
               </div>
             </div>
           )}
-
-          <Link to="https://t.me/casino_crafters" target="_blank">
-            <div
-              style={{
-                position: "absolute",
-                left: "-2.8pc",
-                bottom: "1.8pc",
-                background: "#272B38",
-                borderRadius: "999px",
-                padding: "8px",
-                cursor: "pointer",
-                zIndex: 300,
-              }}
-            >
-              <SUPPORT />
-            </div>
-          </Link>
         </StyledChatBoxContainer>
-      ) : (
-        <Link to="https://t.me/casino_crafters" target="_blank">
-          <div
-            style={{
-              position: "fixed",
-              right: "1pc",
-              bottom: "0.8pc",
-              background: "#272B38",
-              borderRadius: "999px",
-              padding: "8px",
-              cursor: "pointer",
-            }}
-          >
-            <SUPPORT />
-          </div>
-        </Link>
-      )}
+      ) : null}
     </>
   );
 };

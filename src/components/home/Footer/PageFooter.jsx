@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 //assets
-import LOGO from "../../../assets/images/LOGO (1).png";
+import LOGO from "../../../assets/LOGO Gamblify/Full LOGO.png";
 
 const FooterWrapper = styled.footer`
   display: flex;

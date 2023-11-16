@@ -28,7 +28,7 @@ export const StyledBetslip = styled.div`
   .third-class {
     left: 0;
     right: 0;
-    bottom: 120px;
+    bottom: 65px;
     position: absolute;
     background: #212532;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.65);
@@ -128,6 +128,16 @@ export const StyledBetslip = styled.div`
     }
   }
 
+  .arrow-down {
+    fill: currentColor;
+    flex: none;
+    width: 16px;
+    cursor: pointer;
+    height: 16px;
+    opacity: 0.5;
+    margin-left: 4px;
+  }
+
   .right-container {
     color: #171924;
     cursor: pointer;
@@ -149,6 +159,79 @@ export const StyledBetslip = styled.div`
       text-transform: uppercase;
       box-sizing: border-box;
       word-break: keep-all;
+    }
+  }
+
+  .bets-class {
+    max-height: 920px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bets-first-class {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bets-second-class {
+    display: flex;
+    z-index: 3;
+    overflow: auto;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .bets-third-class {
+    flex: 1;
+    position: relative;
+    min-height: 105px;
+    display: flex;
+    overflow: hidden;
+    max-height: 105px;
+    flex-direction: column;
+  }
+
+  .bets-fourth-class {
+    color: #ffffff;
+    display: flex;
+    padding: 24px 16px 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-direction: column;
+    top: 0;
+    position: absolute;
+    min-width: 100%;
+    opacity: 1;
+  }
+
+  .bets-container {
+    color: #ffffff;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bets-icon {
+    min-width: 48px;
+    margin-right: 16px;
+  }
+
+  .bets-text {
+    display: flex;
+    flex-direction: column;
+
+    .bets-text-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 18px;
+    }
+
+    .bets-text-info {
+      font-size: 12px;
+      margin-top: 8px;
+      font-weight: 600;
+      line-height: 16px;
+      opacity: 0.7;
     }
   }
 `;

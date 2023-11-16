@@ -5,6 +5,7 @@ import { ReactComponent as SEARCH_ICON } from "../../../assets/images/navbar-sea
 import Button from "../../Common/Buttons/Button";
 import ImagesSection from "../../Common/ImagesSection/ImagesSection";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
+import CloseButtonModal from "../CloseButtonModal";
 import Modal from "../Modal";
 import ModalSidebar from "./ModalSidebar";
 import { StyledSearchContent } from "./styles";
@@ -49,6 +50,7 @@ const SearchModal = () => {
             "https://rollbit.com/static/media/hero-rlb-bot.80736408d58b43236799.jpg"
           }
         >
+          <CloseButtonModal onClick={handleClose} />
           <div class="content-container">
             <div className="div-container">
               {!isTabletScreen && (

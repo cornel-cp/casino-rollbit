@@ -11,7 +11,8 @@ export const StyledPageLayout = styled.div`
 
   @media (min-width: 1024px) {
     padding-left: ${({ isSidebarOpen }) => (isSidebarOpen ? "240px" : "55px")};
-    padding-right: ${({ isChatBoxOpen }) => (isChatBoxOpen ? "340px" : "0")};
+    padding-right: ${({ isChatBoxOpen, isChatBoxCollapsed }) =>
+      isChatBoxOpen ? (isChatBoxCollapsed ? "248px" : "340px") : "0"};
   }
 
   .background-overlay {

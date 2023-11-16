@@ -3,7 +3,18 @@ import SwitchToggleBets from "../../../../Common/SwitchToggle/SwitchToggleBets";
 import { StyledBetslip } from "./styles";
 
 const Betslip = () => {
-  const [isToggle, setIsToggle] = useState(false);
+  const [isQuickBetToggle, setIsQuickBetToggle] = useState(false);
+  const [isBetsOpen, setIsBetsOpen] = useState(false);
+
+  const handleQuickBetToggle = (e) => {
+    setIsBetsOpen(true);
+    setIsQuickBetToggle((prev) => !prev);
+  };
+
+  const handleBetslipToggle = () => {
+    setIsBetsOpen((prev) => !prev);
+  };
+
   return (
     <StyledBetslip
       data-cy="betslip"
@@ -12,14 +23,24 @@ const Betslip = () => {
     >
       <div class="first-class">
         <div class="second-class">
-          <div data-editor-id="betslipContent" class="third-class">
+          <div
+            data-editor-id="betslipContent"
+            class="third-class"
+            style={{
+              bottom: isBetsOpen ? "-40px" : "65px",
+              transition: "bottom 0.5s ease-in-out", // Apply smooth transition
+            }}
+          >
             <div class="fourth-class">
-              <div class="fifth-class">
+              <div class="fifth-class" style={{ height: "161px" }}>
                 <div>
                   <div>
                     <div
-                      class={`container-betslip ${isToggle ? "toggled" : ""}`}
+                      class={`container-betslip ${
+                        isQuickBetToggle ? "toggled" : ""
+                      }`}
                       data-editor-id="betslipHeader"
+                      onClick={handleBetslipToggle}
                     >
                       <div class="left-container">
                         <div class="icon-container">
@@ -50,6 +71,10 @@ const Betslip = () => {
                           height="16"
                           viewBox="0 0 16 16"
                           xmlns="http://www.w3.org/2000/svg"
+                          className="arrow-down"
+                          style={{
+                            rotate: isBetsOpen ? "" : "180deg",
+                          }}
                         >
                           <path d="M8.7542 11.1529C8.35634 11.6157 7.64366 11.6157 7.2458 11.1529L4.24545 7.66298C3.68586 7.01207 4.14485 6 4.99964 6L11.0004 6C11.8551 6 12.3141 7.01207 11.7546 7.66298L8.7542 11.1529Z"></path>
                         </svg>
@@ -62,25 +87,28 @@ const Betslip = () => {
                           Quick Bet
                         </div>
                         <SwitchToggleBets
-                          checked={isToggle}
-                          toggle={setIsToggle}
+                          checked={isQuickBetToggle}
+                          toggle={(e) => handleQuickBetToggle(e)}
                         />
                       </div>
                     </div>
-                    <div class="bt1442" style={{ maxHeight: "920px" }}>
+                    <div class="bets-class">
                       <div>
-                        <div class="bt1449">
-                          <div class="bt1450" style={{ maxHeight: "880px" }}>
-                            <div class="bt1465 bt1451 bt1453">
-                              <div class="bt1466 bt1458 bt1461">
-                                <div class="bt1467">
+                        <div class="bets-first-class">
+                          <div
+                            class="bets-second-class"
+                            style={{ maxHeight: "880px" }}
+                          >
+                            <div class="bets-third-class">
+                              <div class="bets-fourth-class">
+                                <div class="bets-container">
                                   <svg
                                     width="48"
                                     height="48"
                                     viewBox="0 0 48 48"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
-                                    class="bt1468"
+                                    class="bets-icon"
                                     data-editor-id="emptyBetSlipIcon"
                                   >
                                     <g clip-path="url(#clip0_19728_23370)">
@@ -109,10 +137,12 @@ const Betslip = () => {
                                       </clipPath>
                                     </defs>
                                   </svg>
-                                  <div class="bt1469">
-                                    <div class="bt1470">Place your bets</div>
+                                  <div class="bets-text">
+                                    <div class="bets-text-title">
+                                      Place your bets
+                                    </div>
                                     <div
-                                      class="bt1471"
+                                      class="bets-text-info"
                                       style={{ opacity: 0.7 }}
                                     >
                                       Your selections will appear in this area

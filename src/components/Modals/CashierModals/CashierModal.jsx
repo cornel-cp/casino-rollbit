@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../../../AppContext";
 import { ReactComponent as PORTFOLIO_IMG } from "../../../assets/images/Frame (13).svg";
+import CloseButtonModal from "../CloseButtonModal";
 import Modal from "../Modal";
 import CouponsReferralsContent from "./CouponsReferralsContent";
 import DepositWithdrawContent from "./DepositWithdrawContent";
@@ -81,6 +82,7 @@ const CashierModal = ({ button }) => {
       )}
 
       <Modal maxWidth={805} isOpen={isOpen} onClose={setIsOpen}>
+        <CloseButtonModal onClick={() => setIsOpen(false)} />
         <StyledCashierModal>
           <NavigationCashier />
 

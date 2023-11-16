@@ -6,10 +6,11 @@ import HomeAppBar from "./components/home/header/AppBar";
 //reward section models
 
 // deposit section models
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { AppContext } from "./AppContext";
 import NFTDetails from "./components/Common/NFTDetails/NFTDetails";
 import ScrollToTop from "./components/Common/ScrollToTop";
+import SupportButton from "./components/Common/SupportButton/SupportButton";
 import AKOriginals from "./components/Pages/Casino/AKOriginals";
 import Blackjack from "./components/Pages/Casino/Blackjack";
 import BonusBattles from "./components/Pages/Casino/BonusBattles";
@@ -42,10 +43,8 @@ import AKLottery from "./components/Pages/Other/AKLottery";
 import Jackpot from "./components/Pages/Other/Jackpot";
 import Race25K from "./components/Pages/Other/Race25k";
 import Streams from "./components/Pages/Other/Streams";
-import Betslip from "./components/Pages/Sports/Common/Betslip/Betslip";
 import MyBets from "./components/Pages/Sports/MyBets/MyBets";
 import Sports from "./components/Pages/Sports/Sports";
-import SportsHeader from "./components/Pages/Sports/SportsHeader/SportsHeader";
 import ProtectedRoute from "./components/Router/ProtectedRoute";
 import AccountPageLayout from "./components/home/Account/AccountPageLayout";
 import BalancesPage from "./components/home/Account/Balances/Balances";
@@ -117,14 +116,7 @@ const routesAccountLayout = [
 ];
 
 function App() {
-  const { isTabletScreen, updateSelectedOption } = useContext(AppContext);
-
-  const isSportsRoute = window.location.pathname === "/sports";
-  const isMyBetsRoute = window.location.pathname === "/my-bets";
-
-  useEffect(() => {
-    updateSelectedOption(window.location.pathname);
-  }, []);
+  const { isTabletScreen } = useContext(AppContext);
 
   return (
     <BrowserRouter>
@@ -133,7 +125,6 @@ function App() {
       <SideBar />
 
       <PageLayout>
-        {isSportsRoute || isMyBetsRoute ? <SportsHeader /> : null}
         <Routes>
           {routesSportsLayout.map((route) => (
             <Route
@@ -182,7 +173,7 @@ function App() {
             />
           ))}
         </Routes>
-        {isSportsRoute || isMyBetsRoute ? <Betslip /> : null}
+        {!isTabletScreen && <SupportButton />}
       </PageLayout>
     </BrowserRouter>
   );

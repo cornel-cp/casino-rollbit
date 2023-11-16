@@ -4,7 +4,7 @@ import { StyledSwitchBets } from "./styles";
 
 const SwitchToggleBets = ({ checked, toggle }) => {
   return (
-    <StyledSwitchBets onClick={() => toggle(!checked)}>
+    <StyledSwitchBets onClick={toggle}>
       <Switch
         checked={checked}
         style={{

@@ -186,16 +186,33 @@ export const SwitchContainer = styled.div`
   gap: 6px;
 
   .collapse-icon {
+    fill: currentcolor;
     width: 22px;
-    height: 22px;
-    flex-shrink: 0;
+    min-width: 22px;
+    height: auto;
+    cursor: pointer;
+    color: rgb(134, 141, 166);
+
+    &:hover {
+      color: rgb(177, 182, 198);
+    }
+  }
+
+  .collapsed {
+    transform: rotate(180deg);
   }
 
   .cross-icon {
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
+    fill: currentcolor;
+    width: 20px;
+    min-width: 20px;
+    height: auto;
     cursor: pointer;
+    color: rgb(134, 141, 166);
+
+    &:hover {
+      color: rgb(177, 182, 198);
+    }
   }
 
   .container-buttons {

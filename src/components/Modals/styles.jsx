@@ -317,3 +317,39 @@ export const StyleBonusBattleWelcome = styled.div`
     }
   }
 `;
+
+export const StyledCloseButton = styled.div`
+  position: sticky;
+  z-index: 2;
+  transform: translate(-20px, 26px);
+  top: 0px;
+  height: 0px;
+  display: flex;
+  justify-content: flex-end;
+
+  .button-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 32px;
+    border-radius: 99px;
+    cursor: pointer;
+    background: rgb(26, 29, 41);
+
+    svg {
+      vertical-align: middle;
+      overflow: hidden;
+      fill: currentcolor;
+      width: 20px;
+      min-width: 20px;
+      height: auto;
+      transition: color 0.1s ease 0s;
+      color: rgb(177, 182, 198);
+
+      &:hover {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+`;

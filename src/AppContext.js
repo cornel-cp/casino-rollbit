@@ -32,6 +32,7 @@ const AppProvider = ({ children }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isChatBoxOpen, setIsChatBoxOpen] = useState(false);
+  const [isChatBoxCollapsed, setIsChatBoxCollapsed] = useState(false);
   const [prevChatBoxOpen, setPrevChatBoxOpen] = useState(false);
   const [prevSidebarOpen, setPrevSidebarOpen] = useState(false);
   const [isMobileScreen, setIsMobileScreen] = useState(false);
@@ -70,6 +71,9 @@ const AppProvider = ({ children }) => {
   };
   const updateChatBox = (option) => {
     setIsChatBoxOpen(option);
+  };
+  const updateChatBoxCollapsed = (option) => {
+    setIsChatBoxCollapsed(option);
   };
   const updatePrevSidebar = (option) => {
     setPrevSidebarOpen(option);
@@ -120,6 +124,7 @@ const AppProvider = ({ children }) => {
         isTabletScreen,
         prevSidebarOpen,
         prevChatBoxOpen,
+        isChatBoxCollapsed,
         updatePrevSidebar,
         updatePrevChatBox,
         updateMobileScreen,
@@ -139,6 +144,7 @@ const AppProvider = ({ children }) => {
         updateSportsSelectedOption,
         updateCashierOption,
         updateSelectedSport,
+        updateChatBoxCollapsed,
       }}
     >
       {children}

@@ -1,6 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
+import Betslip from "../../Pages/Sports/Common/Betslip/Betslip";
+import SportsHeader from "../../Pages/Sports/SportsHeader/SportsHeader";
 import PageFooter from "../Footer/PageFooter";
 import MobileNavBar from "../header/MobileNavBar/MobileNavBar";
 import { StyledPageLayout } from "./styles";
@@ -9,6 +11,7 @@ const PageLayout = ({ children }) => {
   const {
     isSidebarOpen,
     isChatBoxOpen,
+    isChatBoxCollapsed,
     prevSidebarOpen,
     prevChatBoxOpen,
     isTabletScreen,
@@ -18,6 +21,7 @@ const PageLayout = ({ children }) => {
     updateSidebar,
     updatePrevSidebar,
     updatePrevChatBox,
+    updateSelectedOption,
   } = useContext(AppContext);
   const location = useLocation();
 
@@ -42,6 +46,8 @@ const PageLayout = ({ children }) => {
   useEffect(() => {
     // Call handleWindowResize when the component mounts to set isTabletScreen initially
     handleWindowResize();
+
+    updateSelectedOption(location.pathname);
 
     // Attach the event listener when the component mounts
     window.addEventListener("resize", handleWindowResize);
@@ -75,9 +81,12 @@ const PageLayout = ({ children }) => {
     <StyledPageLayout
       isSidebarOpen={isSidebarOpen}
       isChatBoxOpen={isChatBoxOpen}
+      isChatBoxCollapsed={isChatBoxCollapsed}
     >
+      {isOnSportsPage ? <SportsHeader /> : null}
       <>{children}</>
 
+      {isOnSportsPage ? <Betslip /> : null}
       {!isOnSportsPage && <PageFooter />}
       {isTabletScreen && <MobileNavBar />}
     </StyledPageLayout>
