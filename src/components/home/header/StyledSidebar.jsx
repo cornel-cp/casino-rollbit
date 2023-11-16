@@ -174,6 +174,7 @@ export const StyledClosedSidebar = styled.div`
   width: 55px;
   position: fixed;
   top: 64px;
+  z-index: 10;
 
   .link {
     position: relative;

@@ -5,8 +5,8 @@ import Register from "../../LoginAndRgister/Register";
 import { AppContext } from "../../../AppContext";
 import Image from "../../../assets/images/IMAGE.jpg";
 import LOGO1 from "../../../assets/images/LOGO.png";
-import CROSS from "../../../assets/images/icons8-cross-100.png";
 import Login from "../../LoginAndRgister/Login";
+import CloseButtonModal from "../../Modals/CloseButtonModal";
 import Modal from "../../Modals/Modal";
 import { StyledRegisterModal } from "./StyledRegisterModal";
 
@@ -118,26 +118,15 @@ const RegisterModal = ({ buttonText, modalOption }) => {
               {openedModal === "login" ? <Login /> : <Register />}
             </div>
 
-            {!isTabletScreen && (
+            {!isTabletScreen ? (
               <div>
                 <img
                   src={LOGO1}
                   style={{ position: "absolute", top: "50px", right: "9pc" }}
                   alt="profile"
                 />
-                <img
-                  onClick={() => setShowModal(false)}
-                  src={CROSS}
-                  alt="cross"
-                  style={{
-                    width: "1.2pc",
-                    height: "1.2pc",
-                    position: "absolute",
-                    top: "20px",
-                    right: "25px",
-                    cursor: "pointer",
-                  }}
-                />
+                <CloseButtonModal onClick={() => setShowModal(false)} />
+
                 <img
                   style={{
                     height: "100%",
@@ -172,6 +161,8 @@ const RegisterModal = ({ buttonText, modalOption }) => {
                   </p>
                 </div>
               </div>
+            ) : (
+              <CloseButtonModal onClick={() => setShowModal(false)} />
             )}
           </div>
         </StyledRegisterModal>

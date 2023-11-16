@@ -13,7 +13,7 @@ export const StyledCryptoCoin = styled.div`
     animation-delay: 0s;
   }
 
-  & > * {
+  & * {
     animation: 0.2s ease-out 0s 1 normal both running ${fadeAndSlideIn};
   }
 
@@ -82,5 +82,19 @@ export const StyledCryptoCoin = styled.div`
       min-width: 8px;
       height: auto;
     }
+  }
+
+  .no-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 8px 0px 0px;
+    text-transform: uppercase;
+    color: rgb(103, 109, 124);
+    font-weight: 800;
+    font-style: normal;
+    font-size: 14px;
   }
 `;
