@@ -6,7 +6,7 @@ import BonusCardSection from "../../Common/BonusCard/BonusCardSection";
 import BoxesSection from "../../Common/BoxCard/BoxesSection";
 import CasinoSection from "../../Common/CasinoSection/CasinoSection";
 import CryptoSection from "../../Common/CryptoCard/CryptoSection";
-import NTFSection from "../../Common/NFTCard/NFTSection";
+import NTFSection from "../../Common/NFTCard/NTFSectionWithHeader";
 import StepsSection from "../../Common/StepSection/StepsSection";
 import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";
 import NewTableView from "./NewTableView";

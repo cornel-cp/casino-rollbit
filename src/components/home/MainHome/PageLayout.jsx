@@ -26,8 +26,9 @@ const PageLayout = ({ children }) => {
   const location = useLocation();
 
   const isOnSportsPage =
-    location.pathname.includes("/sports") ||
-    location.pathname.includes("/my-bets");
+    (location.pathname.includes("/sports") ||
+      location.pathname.includes("/my-bets")) &&
+    !location.pathname.includes("/nft");
 
   const handleWindowResize = () => {
     if (window.innerWidth < 576) {
@@ -46,6 +47,10 @@ const PageLayout = ({ children }) => {
   useEffect(() => {
     // Call handleWindowResize when the component mounts to set isTabletScreen initially
     handleWindowResize();
+
+    if (!isTabletScreen) {
+      updateSidebar(true);
+    }
 
     updateSelectedOption(location.pathname);
 

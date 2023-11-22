@@ -181,6 +181,75 @@ export const StyleNFTDetails = styled.div`
       );
     }
 
+    .arrow-current-price {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: rgb(255, 255, 255);
+      width: 56px;
+      font-size: 18px;
+      font-weight: 800;
+      font-style: normal;
+      margin-top: -4px;
+      gap: 8px;
+
+      svg {
+        transform: rotate(180deg);
+        margin-bottom: -5px;
+        filter: drop-shadow(rgb(16, 18, 27) 0px 0px 1px);
+
+        width: 12px;
+        min-width: 12px;
+        height: auto;
+      }
+    }
+
+    .button-section {
+      display: flex;
+      width: 100%;
+      padding-top: 24px;
+      gap: 14px;
+
+      button {
+        padding: 0px 20px;
+        width: 100%;
+        height: 40px;
+        align-items: center;
+        gap: 10px;
+        border-radius: 8px;
+        background: #ffe81a;
+        box-shadow: 0px 0px 10px 0px rgba(255, 176, 25, 0.4);
+        color: #141722;
+        text-align: center;
+        font-size: 14px;
+        font-weight: 900;
+        line-height: 14.4px;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+
+      .buy {
+        background: rgb(134, 244, 84);
+        box-shadow: rgba(118, 255, 25, 0.4) 0px 0px 10px,
+          rgba(255, 255, 255, 0.2) 0px 1px 0px inset,
+          rgba(0, 0, 0, 0.15) 0px -3px 0px inset,
+          rgb(59, 198, 14) 0px 0px 12px inset;
+      }
+
+      .bet {
+        background: rgb(255, 232, 26);
+        box-shadow: rgba(255, 176, 25, 0.4) 0px 0px 10px,
+          rgba(255, 255, 255, 0.2) 0px 1px 0px inset,
+          rgba(0, 0, 0, 0.15) 0px -3px 0px inset,
+          rgb(255, 135, 25) 0px 0px 12px inset;
+      }
+    }
+
     @media (min-width: 768px) {
       flex-direction: row;
     }
@@ -330,6 +399,15 @@ export const StyleCollection = styled.div`
       font-size: 32px;
       font-weight: 800;
       font-style: normal;
+    }
+
+    @media (max-width: 649px) {
+      .nft-img {
+        display: none;
+      }
+      .collection-name {
+        padding-left: 0;
+      }
     }
   }
 

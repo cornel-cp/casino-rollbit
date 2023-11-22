@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Arrow-Down.svg";
 import { ReactComponent as LINK_IMG } from "../../../assets/images/link.svg";
+import { calculateArrowMargin } from "../NFTCard/NFTCard";
 import Description from "./Description";
 
-const DetailsContainer = ({ detailsContainerInfo }) => {
+const DetailsContainer = ({ nftDetails }) => {
   const {
     nftImageSrc,
     subtitle,
@@ -13,7 +15,12 @@ const DetailsContainer = ({ detailsContainerInfo }) => {
     authorLink,
     authorName,
     prices,
-  } = detailsContainerInfo;
+  } = nftDetails.detailsContainerInfo;
+
+  const { currentPrice } = nftDetails;
+
+  console.log("detailsContainerInfo", nftDetails.detailsContainerInfo);
+  const arrowMargin = calculateArrowMargin(prices, currentPrice);
 
   const [showDescription, setShowDescription] = useState(false);
 
@@ -58,7 +65,7 @@ const DetailsContainer = ({ detailsContainerInfo }) => {
         </a>
         <div className="description">
           <Description
-            description={detailsContainerInfo}
+            description={nftDetails.detailsContainerInfo}
             className={showDescription ? "open" : ""}
           />
           <div className="description-button" onClick={onClickMoreDetails}>
@@ -92,6 +99,17 @@ const DetailsContainer = ({ detailsContainerInfo }) => {
               ))}
             </div>
             <div className="price-gradient"></div>
+            <div
+              className="arrow-current-price"
+              style={{ marginLeft: arrowMargin }}
+            >
+              <ARROW_DOWN />
+              <div>{currentPrice}K</div>
+            </div>
+            <div className="button-section">
+              <button className="buy">BUY</button>
+              <button className="bet">BET</button>
+            </div>
           </div>
         </div>
       </div>

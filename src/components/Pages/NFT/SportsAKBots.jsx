@@ -5,7 +5,6 @@ import {
   NFT_BANNER_OPTIONS,
 } from "../../../assets/MockData/mockData";
 import NFTBanner from "../../Common/NFTBanner/NFTBanner";
-import NFTSection from "../../Common/NFTSection/NFTSection";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
 import NFTNavigationHeader from "./NFTNavigationHeader";
@@ -23,8 +22,6 @@ const SportsAKBots = () => {
           hasSortByOptions={true}
           hasTraitsOptions={true}
         />
-
-        <NFTSection isLootbox={false} />
       </div>
     </StyledPageContainer>
   );

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
 import { SECTIONS } from "../../../assets/MockData/mockData";
 import { ReactComponent as COLLAPSE_IMG } from "../../../assets/images/Frame (34).svg";
@@ -10,42 +9,24 @@ const SideBarClosed = ({ toggleSideBar }) => {
   const [sections, setSections] = useState(SECTIONS);
   const { selectedOption, updateSelectedOption } = useContext(AppContext);
 
-  console.log("sections", sections);
   return (
     <StyledClosedSidebar>
-      <div to={"#"} className="link">
-        <COLLAPSE_IMG
-          onClick={() => toggleSideBar(true)}
-          style={{
-            width: "25px",
-            height: "25px",
-          }}
-        />
-      </div>
+      <MyPopover
+        icon={<COLLAPSE_IMG style={{ width: "25px", height: "25px" }} />}
+        position="left"
+        title="Collapse"
+        onClick={() => toggleSideBar(true)}
+      />
 
       {sections.map((section) =>
-        section.options.map((option, optionIndex) => {
-          return option?.dropdownOptions ? (
-            <MyPopover
-              parentOption={option}
-              subOptions={option?.dropdownOptions}
-            />
-          ) : (
-            <Link
-              to={option.sidebarUrl}
-              className="link"
-              onClick={() => updateSelectedOption(option.sidebarUrl)}
-            >
-              {option.icon && (
-                <option.icon
-                  className={
-                    option.sidebarUrl === selectedOption ? "activated" : ""
-                  }
-                />
-              )}
-            </Link>
-          );
-        })
+        section.options.map((option, optionIndex) => (
+          <MyPopover
+            parentOption={option}
+            subOptions={option?.dropdownOptions}
+            position="left"
+            onClick={() => updateSelectedOption(option.sidebarUrl)}
+          />
+        ))
       )}
     </StyledClosedSidebar>
   );

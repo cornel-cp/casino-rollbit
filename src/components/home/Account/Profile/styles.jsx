@@ -279,8 +279,15 @@ export const StyleProfile = styled.div`
       rgba(0, 0, 0, 0.15) 0px -3px 0px inset,
       rgb(255, 135, 25) 0px 0px 12px inset;
 
-    &:hover {
-      filter: brightness(110%);
+    &:not(:disabled) {
+      &:hover {
+        filter: brightness(110%);
+      }
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: default;
     }
   }
 

@@ -73,6 +73,8 @@ const routesSportsLayout = [
   { path: "/nft/lootboxes/play", component: NFTLootboxes },
   { path: "/nft/lootboxes/manage", component: NFTMyLootboxes },
   { path: "/nft/details", component: NFTDetails },
+  { path: "/nft/rollbot/:tab", component: ManageRollbots },
+  { path: "/nft/sportsbots/:tab", component: ManageSportsbots },
   // Add more routes as needed
 ];
 
@@ -102,8 +104,6 @@ const routesContentLayout = [
   { path: "/nft/lobby/:tab", component: AKBots },
   { path: "/nft/loans", component: NFTLoans },
   { path: "/nft/details/:nftId", component: NFTDetails },
-  { path: "/nft/rollbot/:tab", component: ManageRollbots },
-  { path: "/nft/sportsbots/:tab", component: ManageSportsbots },
 ];
 
 const routesAccountLayout = [

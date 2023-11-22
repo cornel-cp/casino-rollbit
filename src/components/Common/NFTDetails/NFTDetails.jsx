@@ -25,9 +25,7 @@ const NFTDetails = () => {
         <ARROW_LEFT />
         <span>Back</span>
       </button>
-      <DetailsContainer
-        detailsContainerInfo={nftDetails.detailsContainerInfo}
-      />
+      <DetailsContainer nftDetails={nftDetails} />
       <div className="section-title">Sports Rollbot Stats</div>
       <Stats stats={nftDetails.stats} />
       <div className="section-title">Traits</div>

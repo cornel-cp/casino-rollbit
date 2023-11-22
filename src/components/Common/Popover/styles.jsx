@@ -6,13 +6,11 @@ export const StyledPopover = styled.div`
   position: fixed;
   max-width: 208px;
   transform: translateZ(0px);
-  width: 100%;
   animation: 0.2s ease-out 0s 1 normal both running ${fadeAndSlideIn};
 
   .container-popover {
     height: 100%;
     border-radius: 6px;
-    animation: 0.12s ease-out 0s 1 normal none running animation-1h5r8ub;
     transform: translateZ(0px);
     width: 100%;
     background: rgb(31, 35, 48);
@@ -20,6 +18,42 @@ export const StyledPopover = styled.div`
       rgba(0, 0, 0, 0.18) 0px 0px 20px 0px,
       rgba(0, 0, 0, 0.35) 0px 40px 34px -16px;
     overflow: hidden auto;
+  }
+
+  .simple-popover {
+    height: 100%;
+    border-radius: 6px;
+    animation: 0.2s ease-out 0s 1 normal both running ${fadeAndSlideIn};
+    transform: translateZ(0px);
+    position: relative;
+    padding: 7px 10px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    color: rgb(255, 255, 255);
+    background: rgb(39, 43, 56);
+    font-size: 12px;
+    font-weight: 500;
+    font-style: normal;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 5px 8px -4px,
+      rgba(0, 0, 0, 0.18) 0px 0px 20px 0px;
+
+    .arrow {
+      display: inline-block;
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-right: 10px solid rgb(39, 43, 56);
+    }
+
+    .arrow-left {
+      left: -8px;
+    }
+    .arrow-right {
+      right: -8px;
+      rotate: 180deg;
+    }
   }
 
   .title {

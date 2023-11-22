@@ -6,7 +6,7 @@ import NFTNavigationHeader from "./NFTNavigationHeader";
 
 import { BUTTONS_MY_NFTs } from "../../../assets/MockData/mockData";
 import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
-import NotFound from "../../Common/NotFound/NotFound";
+import NFTSection from "../../Common/NFTSection/NFTSection";
 import PageTitle from "../../Common/PageTitle/PageTitle";
 
 const MyNFTs = () => {
@@ -17,8 +17,8 @@ const MyNFTs = () => {
       <NFTNavigationHeader buttons={BUTTONS_MY_NFTs} />
       <div className="content-container">
         <SearchAndFilters />
-        {/* <NFTSection isLootbox={false} /> */}
-        <NotFound text="NO NFTS FOUND" />
+        <NFTSection isLootbox={false} />
+        {/* <NotFound text="NO NFTS FOUND" /> */}
       </div>
     </StyledPageContainer>
   );

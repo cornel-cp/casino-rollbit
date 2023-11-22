@@ -31,13 +31,40 @@ const ManageSportsbots = () => {
   const renderContent = () => {
     switch (tab) {
       case TABS.PORTFOLIO:
-        return <NotFound text="NO NFTS FOUND" />;
+        return (
+          <>
+            <SearchAndFilters hasSortByOptions={true} />
+            <NotFound text="NO NFTS FOUND" />
+          </>
+        );
+
       case TABS.MARKETPLACE:
-        return <NFTSection isLootbox={false} />;
+        return (
+          <>
+            <SearchAndFilters
+              hasSwitchToggle={true}
+              labelSwitchToggle="Mine Only"
+              hasSortByOptions={true}
+              hasTraitsOptions={true}
+            />
+            <NFTSection isLootbox={false} />
+          </>
+        );
+
       case TABS.CLAIMED:
-        return <NotFound text="NO SPORTSBOTS FOUND" />;
+        return (
+          <>
+            <SearchAndFilters hasSortByOptions={true} />
+            <NotFound text="NO SPORTSBOTS FOUND" />
+          </>
+        );
+
       default:
-        return <NotFound text="NO NFTS FOUND" />;
+        return (
+          <>
+            <NotFound text="NO NFTS FOUND" />
+          </>
+        );
     }
   };
 
@@ -49,11 +76,7 @@ const ManageSportsbots = () => {
 
       <NFTNavigationHeader buttons={BUTTONS_MANAGE_SPORTSBOTS} />
 
-      <div className="content-container">
-        <SearchAndFilters hasSortByOptions={true} hasTraitsOptions={true} />
-
-        {renderContent()}
-      </div>
+      <div className="content-container">{renderContent()}</div>
     </StyledPageContainer>
   );
 };

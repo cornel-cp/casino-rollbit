@@ -4,6 +4,7 @@ import NFTCard from "../NFTCard/NFTCard";
 import { StyledNFTSection } from "./styles";
 
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { AppContext } from "../../../AppContext";
 import Button from "../Buttons/Button";
 import NotFound from "../NotFound/NotFound";
@@ -49,7 +50,7 @@ const NFTSection = ({ isLootbox }) => {
         searchState.selectedProvider === "All" ||
         nft.provider === searchState.selectedProvider;
       const passesSortFilter =
-        searchState.selectedSort === "All" ||
+        searchState.selectedSort === "Popular" ||
         nft.sort === searchState.selectedSort;
 
       return passesSearchQuery && passesProviderFilter && passesSortFilter;
@@ -64,18 +65,20 @@ const NFTSection = ({ isLootbox }) => {
     <StyledNFTSection>
       <div className="nft-cards">
         {filteredNFTs.slice(0, getVisibleItems().length).map((card, index) => (
-          <NFTCard
-            key={index}
-            imageSrc={card.imageSrc}
-            title={card.title}
-            subTitle={card.subTitle}
-            amount={card.amount}
-            buttonText={card.buttonText}
-            prices={card.prices}
-            currentPrice={card.currentPrice}
-            hasPercentageText={card.hasPercentageText}
-            isLootbox={isLootbox}
-          />
+          <Link to={`/nft/details/${card.id}`} key={index}>
+            <NFTCard
+              key={index}
+              imageSrc={card.imageSrc}
+              title={card.title}
+              subTitle={card.subTitle}
+              amount={card.amount}
+              buttonText={card.buttonText}
+              prices={card.prices}
+              currentPrice={card.currentPrice}
+              hasPercentageText={card.hasPercentageText}
+              isLootbox={isLootbox}
+            />
+          </Link>
         ))}
       </div>
       {filteredNFTs.length > getVisibleItems().length && (

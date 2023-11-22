@@ -33,13 +33,40 @@ const ManageRollbots = () => {
   const renderContent = () => {
     switch (tab) {
       case TABS.PORTFOLIO:
-        return <NotFound text="NO NFTS FOUND" />;
+        return (
+          <>
+            <SearchAndFilters hasSortByOptions={true} />
+            <NotFound text="NO NFTS FOUND" />
+          </>
+        );
+
       case TABS.MARKETPLACE:
-        return <NFTSection isLootbox={false} />;
+        return (
+          <>
+            <SearchAndFilters
+              hasSwitchToggle={true}
+              labelSwitchToggle="Mine Only"
+              hasSortByOptions={true}
+              hasTraitsOptions={true}
+            />
+            <NFTSection isLootbox={false} />
+          </>
+        );
+
       case TABS.STAKED:
-        return <NotFound text="NO ROLLBOTS FOUND" />;
+        return (
+          <>
+            <SearchAndFilters hasSortByOptions={true} hasTraitsOptions={true} />
+            <NotFound text="NO ROLLBOTS FOUND" />
+          </>
+        );
+
       default:
-        return <NotFound text="NO NFTS FOUND" />;
+        return (
+          <>
+            <NotFound text="NO NFTS FOUND" />
+          </>
+        );
     }
   };
 
@@ -50,11 +77,7 @@ const ManageRollbots = () => {
       <ManageTopSection data={topSectionData} />
 
       <NFTNavigationHeader buttons={BUTTONS_MANAGE_ROLLBOTS} />
-      <div className="content-container">
-        <SearchAndFilters hasSortByOptions={true} hasTraitsOptions={true} />
-
-        {renderContent()}
-      </div>
+      <div className="content-container">{renderContent()}</div>
     </StyledPageContainer>
   );
 };

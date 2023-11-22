@@ -6,7 +6,7 @@ import {
 } from "../../../assets/MockData/mockData";
 import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg";
 import NFTBanner from "../../Common/NFTBanner/NFTBanner";
-import NTFSection from "../../Common/NFTCard/NFTSection";
+import NTFSection from "../../Common/NFTCard/NTFSectionWithHeader";
 import HeaderCollection from "../../Common/SupportedCollection/HeaderCollection";
 import SupportedCollectionSection from "../../Common/SupportedCollection/SupportedCollectionSection";
 import LiveWinsSection from "../../Common/WinnerCard/LiveWinsSection";

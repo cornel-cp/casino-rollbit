@@ -214,3 +214,16 @@ export const StyledNFTCard = styled.div`
     }
   }
 `;
+
+export const StyledNFTSection = styled.div`
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 12px 6px;
+
+  width: 100%;
+  @media (min-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(214.8px, 1fr));
+    gap: 18px 12px;
+  }
+`;

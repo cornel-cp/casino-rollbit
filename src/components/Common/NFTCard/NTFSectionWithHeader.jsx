@@ -8,7 +8,7 @@ import { ReactComponent as NFT_IMG } from "../../../assets/images/Frame (11).svg
 import useSlider from "../../../hooks/useSlider";
 import Slider from "../Slider/Slider";
 
-const NTFSection = ({ isLootbox, title, buttonText, buttonLink }) => {
+const NFTSectionWithHeader = ({ isLootbox, title, buttonText, buttonLink }) => {
   const { containerRef, scrollLeft, scrollRight } = useSlider();
 
   const CardsComponent = NFTS_DATA.map((card, index) => (
@@ -44,4 +44,4 @@ const NTFSection = ({ isLootbox, title, buttonText, buttonLink }) => {
   );
 };
 
-export default NTFSection;
+export default NFTSectionWithHeader;

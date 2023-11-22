@@ -17,7 +17,7 @@ const NFTMyPurchases = () => {
       <NFTNavigationHeader buttons={BUTTONS_NFT_MARKETPLACE} />
       <div className="content-container">
         <SearchAndFilters hasSortByOptions={true} />
-        {/* <NFTSection isLootbox={false} /> */}
+        {/* <NFTSectionWithHeader isLootbox={false} /> */}
         <NotFound text="YOU DON'T HAVE ANY PURCHASES YET" />
       </div>
     </StyledPageContainer>

@@ -6,7 +6,7 @@ export const StyleModal = styled.div`
     position: relative;
     width: 100%;
     max-width: ${(props) => props.maxWidth};
-    max-height: ${(props) => `${props.maxHeight}`};
+    max-height: 88vh;
     vertical-align: middle;
     border-radius: 10px;
     background: rgb(26, 29, 41);
@@ -16,9 +16,24 @@ export const StyleModal = styled.div`
     color: #b1b6c6;
   }
 
-  .overflow-modal::-webkit-scrollbar {
-    display: none;
-    scrollbar-width: none;
+  .overflow-modal {
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+    &::-webkit-scrollbar-corner,
+    ::-webkit-scrollbar-track {
+      background: 0 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba(203, 215, 255, 0.1);
+      border-radius: 6px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .modal-panel {
+      max-height: 100%;
+    }
   }
 `;
 

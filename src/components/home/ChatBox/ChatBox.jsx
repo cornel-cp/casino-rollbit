@@ -142,7 +142,11 @@ const ChatBox = ({ isChatBox, setIsChatBox }) => {
 
                 <div className="info">
                   <p className="info-value">200</p>
-                  <button onClick={handleSend} className="send-button">
+                  <button
+                    onClick={handleSend}
+                    className="send-button"
+                    disabled={!message}
+                  >
                     Send
                   </button>
                 </div>

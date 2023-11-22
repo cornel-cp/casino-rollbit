@@ -33,8 +33,9 @@ const Settings = () => {
       email: "",
     },
     validationSchema: emailValidationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       displayToast("Email changed successfully.");
+      resetForm();
     },
   });
 
@@ -44,8 +45,9 @@ const Settings = () => {
       newPassword: "",
     },
     validationSchema: passwordValidationSchema,
-    onSubmit: (values) => {
+    onSubmit: (values, { resetForm }) => {
       displayToast("Password changed successfully.");
+      resetForm();
     },
   });
 
@@ -102,6 +104,7 @@ const Settings = () => {
                 <button
                   className="change-button"
                   type="submit"
+                  disabled={!emailFormik.values.email}
                   style={{ marginRight: "4px" }}
                 >
                   Change
@@ -170,6 +173,10 @@ const Settings = () => {
           <button
             className="submit-button"
             type="submit"
+            disabled={
+              !passwordFormik.values.oldPassword ||
+              !passwordFormik.values.newPassword
+            }
             style={{ marginTop: "24px" }}
           >
             Change Password

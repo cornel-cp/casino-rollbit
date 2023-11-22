@@ -17,7 +17,7 @@ const NFTMyLoans = () => {
       <NFTNavigationHeader buttons={BUTTONS_MY_NFTs} />
       <div className="content-container">
         <SearchAndFilters />
-        {/* <NFTSection isLootbox={false} /> */}
+        {/* <NFTSectionWithHeader isLootbox={false} /> */}
         <NotFound text="NO LOANS FOUND" />
       </div>
     </StyledPageContainer>

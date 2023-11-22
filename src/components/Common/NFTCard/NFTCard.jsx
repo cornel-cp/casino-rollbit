@@ -1,9 +1,9 @@
 import React from "react";
-import NFT from "../../../assets/images/IMAGE.svg";
 import { ReactComponent as ARROW_DOWN } from "../../../assets/images/Arrow-Down.svg";
+import NFT from "../../../assets/images/IMAGE.svg";
 import { StyledNFTCard } from "./styles";
 
-const calculateArrowMargin = (prices, currentPrice) => {
+export const calculateArrowMargin = (prices, currentPrice) => {
   if (!prices || prices.length < 3) return "28px";
 
   const [priceLeft, priceMiddle, priceRight] = prices;

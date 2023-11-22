@@ -225,6 +225,7 @@ export const ImagePart = styled.div`
   display: inline-flex;
   padding: 30px 40px;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   border-radius: 8px;
   background: rgba(15, 17, 26, 0.55);
@@ -331,6 +332,17 @@ export const StyledIconSection = styled.div`
       line-height: 14.4px;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+
+      &:not(:disabled) {
+        &:hover {
+          filter: brightness(110%);
+        }
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: default;
+      }
     }
   }
 `;

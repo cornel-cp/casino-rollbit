@@ -19,7 +19,12 @@ const AKBots = () => {
       <div className="content-container">
         <SearchAndFilters />
 
-        <NFTSection isLootbox={false} />
+        <NFTSection
+          isLootbox={false}
+          title="NFT DEALS"
+          buttonText="View Marketplace"
+          buttonLink="/nft/marketplace"
+        />
       </div>
     </StyledPageContainer>
   );

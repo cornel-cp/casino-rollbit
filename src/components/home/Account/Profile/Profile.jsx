@@ -1,4 +1,6 @@
+import { useFormik } from "formik";
 import React, { useState } from "react";
+import * as Yup from "yup";
 
 // assest
 
@@ -15,8 +17,39 @@ import AccountPageTitle from "../Common/AccountPageTitle";
 import UserContainer from "./UserContainer";
 
 const Profile = () => {
+  const [toastMessage, setToastMessage] = useState("");
+
+  const displayToast = (message) => {
+    setToastMessage(message);
+
+    // Clear the toast after a delay (e.g., 3000ms or 3 seconds)
+    setTimeout(() => {
+      setToastMessage("");
+    }, 3000);
+  };
+
   const [useRollbotAsAvatar, setUseRollbotAsAvatar] = useState(false);
   const [isPrivateProfile, setIsPrivateProfile] = useState(false);
+
+  // Validation schema for the username field
+  const usernameValidationSchema = Yup.object().shape({
+    name: Yup.string()
+      .min(3, "Username must be at least 3 characters")
+      .required("Username is required"),
+  });
+
+  // Formik hook for handling form state and validation
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+    },
+    validationSchema: usernameValidationSchema,
+    onSubmit: (values, { resetForm }) => {
+      // Handle form submission logic here
+      displayToast("Username changed successfully.");
+      resetForm();
+    },
+  });
 
   return (
     <StyleProfile>
@@ -25,7 +58,7 @@ const Profile = () => {
       <UserContainer />
       <div className="section-container">
         <h3 className="section-title">Profile Settings</h3>
-        <form>
+        <form onSubmit={formik.handleSubmit}>
           <div>
             <label for="rollbit-field-62399" className="input-label">
               Change Username
@@ -37,11 +70,12 @@ const Profile = () => {
                   name="name"
                   placeholder="TirlaP"
                   id="rollbit-field-62399"
-                  value=""
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
                 />
                 <button
                   className="change-button"
-                  disabled=""
+                  disabled={!formik.values.name}
                   type="submit"
                   style={{ marginRight: "4px" }}
                 >
@@ -50,6 +84,9 @@ const Profile = () => {
               </div>
             </div>
           </div>
+          {formik.errors.name && (
+            <div className="required">{formik.errors.name}</div>
+          )}
         </form>
         <div className="checkbox-container">
           <SwitchToggle
@@ -108,6 +145,7 @@ const Profile = () => {
           <SocialMediaButton socialIcon={METAMASK} socialName={"Metamask"} />
         </div>
       </div>
+      {toastMessage && <div className="toast">{toastMessage}</div>}
     </StyleProfile>
   );
 };

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import NFTSection from "../../Common/NFTSection/NFTSection";
 import SearchAndFilters from "../../Common/SearchAndFilters/SearchAndFilters";
 import { StyledPageContainer } from "../Casino/styles";
 import NFTNavigationHeader from "./NFTNavigationHeader";
 
 import { BUTTONS_NFT_MARKETPLACE } from "../../../assets/MockData/mockData";
 import { ReactComponent as MARKETPLACE } from "../../../assets/images/Marketplace.svg";
+import NFTSection from "../../Common/NFTSection/NFTSection";
 import PageTitle from "../../Common/PageTitle/PageTitle";
 import NFTMarketplaceWelcome from "../../Modals/NFTMarketplaceWelcome";
 
