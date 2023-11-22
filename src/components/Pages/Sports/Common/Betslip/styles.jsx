@@ -35,7 +35,7 @@ export const StyledBetslip = styled.div`
     text-shadow: none;
     border-radius: 6px 6px 0 0;
     pointer-events: auto;
-    z-index: 999;
+    z-index: 20;
   }
 
   .fourth-class {

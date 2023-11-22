@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { AppContext } from "../../../../../AppContext";
 import SwitchToggleBets from "../../../../Common/SwitchToggle/SwitchToggleBets";
 import { StyledBetslip } from "./styles";
 
 const Betslip = () => {
+  const { isTabletScreen } = useContext(AppContext);
   const [isQuickBetToggle, setIsQuickBetToggle] = useState(false);
   const [isBetsOpen, setIsBetsOpen] = useState(false);
 
@@ -19,7 +21,7 @@ const Betslip = () => {
     <StyledBetslip
       data-cy="betslip"
       class="spt-bet-slip"
-      style={{ zIndex: "999" }}
+      style={{ zIndex: "20" }}
     >
       <div class="first-class">
         <div class="second-class">
@@ -27,7 +29,13 @@ const Betslip = () => {
             data-editor-id="betslipContent"
             class="third-class"
             style={{
-              bottom: isBetsOpen ? "-40px" : "65px",
+              bottom: isBetsOpen
+                ? isTabletScreen
+                  ? "14px"
+                  : "-40px"
+                : isTabletScreen
+                ? "126px"
+                : "65px",
               transition: "bottom 0.5s ease-in-out", // Apply smooth transition
             }}
           >
