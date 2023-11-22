@@ -40,7 +40,7 @@ const NavBar = () => {
           left: "0",
           right: "0",
           background: "#1A1D29",
-          zIndex: 9,
+          zIndex: 11,
         }}
       >
         <div
@@ -48,7 +48,7 @@ const NavBar = () => {
             isTabletScreen ? "logo-container-mobile" : ""
           }`}
         >
-          <Link to="/ " className="w-40 flex h-10 flex-shrink-0 cursor-pointer">
+          <Link to="/ " className="flex h-10 flex-shrink-0 cursor-pointer">
             <img
               src={isMobileScreen ? SMALL_LOGO_NO_BG : FULL_LOGO}
               alt="logo"
