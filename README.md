@@ -1,77 +1,196 @@
-# Getting Started with Create React App
+# Gamblify Casino Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive online casino and gaming platform built with React, featuring casino games, sports betting, NFT marketplace, and more.
 
-## Available Scripts
+## 🎰 Features
 
-In the project directory, you can run:
+### Casino Games
+- **Slots** - Various slot machine games
+- **Blackjack** - Classic card game
+- **Roulette** - European and American roulette variants
+- **Live Casino** - Real-time casino games with live dealers
+- **Game Shows** - Interactive game show experiences
+- **Bonus Battles** - Competitive gaming tournaments
+- **Challenges** - Special gaming challenges and missions
+- **AK Originals** - Exclusive games from the platform
 
-### `npm install` 
+### Sports Betting
+- **Sports** - Comprehensive sports betting platform
+- **My Bets** - Track and manage your betting history
+- **Live Betting** - Real-time sports betting opportunities
 
-This is the command to setup the project and install all the dependencies.
+### NFT Marketplace
+- **Marketplace** - Buy and sell NFTs
+- **NFT Portfolio** - Manage your NFT collection
+- **NFT Loans** - Lending and borrowing NFT assets
+- **Lootboxes** - Gamified NFT acquisition
+- **Rollbots & Sportsbots** - AI-powered trading bots
+- **External NFT Integration** - Connect with external NFT platforms
 
+### Additional Features
+- **Crypto Portfolio** - Manage cryptocurrency holdings
+- **Clans** - Social gaming groups
+- **Jackpot Games** - Progressive jackpot opportunities
+- **AK Lottery** - Lottery-style games
+- **Streams** - Live streaming integration
+- **Race 25K** - Competitive racing events
 
-Then, for starting the project, run this command in the project directory:
+## 🛠️ Tech Stack
+
+- **Frontend**: React 18.2.0
+- **Routing**: React Router DOM 6.15.0
+- **Styling**: 
+  - Tailwind CSS 3.3.3
+  - Styled Components 6.0.8
+  - Material-UI 5.14.13
+  - Emotion (React/Styled) 11.11.0
+- **Form Handling**: Formik 2.4.5 with Yup validation
+- **UI Components**: Headless UI 1.7.17
+- **Carousel**: React Slick 0.29.0
+- **Build Tool**: Create React App 5.0.1
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js (version 14 or higher)
+- npm or yarn package manager
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd rollbit-clone
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000) to view the application.
+
+## 📜 Available Scripts
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Runs the app in development mode. The page will reload when you make changes and display any lint errors in the console.
 
 ### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Launches the test runner in interactive watch mode. See the [running tests](https://facebook.github.io/create-react-app/docs/running-tests) documentation for more information.
 
 ### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Builds the app for production to the `build` folder. It correctly bundles React in production mode and optimizes the build for the best performance. The build is minified and filenames include hashes for caching.
 
 ### `npm run eject`
+**Note: This is a one-way operation. Once you eject, you can't go back!**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+If you aren't satisfied with the build tool and configuration choices, you can eject at any time. This command will remove the single build dependency from your project and copy all configuration files and dependencies into your project.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🏗️ Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+src/
+├── components/
+│   ├── Common/           # Reusable UI components
+│   ├── home/             # Main application components
+│   │   ├── header/       # Navigation and header components
+│   │   ├── Account/      # User account management
+│   │   ├── ChatBox/      # Live chat functionality
+│   │   ├── Footer/       # Footer component
+│   │   └── MainHome/     # Main layout components
+│   ├── LoginAndRgister/  # Authentication components
+│   ├── Modals/           # Modal dialogs
+│   ├── models/           # Data models and utilities
+│   ├── Pages/            # Page components
+│   │   ├── Casino/       # Casino game pages
+│   │   ├── NFT/          # NFT marketplace pages
+│   │   ├── Sports/       # Sports betting pages
+│   │   └── Other/        # Additional pages
+│   └── Router/           # Routing configuration
+├── hooks/                # Custom React hooks
+├── assets/               # Static assets
+│   ├── font/            # Custom fonts
+│   ├── images/          # Image assets
+│   └── MockData/        # Sample data for development
+└── App.js               # Main application component
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎨 Customization
 
-## Learn More
+### Fonts
+The application uses custom Geogrotesque fonts located in `src/assets/font/`. These fonts provide a modern, gaming-focused aesthetic.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Styling
+- **Tailwind CSS**: Utility-first CSS framework for rapid UI development
+- **Styled Components**: CSS-in-JS for component-specific styling
+- **Material-UI**: Pre-built components for consistent design
+- **Custom Themes**: Extensible color schemes and design tokens
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🔧 Configuration
 
-### Code Splitting
+### Tailwind CSS
+The project uses Tailwind CSS with container queries plugin. Configuration can be found in `tailwind.config.js`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Environment Variables
+Create a `.env` file in the root directory for environment-specific configuration:
 
-### Analyzing the Bundle Size
+```env
+REACT_APP_API_URL=your_api_url_here
+REACT_APP_ENVIRONMENT=development
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 Deployment
 
-### Making a Progressive Web App
+### Build for Production
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This creates a `build` folder with optimized production files ready for deployment.
 
-### Advanced Configuration
+### Deployment Options
+The built application can be deployed to various platforms:
+- **Netlify**: Drag and drop the `build` folder
+- **Vercel**: Connect your GitHub repository
+- **AWS S3**: Upload the `build` folder contents
+- **Traditional hosting**: Upload files via FTP
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 🤝 Contributing
 
-### Deployment
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 📝 License
 
-### `npm run build` fails to minify
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 🆘 Support
+
+For support and questions:
+- Create an issue in the repository
+- Contact the development team
+- Check the documentation for common issues
+
+## 🔗 Links
+
+- [React Documentation](https://reactjs.org/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Material-UI Documentation](https://mui.com/)
+- [React Router Documentation](https://reactrouter.com/)
+
+---
+
+**Note**: This is a casino gaming platform. Please ensure compliance with local gambling laws and regulations in your jurisdiction.
