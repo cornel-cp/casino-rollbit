@@ -4,6 +4,7 @@ import App from "./App";
 import { AppProvider } from "./AppContext";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
+/* global gtag */
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -15,7 +16,7 @@ root.render(
 function sendToGoogleAnalytics({name, delta, value, id}) {
   // Assumes the global `gtag()` function exists, see:
   // https://developers.google.com/analytics/devguides/collection/ga4
-  gtag('event', name, {
+  window.gtag('event', name, {
     // Built-in params:
     value: delta, // Use `delta` so the value can be summed.
     // Custom params:
